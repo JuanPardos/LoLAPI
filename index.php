@@ -9,10 +9,20 @@
     <title>LOL Search</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
-    
-    
-    
+  <?php	error_reporting(0);?>
+	  <div class="container-fluid">
+	  		<div class="row">
+	  			<div class="col-6">
+	  				<h1>Summoner Search</h1>
+	    			<form name="form" action="lolapi.php" method="get">
+  						<input type="text" name="summoner" id="summoner" value="" placeholder="Summoner Name">
+  						<input type="submit" value="Search">
+					</form>	 
+	  					
+				</div>
+	    	</div>
+	    </div>  
+	    
     <!-- jQuery, Popper.js, Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
