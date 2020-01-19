@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap and CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     
@@ -17,40 +17,50 @@
   		<div class="row">
   			<div class="col-6">
 			    <?php
-			    	require_once 'apikey.php';  //Used to mask the API Key in a .gitignored file. 
-					$summoner = $_GET['summoner'];
-															
-					$requestSummoner = fopen("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/$summoner?api_key=$apikey", "r");					
-					$json_summoner = stream_get_contents($requestSummoner);
-					$data_summoner = json_decode($json_summoner, true);
-					$encryptSummoner = $data_summoner['id'];
+			    	require_once 'apikey.php';  			//Get the API Key from a .gitignored file (Hide from public).
+			    	
+					$summoner = $_GET['summoner']; 			//Get summoner name from index.
+					$server = $_GET['server'];				//Get server name.
+												
+					$requestSummoner = fopen("https://$server.api.riotgames.com/lol/summoner/v4/summoners/by-name/$summoner?api_key=$apikey", "r");		//Request to get encrypted summonerID.			
+					$json_summoner = stream_get_contents($requestSummoner); 
+					$data_summoner = json_decode($json_summoner, true); 		//Formats the Json for PHP.
+					$encryptSummoner = $data_summoner['id']; 		//Encrypted SummonerId
 					
-					$request = fopen("https://euw1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/$encryptSummoner?api_key=$apikey", "r");
-					$champs = fopen("https://ddragon.leagueoflegends.com/cdn/10.1.1/data/en_US/champion.json","r");
-					
-					
+					$request = fopen("https://euw1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/$encryptSummoner?api_key=$apikey", "r");  //Request of Mastery.
+					$champs = fopen("champions.json", "r");  		//Opens the json with the champions ID and Name
+
 					$json_lol = stream_get_contents($request);
-					$json_champs = stream_get_contents($champs);
+					$json_champ = stream_get_contents($champs);
 					
-					fclose($requestSummoner);
+					fclose($requestSummoner);		//Close connection to file.
 					fclose($request);
 					fclose($champs);
-				
-
+			
 					$data_lol = json_decode($json_lol, true);
-					$data_champs = json_decode($json_champs, true);
-						
-					print'<h1>Mastery levels of '.$summoner.'</h1>';					
+					$data_champ = json_decode($json_champ, true);
+
+					$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));  //Used to get ID => Name of champ
+
+					if($data_lol == null){
+						print '
+							<script type="text/javascript">
+								alert("Invalid summoner name or API Key");
+							</script>
+						';
+					}
+					
+					print'<h1>Champion mastery of '.$summoner.'</h1>';					
 		
 					print 
 					'
-						<table class="table" style="border: 1px solid black">
+						<table class="table" id="masteryTable" style="border: 1px solid black">
 							<thead class="thead-dark">
 		    					<tr>
 		      						<th scope="col" style="text-align:center">#</th>
-		     						<th scope="col" style="text-align:center">Champion ID</th>
+		     						<th scope="col" style="text-align:center">Champion</th>
 		      						<th scope="col" style="text-align:center">Mastery Level</th>
-		      						<th scope="col" style="text-align:center">Champion Points</th>
+		      						<th scope="col" style="text-align:center">Mastery Points</th>
 		    					</tr>
 	  						</thead>
 	  						<tbody>
@@ -58,11 +68,11 @@
   						
 					for($i = 0; $i < count($data_lol); ++$i) {
 						print '<tr><th scope="row" style="text-align:center">' .($i + 1). '</th>';
-			    		print '<td style="text-align:center">' .$data_lol[$i]['championId']. '</td>';
+			    		print '<td style="text-align:center">' .$array[$data_lol[$i]["championId"]]. '</td>';
 			    		print '<td style="text-align:center">' .$data_lol[$i]['championLevel']. '</td>';
 			    		print '<td style="text-align:center">' .$data_lol[$i]['championPoints']. '</td></tr>';
 					}
-					print '</tbody></table>';	
+					print '</tbody></table><br><a href="index.php">Return to main menu</a>';	
 				?>
 			</div>
 		</div>
