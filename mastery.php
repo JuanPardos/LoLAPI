@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -18,6 +21,11 @@
   			<div class="col-6">
 			    <?php
 			    	require_once 'apikey.php';  			//Get the API Key from a .gitignored file (Hide from public).
+			    	include ("altapikey");
+			    	
+			    	if($_SESSION['sapikey'] != $apikey && $_SESSION['sapikey'] != null){
+						$apikey = $_SESSION['sapikey'];
+					}
 			    	
 					$summoner = $_GET['summoner']; 			//Get summoner name from index.
 					$server = $_GET['server'];				//Get server name.
@@ -27,7 +35,7 @@
 					$data_summoner = json_decode($json_summoner, true); 		//Formats the Json for PHP.
 					$encryptSummoner = $data_summoner['id']; 		//Encrypted SummonerId
 					
-					$request = fopen("https://euw1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/$encryptSummoner?api_key=$apikey", "r");  //Request of Mastery.
+					$request = fopen("https://$server.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/$encryptSummoner?api_key=$apikey", "r");  //Request of Mastery.
 					$champs = fopen("champions.json", "r");  		//Opens the json with the champions ID and Name
 
 					$json_lol = stream_get_contents($request);

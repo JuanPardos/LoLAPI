@@ -1,15 +1,21 @@
 ﻿#fav{
     background-color: lawngreen;
+    border: 2px solid skyblue;
+    border-radius: 10px;
     opacity: 0.7;
 }
 
 #header{
 	margin-top: -7px;
 	max-height: 65px;
-   background-color: lightseagreen;
-   border: 2px solid orangered;
-   opacity: 0.7;
-   border-radius: 10px;
+   	background-color: lightseagreen;
+   	border: 2px solid orangered;
+   	opacity: 0.7;
+   	border-radius: 10px;
+}
+
+input #header{
+	opacity:1;
 }
 
 #search{
@@ -20,4 +26,8 @@ body.mainMenu{
 	background-image:url('https://euw.leagueoflegends.com/sites/default/files/upload/art/shadow_isles_1920x1080.jpg');
 	background-size:cover;
 	background-repeat:no-repeat;
+}
+
+#starimg{
+	cursor: pointer;
 }

@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -17,7 +20,12 @@
       	<div class="row">
         	<div class="col-10 offset-1 min-vh-25" id="header">
         		<p style="text-align:left; margin-top:5px"><b>LEAGUE OF LEGENDS SEARCH</b><br> ©Juan Pardos Zarate</p> 
-        		<p style="text-align:right; margin-top:-40px"><a href="" style="color:red">Login</a></p>
+        		<form action="altapikey.php" method="post">
+        			<p style="text-align:right; margin-top:-50px">
+        				<input type="text" name="api" id="api" value="" data-toggle="tooltip" data-placement="bottom" title="Set an alternative API KEY if default expired" placeholder="Alternative API KEY" onmouseover="this.tooltip()">
+        				<input type="submit" value="Save">
+        			</p>
+        		</form>
         	</div>
       	</div>
 	  	<div class="row">
@@ -34,6 +42,7 @@
 				    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 				      	<div class="card-body">
 				      		<form name="form" action="mastery.php" method="get" style="text-align:center">
+				      			<img src="https://image.flaticon.com/icons/png/512/130/130188.png" id="starimg" onclick="changeImg()" data-toggle="tooltip" data-placement="bottom" title="Mark as favorite" width="22px" height="22px" style="margin-bottom:7px">
 				      			<input type="text" name="summoner" id="summoner" value="" placeholder="Summoner name">
 				      			<select name="server" id="server">
 				      				<option value="euw1">EUW</option>
@@ -104,8 +113,7 @@
 				  </div>
 				</div>			
 			</div>
-        <div class="col-2 offset-1 mt-4" id="fav">
-          <p>FAV MENU<br> NOT IMPLEMENTED YET</p>
+        <div class="col-2 offset-1 mt-4" id="fav" style="text-align:center">
         </div>
       </div>   
     </div>
