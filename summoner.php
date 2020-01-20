@@ -6,12 +6,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap and CSS -->
+    
+    <!-- Bootstrap, IziToast and CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="iziToast.min.css">
     
     <!-- Javascript -->
+    <script src="iziToast.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="script.js"></script>
+	
     <title>LOL Search</title>
   </head>
   <body>
@@ -21,20 +25,23 @@
   			<div class="col-6">    		<!-- TODO: Player Ranked, Match History -->
 			    <?php
 			    	require_once 'key.php';  			//Get the API Key from a .gitignored file (Hide from public).
-			    	require_once 'summonerapi.php';
-			    	require_once 'champapi.php';
-			    	include ("alternativekeyapi");
-			    	
-			    	if($_SESSION['sapikey'] != $apikey && $_SESSION['sapikey'] != null){
-						$apikey = $_SESSION['sapikey'];
-					}
+			    	require_once 'apis/summonerapi.php';
+			    	require_once 'apis/champapi.php';
+			    	include ("apis/alternativekeyapi");
 			    	
 					$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));  //Used to get ID => Name of champ
 
 					if($data_lol == null){
 						print '
 							<script type="text/javascript">
-								alert("Invalid summoner name or API Key");
+								window.stop();
+								iziToast.error({
+								    title: "ERROR",
+								    message: "Invalid summoner name or API key",
+								    timeout: 3000,
+								    position: "topCenter",
+								    onClosed: function () {window.location.href = "index.php";}
+								});
 							</script>
 						';
 					}

@@ -1,9 +1,9 @@
 ﻿#fav{
-    background-color: lawngreen;
+    background-color: khaki;
     border: 2px solid skyblue;
     border-radius: 10px;
-    opacity: 0.7;
-    height: 300px;
+    opacity: 0.3;
+    height: 200px;
 }
 
 #header{
@@ -16,7 +16,10 @@
 }
 
 #footer{
-	margin-bottom:20px;
+	background-color: beige;
+	border-radius: 15px;
+	opacity: 0.7;
+	margin-bottom:5px;
 }
 
 input #header{
@@ -28,9 +31,14 @@ input #header{
 }
 
 body.mainMenu{
-	background-image:url('https://euw.leagueoflegends.com/sites/default/files/upload/art/shadow_isles_1920x1080.jpg');
-	background-size:cover;
-	background-repeat:no-repeat;
+	background-image: url('https://images.wallpapersden.com/image/download/soraka-nightbringer-dawnbringer-lol_68262_3840x2160.jpg');
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-attachment: fixed;
+}
+
+body {
+
 }
 
 #starimg{

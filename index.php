@@ -6,12 +6,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap and CSS -->
+    
+    <!-- Bootstrap, IziToast and CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="iziToast.min.css">
     
     <!-- Javascript -->
-	  <script type="text/javascript" src="script.js"></script>
+    <script src="iziToast.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="script.js"></script>
+	
     <title>LOL Search</title>
   </head>
   <body class="mainMenu">
@@ -19,8 +23,8 @@
 	  <div class="container-fluid">
       	<div class="row">
         	<div class="col-10 offset-1 min-vh-25" id="header">
-        		<p class="col-10" style="text-align:left; margin-top:5px"><b>LEAGUE OF LEGENDS API SEARCH</b><br> <a class="d-none d-sm-block">©Juan Pardos Zarate</a></p> 
-        		<form action="alternativekeyapi.php" class="d-none d-md-block d-lg-block d-xl-block" method="post">
+        		<p class="col-10" style="text-align:left; margin-top:5px"><b>LEAGUE OF LEGENDS API SEARCH</b><br> <a class="d-none d-sm-block" style="font-style:italic">©Juan Pardos Zarate</a></p> 
+        		<form action="apis/alternativekeyapi.php" class="d-none d-md-block d-lg-block d-xl-block" method="post">
         			<p style="text-align:right; margin-top:-50px">
         				<input type="text" name="api" id="api" value="" title="Set an alternative API KEY if default expired" placeholder="Alternative API KEY" onmouseover="this.tooltip()">
         				<input type="submit" value="Save">
@@ -29,7 +33,7 @@
         	</div>
       	</div>
 	  	<div class="row">
-	  		<div class="col-8 offset-1" id="search">
+	  		<div class="col-8 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-2 offset-2" id="search">
 	  			<div class="accordion" id="accordionExample">
 				  <div class="card">
 				    <div class="card-header" id="headingOne">
@@ -42,8 +46,8 @@
 				    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 				      	<div class="card-body">
 				      		<form name="form" action="summoner.php" method="get" style="text-align:center">
-				      			<img src="https://i.dlpng.com/static/png/1355182-star-png-star-png-2000_2000_preview.png" id="starimg" onclick="changeImg()" title="Mark as favorite" width="22px" height="22px" style="margin-bottom:7px">
-				      			<input type="text" name="summoner" id="summoner" value="" placeholder="Summoner name">
+				      			<img src="https://icons-for-free.com/iconfiles/png/512/mark+opinion+rating+star+icon-1320191205647153700.png" id="starimg" onclick="changeImg()" title="Mark as favorite" width="22px" height="22px" style="margin-bottom:7px">
+				      			<input class="col-md-auto" type="text" name="summoner" id="summoner" value="" placeholder="Summoner name">
 				      			<select name="server" id="server">
 				      				<option value="euw1">EUW</option>
 				      				<option value="na1">NA</option>
@@ -64,29 +68,40 @@
 				      </h2>
 				    </div>
 				    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-				      <div class="card-body" style="height: auto;">
-				      	<table class="table table-borderless table-sm">
-				      		<tbody>
-				      			<tr>
-				      				<th scope="row">
-								      	<?php
-											require_once 'key.php'; 
-											require_once 'freechampapi.php';
-											require_once 'champapi.php';
-											include ("alternativekeyapi");
+				      <div class="card-body">
+				      	<div class="table-responsive">
+					      	<table class="table table-borderless table-sm">
+					      		<tbody>
+					      			<tr>
+					      				<th scope="row">
+									      	<?php
+												require_once 'key.php'; 
+												require_once 'apis/freechampapi.php';
+												require_once 'apis/champapi.php';
+												require_once 'apis/summonerapi.php';
+												include ("apis/alternativekeyapi");
+												
+												$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'icon'));
+												$arrayNames = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));
 											
-											$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'icon'));
-											$arrayNames = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));
-										
-											for($i = 0; $i < count($data_freeChamps['freeChampionIds']); ++$i) {
-												print '<td style="text-align:center"><img src="'.$array[$data_freeChamps['freeChampionIds'][$i]].'" width="52" height="52" title="'.$arrayNames[$data_freeChamps['freeChampionIds'][$i]].'"></td>';
-											}
-											
-										?>
-									</th>
-								</tr>
-							</tbody>
-						</table>
+												for($i = 0; $i < count($data_freeChamps['freeChampionIds']); ++$i) {
+													print '<td style="text-align:center"><img src="'.$array[$data_freeChamps['freeChampionIds'][$i]].'" width="48" height="48" title="'.$arrayNames[$data_freeChamps['freeChampionIds'][$i]].'"></td>';
+												}
+											?>
+										</th>
+									</tr>
+									<tr>
+										<th scope="row">
+											<?php
+												for($i = 0; $i < count($data_freeChamps['freeChampionIds']); ++$i) {
+													print '<td style="text-align:center"><a style="font-size: 13px">'.$arrayNames[$data_freeChamps['freeChampionIds'][$i]].'</td>';
+												}
+											?>
+										</th>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 				      </div>
 				    </div>
 				  </div>
@@ -106,20 +121,25 @@
 				  </div>
 				</div>			
 			</div>
-        <div class="col-2 offset-1 mt-4 w-25" id="fav" style="text-align:center">
+        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-6 offset-xl-0 offset-lg-0 offset-md-0 offset-sm-4 offset-3 mt-4 d-none d-sm-block d-md-block d-lg-block d-xl-block d-inline-block" id="fav" onmouseover="fadeInFav()" onmouseout="fadeOutFav()" style="text-align:center">
 	        <a>---FAVORITES---</a><br>
 	        NOT IMPLEMENTED YET
         </div>
       </div>   
-      <div class="col-10 offset-1" id="footer" style="margin-top:21%">
-    	<span style="color:wheat">
+    </div>
+    <div class="col-10 offset-1 fixed-bottom d-none d-sm-block" id="footer">
+    	<span class="d-none d-sm-none d-md-block d-lg-block d-xl-block" style="color:black">
     		This Website isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games
 			or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are
-			trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</span>
+			trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
+		</span>
+		<span class="d-block d-sm-block d-md-none d-lg-none d-xl-none" style="color:black; font-size:10px">
+    		This Website isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games
+			or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are
+			trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
+		</span>
       </div>
-    </div>
     
-
     <!-- jQuery, Popper.js, Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
