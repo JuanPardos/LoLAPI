@@ -18,7 +18,7 @@
   <?php	error_reporting(0);?>
   	<div class="container-fluid">
   		<div class="row">
-  			<div class="col-6">
+  			<div class="col-6">    		<!-- TODO: Player Ranked, Match History -->
 			    <?php
 			    	require_once 'apikey.php';  			//Get the API Key from a .gitignored file (Hide from public).
 			    	include ("altapikey");
@@ -58,8 +58,8 @@
 						';
 					}
 					
-					print'<h1>Champion mastery of '.$summoner.'</h1>';					
-		
+					print'<h1>Champion mastery of '.$summoner.'</h1>';			
+						
 					print 
 					'
 						<table class="table" id="masteryTable" style="border: 1px solid black">

@@ -3,15 +3,20 @@
     border: 2px solid skyblue;
     border-radius: 10px;
     opacity: 0.7;
+    height: 300px;
 }
 
 #header{
 	margin-top: -7px;
-	max-height: 65px;
+	height: 60px;
    	background-color: lightseagreen;
    	border: 2px solid orangered;
    	opacity: 0.7;
    	border-radius: 10px;
+}
+
+#footer{
+	margin-bottom:20px;
 }
 
 input #header{
