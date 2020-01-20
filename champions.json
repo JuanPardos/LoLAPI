@@ -312,7 +312,7 @@
   {
     "id": "aurelionsol",
     "key": "136",
-    "name": "AurelionSol",
+    "name": "Aurelion Sol",
     "title": "The Star Forger",
     "tags": [
       "Mage",
@@ -660,7 +660,7 @@
   {
     "id": "chogath",
     "key": "31",
-    "name": "Chogath",
+    "name": "Cho'Gath",
     "title": "the Terror of the Void",
     "tags": [
       "Tank",
@@ -853,7 +853,7 @@
   {
     "id": "drmundo",
     "key": "36",
-    "name": "DrMundo",
+    "name": "Dr. Mundo",
     "title": "the Madman of Zaun",
     "tags": [
       "Fighter",
@@ -1631,7 +1631,7 @@
   {
     "id": "jarvaniv",
     "key": "59",
-    "name": "JarvanIV",
+    "name": "Jarvan IV",
     "title": "the Exemplar of Demacia",
     "tags": [
       "Tank",
@@ -1825,7 +1825,7 @@
   {
     "id": "kaisa",
     "key": "145",
-    "name": "Kaisa",
+    "name": "Kai'Sa",
     "title": "Daughter of the Void",
     "tags": [
       "Marksman"
@@ -2173,7 +2173,7 @@
   {
     "id": "khazix",
     "key": "121",
-    "name": "Khazix",
+    "name": "Kha'Zix",
     "title": "the Voidreaver",
     "tags": [
       "Assassin",
@@ -2289,7 +2289,7 @@
   {
     "id": "kogmaw",
     "key": "96",
-    "name": "KogMaw",
+    "name": "Kog'Maw",
     "title": "the Mouth of the Abyss",
     "tags": [
       "Marksman",
@@ -2328,7 +2328,7 @@
   {
     "id": "leblanc",
     "key": "7",
-    "name": "Leblanc",
+    "name": "LeBlanc",
     "title": "the Deceiver",
     "tags": [
       "Assassin",
@@ -2367,7 +2367,7 @@
   {
     "id": "leesin",
     "key": "64",
-    "name": "LeeSin",
+    "name": "Lee Sin",
     "title": "the Blind Monk",
     "tags": [
       "Fighter",
@@ -2716,7 +2716,7 @@
   {
     "id": "masteryi",
     "key": "11",
-    "name": "MasterYi",
+    "name": "Master Yi",
     "title": "the Wuju Bladesman",
     "tags": [
       "Assassin",
@@ -2755,7 +2755,7 @@
   {
     "id": "missfortune",
     "key": "21",
-    "name": "MissFortune",
+    "name": "Miss Fortune",
     "title": "the Bounty Hunter",
     "tags": [
       "Marksman"
@@ -2793,7 +2793,7 @@
   {
     "id": "monkeyking",
     "key": "62",
-    "name": "MonkeyKing",
+    "name": "Wukong",
     "title": "the Monkey King",
     "tags": [
       "Fighter",
@@ -3493,7 +3493,7 @@
   {
     "id": "reksai",
     "key": "421",
-    "name": "RekSai",
+    "name": "Rek'Sai",
     "title": "the Void Burrower",
     "tags": [
       "Fighter"
@@ -4191,7 +4191,7 @@
   {
     "id": "tahmkench",
     "key": "223",
-    "name": "TahmKench",
+    "name": "Tahm Kench",
     "title": "the River King",
     "tags": [
       "Support",
@@ -4542,7 +4542,7 @@
   {
     "id": "twistedfate",
     "key": "4",
-    "name": "TwistedFate",
+    "name": "Twisted Fate",
     "title": "the Card Master",
     "tags": [
       "Mage"
@@ -4813,7 +4813,7 @@
   {
     "id": "velkoz",
     "key": "161",
-    "name": "Velkoz",
+    "name": "Vel'Koz",
     "title": "the Eye of the Void",
     "tags": [
       "Mage"
@@ -5122,7 +5122,7 @@
   {
     "id": "xinzhao",
     "key": "5",
-    "name": "XinZhao",
+    "name": "Xin Zhao",
     "title": "the Seneschal of Demacia",
     "tags": [
       "Fighter",

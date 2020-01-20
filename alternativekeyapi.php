@@ -2,5 +2,5 @@
 	session_start();
 	$postApi = $_POST['api'];				//Used to set alternative API Key, if default expired.
 	$_SESSION['sapikey'] = $postApi;
-	header("location:index.php");
+	header("location:index.php");  //Only is executed if calls from Form Action (Index).
 ?>

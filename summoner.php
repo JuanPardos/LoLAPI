@@ -20,34 +20,15 @@
   		<div class="row">
   			<div class="col-6">    		<!-- TODO: Player Ranked, Match History -->
 			    <?php
-			    	require_once 'apikey.php';  			//Get the API Key from a .gitignored file (Hide from public).
-			    	include ("altapikey");
+			    	require_once 'key.php';  			//Get the API Key from a .gitignored file (Hide from public).
+			    	require_once 'summonerapi.php';
+			    	require_once 'champapi.php';
+			    	include ("alternativekeyapi");
 			    	
 			    	if($_SESSION['sapikey'] != $apikey && $_SESSION['sapikey'] != null){
 						$apikey = $_SESSION['sapikey'];
 					}
 			    	
-					$summoner = $_GET['summoner']; 			//Get summoner name from index.
-					$server = $_GET['server'];				//Get server name.
-												
-					$requestSummoner = fopen("https://$server.api.riotgames.com/lol/summoner/v4/summoners/by-name/$summoner?api_key=$apikey", "r");		//Request to get encrypted summonerID.			
-					$json_summoner = stream_get_contents($requestSummoner); 
-					$data_summoner = json_decode($json_summoner, true); 		//Formats the Json for PHP.
-					$encryptSummoner = $data_summoner['id']; 		//Encrypted SummonerId
-					
-					$request = fopen("https://$server.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/$encryptSummoner?api_key=$apikey", "r");  //Request of Mastery.
-					$champs = fopen("champions.json", "r");  		//Opens the json with the champions ID and Name
-
-					$json_lol = stream_get_contents($request);
-					$json_champ = stream_get_contents($champs);
-					
-					fclose($requestSummoner);		//Close connection to file.
-					fclose($request);
-					fclose($champs);
-			
-					$data_lol = json_decode($json_lol, true);
-					$data_champ = json_decode($json_champ, true);
-
 					$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));  //Used to get ID => Name of champ
 
 					if($data_lol == null){

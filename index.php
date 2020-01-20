@@ -19,10 +19,10 @@
 	  <div class="container-fluid">
       	<div class="row">
         	<div class="col-10 offset-1 min-vh-25" id="header">
-        		<p class="col-10" style="text-align:left; margin-top:5px"><b>LEAGUE OF LEGENDS SEARCH</b><br> <a class="d-none d-sm-block">©Juan Pardos Zarate</a></p> 
-        		<form action="altapikey.php" class="d-none d-md-block d-lg-block d-xl-block" method="post">
+        		<p class="col-10" style="text-align:left; margin-top:5px"><b>LEAGUE OF LEGENDS API SEARCH</b><br> <a class="d-none d-sm-block">©Juan Pardos Zarate</a></p> 
+        		<form action="alternativekeyapi.php" class="d-none d-md-block d-lg-block d-xl-block" method="post">
         			<p style="text-align:right; margin-top:-50px">
-        				<input type="text" name="api" id="api" value="" data-toggle="tooltip" data-placement="bottom" title="Set an alternative API KEY if default expired" placeholder="Alternative API KEY" onmouseover="this.tooltip()">
+        				<input type="text" name="api" id="api" value="" title="Set an alternative API KEY if default expired" placeholder="Alternative API KEY" onmouseover="this.tooltip()">
         				<input type="submit" value="Save">
         			</p>
         		</form>
@@ -42,7 +42,7 @@
 				    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 				      	<div class="card-body">
 				      		<form name="form" action="summoner.php" method="get" style="text-align:center">
-				      			<img src="https://image.flaticon.com/icons/png/512/130/130188.png" id="starimg" onclick="changeImg()" data-toggle="tooltip" data-placement="bottom" title="Mark as favorite" width="22px" height="22px" style="margin-bottom:7px">
+				      			<img src="https://i.dlpng.com/static/png/1355182-star-png-star-png-2000_2000_preview.png" id="starimg" onclick="changeImg()" title="Mark as favorite" width="22px" height="22px" style="margin-bottom:7px">
 				      			<input type="text" name="summoner" id="summoner" value="" placeholder="Summoner name">
 				      			<select name="server" id="server">
 				      				<option value="euw1">EUW</option>
@@ -64,34 +64,28 @@
 				      </h2>
 				    </div>
 				    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-				      <div class="card-body">
-				      	<table>
-				      		<tr>
-				      		
-				      	<?php
-
-							require_once 'apikey.php'; 
-							include ("altapikey");
-
-							$requestFreeChamp = fopen("https://euw1.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=$apikey", "r");			
-							$json_freeChamps = stream_get_contents($requestFreeChamp); 
-							$data_freeChamps = json_decode($json_freeChamps, true);
-
-							$champs = fopen("champions.json", "r");
-							$json_champ = stream_get_contents($champs);
-							$data_champ = json_decode($json_champ, true);
-							
-							fclose($champs);
-							fclose($requestFreeChamp);
-
-							$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));  
-						
-							for($i = 0; $i < count($data_freeChamps['freeChampionIds']); ++$i) {
-								print '<td style="text-align:center"><img src="http://ddragon.leagueoflegends.com/cdn/10.1.1/img/champion/'.$array[$data_freeChamps['freeChampionIds'][$i]].'.png" width="56" height="56"></td>';
-							}
-							
-						?>
-							</tr>
+				      <div class="card-body" style="height: auto;">
+				      	<table class="table table-borderless table-sm">
+				      		<tbody>
+				      			<tr>
+				      				<th scope="row">
+								      	<?php
+											require_once 'key.php'; 
+											require_once 'freechampapi.php';
+											require_once 'champapi.php';
+											include ("alternativekeyapi");
+											
+											$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'icon'));
+											$arrayNames = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));
+										
+											for($i = 0; $i < count($data_freeChamps['freeChampionIds']); ++$i) {
+												print '<td style="text-align:center"><img src="'.$array[$data_freeChamps['freeChampionIds'][$i]].'" width="52" height="52" title="'.$arrayNames[$data_freeChamps['freeChampionIds'][$i]].'"></td>';
+											}
+											
+										?>
+									</th>
+								</tr>
+							</tbody>
 						</table>
 				      </div>
 				    </div>
@@ -117,8 +111,11 @@
 	        NOT IMPLEMENTED YET
         </div>
       </div>   
-      <div class="col-10 offset-1" id="footer">
-    	<span>JLAJDSLKAJ</span>
+      <div class="col-10 offset-1" id="footer" style="margin-top:21%">
+    	<span style="color:wheat">
+    		This Website isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games
+			or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are
+			trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</span>
       </div>
     </div>
     
