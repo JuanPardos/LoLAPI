@@ -9,12 +9,12 @@
     
     <!-- Bootstrap, IziToast and CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="iziToast.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/iziToast.min.css">
     
     <!-- Javascript -->
-    <script src="iziToast.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="script.js"></script>
+    <script src="js/iziToast.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/script.js"></script>
 	
     <title>LOL Search</title>
   </head>
@@ -24,7 +24,7 @@
       	<div class="row">
         	<div class="col-10 offset-1 min-vh-25" id="header">
         		<p class="col-10" style="text-align:left; margin-top:5px"><b>LEAGUE OF LEGENDS API SEARCH</b><br> <a class="d-none d-sm-block" style="font-style:italic">©Juan Pardos Zarate</a></p> 
-        		<form action="apis/alternativekeyapi.php" class="d-none d-md-block d-lg-block d-xl-block" method="post">
+        		<form action="apis/alternativekeyapi.php" class="d-none d-md-block d-lg-block d-xl-block order-sm-12" method="post">
         			<p style="text-align:right; margin-top:-50px">
         				<input type="text" name="api" id="api" value="" title="Set an alternative API KEY if default expired" placeholder="Alternative API KEY" onmouseover="this.tooltip()">
         				<input type="submit" value="Save">
@@ -78,7 +78,6 @@
 												require_once 'key.php'; 
 												require_once 'apis/freechampapi.php';
 												require_once 'apis/champapi.php';
-												require_once 'apis/summonerapi.php';
 												include ("apis/alternativekeyapi");
 												
 												$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'icon'));
@@ -115,13 +114,40 @@
 				    </div>
 				    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
 				      <div class="card-body">
-				      	NOT IMPLEMENTED YET
-				      </div>
-				    </div>
+				      	<table>
+				      		<tr> 
+					      		<?php
+					      			require_once 'key.php'; 
+									require_once 'apis/statusapi.php';
+									include ("apis/alternativekeyapi");
+										
+									//YEP, I KNOW I CAN DO THIS ONE BETTER
+										
+					      			$online1 = array_column($data_status1['services'], 'status')['0'];  	//Online/offline
+					      			$incidents1 = array_column($data_status1['services'], 'incidents')['0']; 	//Incidents
+					      			$online2 = array_column($data_status2['services'], 'status')['0'];  	
+					      			$incidents2 = array_column($data_status2['services'], 'incidents')['0'];
+					      			$online3 = array_column($data_status3['services'], 'status')['0'];  	
+					      			$incidents3 = array_column($data_status3['services'], 'incidents')['0'];
+					      			$online4 = array_column($data_status4['services'], 'status')['0'];  
+					      			$incidents4 = array_column($data_status4['services'], 'incidents')['0'];
+					      				
+					      			for($i = 1; $i < 5; ++$i) {
+						      			if($online.$i != 'online'){
+						      				if($incidents.$i != null){
+						      					print'<td>'.$serverNames[$i-1].': PERFECT'.$perfect.'&emsp;&emsp;</td>';
+						      				}else
+						      					print'<td>'.$serverNames[$i-1].': OK'.$ok.'&emsp;&emsp;</td>';
+						      			}else
+						      				print'<td>'.$serverNames[$i-1].': OFFLINE'.$offline.'&emsp;&emsp;</td>';
+					 				}							      				
+					      		?>
+				      		</tr>
+				      	</table>
 				  </div>
 				</div>			
 			</div>
-        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-6 offset-xl-0 offset-lg-0 offset-md-0 offset-sm-4 offset-3 mt-4 d-none d-sm-block d-md-block d-lg-block d-xl-block d-inline-block" id="fav" onmouseover="fadeInFav()" onmouseout="fadeOutFav()" style="text-align:center">
+        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-6 offset-xl-0 offset-lg-0 offset-md-0 offset-sm-4 offset-3 mt-4 d-none d-sm-block d-md-block d-lg-block d-xl-block d-inline-block" id="fav" onmouseover="fadeInFav()" onmouseout="fadeOutFav()" style="text-align:center; visibility:hidden">
 	        <a>---FAVORITES---</a><br>
 	        NOT IMPLEMENTED YET
         </div>

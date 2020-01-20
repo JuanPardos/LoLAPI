@@ -9,12 +9,12 @@
     
     <!-- Bootstrap, IziToast and CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="iziToast.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/iziToast.min.css">
     
     <!-- Javascript -->
-    <script src="iziToast.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="script.js"></script>
+    <script src="js/iziToast.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/script.js"></script>
 	
     <title>LOL Search</title>
   </head>
