@@ -114,36 +114,42 @@
 				    </div>
 				    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
 				      <div class="card-body">
-				      	<table>
-				      		<tr> 
-					      		<?php
-					      			require_once 'key.php'; 
-									require_once 'apis/statusapi.php';
-									include ("apis/alternativekeyapi");
+				      	<div class="table-responsive">
+					      	<table class="table table-borderless table-sm">
+					      		<tr> 
+						      		<?php
+						      			require_once 'key.php'; 
+										require_once 'apis/statusapi.php';
+										include ("apis/alternativekeyapi");
+											
+										//YEP, I KNOW I CAN DO THIS ONE BETTER								
 										
-									//YEP, I KNOW I CAN DO THIS ONE BETTER
+						      			$online1 = array_column($data_status1['services'], 'status')['0'];  	//Online/offline
+						      			$incidents1 = array_column($data_status1['services'], 'incidents')['0']; 	//Incidents
+						      			$online2 = array_column($data_status2['services'], 'status')['0'];  	
+						      			$incidents2 = array_column($data_status2['services'], 'incidents')['0'];
+						      			$online3 = array_column($data_status3['services'], 'status')['0'];  	
+						      			$incidents3 = array_column($data_status3['services'], 'incidents')['0'];
+						      			$online4 = array_column($data_status4['services'], 'status')['0'];  
+						      			$incidents4 = array_column($data_status4['services'], 'incidents')['0'];
 										
-					      			$online1 = array_column($data_status1['services'], 'status')['0'];  	//Online/offline
-					      			$incidents1 = array_column($data_status1['services'], 'incidents')['0']; 	//Incidents
-					      			$online2 = array_column($data_status2['services'], 'status')['0'];  	
-					      			$incidents2 = array_column($data_status2['services'], 'incidents')['0'];
-					      			$online3 = array_column($data_status3['services'], 'status')['0'];  	
-					      			$incidents3 = array_column($data_status3['services'], 'incidents')['0'];
-					      			$online4 = array_column($data_status4['services'], 'status')['0'];  
-					      			$incidents4 = array_column($data_status4['services'], 'incidents')['0'];
-					      				
-					      			for($i = 1; $i < 5; ++$i) {
-						      			if($online.$i != 'online'){
-						      				if($incidents.$i != null){
-						      					print'<td>'.$serverNames[$i-1].': PERFECT'.$perfect.'&emsp;&emsp;</td>';
-						      				}else
-						      					print'<td>'.$serverNames[$i-1].': OK'.$ok.'&emsp;&emsp;</td>';
-						      			}else
-						      				print'<td>'.$serverNames[$i-1].': OFFLINE'.$offline.'&emsp;&emsp;</td>';
-					 				}							      				
-					      		?>
-				      		</tr>
-				      	</table>
+										$auxon = array($online1, $online2, $online3, $online4);
+										$auxst = array($incidents1, $incidents2, $incidents3, $incidents4);
+										
+						      			for($i = 0; $i < count($auxon); ++$i){
+							      		  	if($auxon[$i] == 'online'){
+							      		  		if($auxst[$i] == null){
+							      		  			print'<td>'.$serverNames[$i].': PERFECT'.$perfect.'</td>';
+							      		  		}else
+							      		  			print'<td>'.$serverNames[$i].': OK'.$ok.'</td>';
+							      		  	}else
+							      		  		print'<td>'.$serverNames[$i].': OFFLINE'.$offline.'</td>';
+										}	 
+										 	  					      				
+						      		?>
+					      		</tr>
+					      	</table>
+						</div>
 				  </div>
 				</div>			
 			</div>

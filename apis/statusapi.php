@@ -1,6 +1,6 @@
 <?php	
 
-//	$server = array("euw1", "na1", "la1", "oc1");
+	$server = array("euw1", "na1", "la1", "oc1");
 	
 	$serverNames = array("EUW", "NA", "LAN", "OCE");
  	$perfect = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Ski_trail_rating_symbol-green_circle.svg/240px-Ski_trail_rating_symbol-green_circle.svg.png" width="20px" height="20px">';
