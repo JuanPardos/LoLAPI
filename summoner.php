@@ -100,6 +100,12 @@
 										<tbody>
 					';
 					
+					if($data_ELO == null){
+						print'
+							<tr><td colspan="7" class="center">--NOT ENOUGH RANKED GAMES--</td></tr>
+						';
+					}
+					
 					for($i = 0; $i < count($data_ELO); ++$i){
 						print'
 							<tr id="elotr">
