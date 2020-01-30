@@ -13,4 +13,9 @@
 	$data_lol = json_decode($json_lol, true);
 	fclose($request);
 	
+	$requestELO = fopen("https://$server.api.riotgames.com/lol/league/v4/entries/by-summoner/$encryptSummoner?api_key=$apikey" , "r");
+	$json_ELO = stream_get_contents($requestELO);
+	$data_ELO = json_decode($json_ELO, true);
+	fclose($requestELO);
+	
 ?>

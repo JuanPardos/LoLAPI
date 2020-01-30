@@ -37,10 +37,28 @@ body.mainMenu{
 	background-attachment: fixed;
 }
 
+#elotr > td{
+	vertical-align: middle;
+}
+
+#mtr > td{
+	vertical-align: middle;
+}
+
+
+.center{
+	text-align: center;
+}
+
 body {
 
+}
+
+#helpbutton{
+	cursor:pointer;
 }
 
 #starimg{
 	cursor: pointer;
 }
+

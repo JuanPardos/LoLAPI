@@ -23,12 +23,11 @@
 	  <div class="container-fluid">
       	<div class="row">
         	<div class="col-10 offset-1 min-vh-25" id="header">
-        		<p class="col-10" style="text-align:left; margin-top:5px"><b>LEAGUE OF LEGENDS API SEARCH</b><br> <a class="d-none d-sm-block" style="font-style:italic">©Juan Pardos Zarate</a></p> 
-        		<form action="apis/alternativekeyapi.php" class="d-none d-md-block d-lg-block d-xl-block order-sm-12" method="post">
-        			<p style="text-align:right; margin-top:-50px">
-        				<input type="text" name="api" id="api" value="" title="Set an alternative API KEY if default expired" placeholder="Alternative API KEY" onmouseover="this.tooltip()">
-        				<input type="submit" value="Save">
-        			</p>
+        		<p class="col-8" style="text-align:left; margin-top:5px"><b>LEAGUE OF LEGENDS API SEARCH</b><br> <a class="d-none d-sm-block" style="font-style:italic">©Juan Pardos Zarate</a></p> 
+        		<form action="apis/alternativekeyapi.php" class="d-none d-md-block d-lg-block d-xl-block order-sm-12" method="post" style="text-align:right; margin-top:-50px">
+    				<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/VisualEditor_-_Icon_-_Help.svg/1024px-VisualEditor_-_Icon_-_Help.svg.png" id="helpbutton" data-toggle="modal" data-target="#exampleModalLong" width="30px" height="30px" title="Open API Key help" style="margin-top:-6px">
+    				<input type="text" name="api" id="api" value="" placeholder="Alternative API KEY">
+    				<input type="submit" value="Save">
         		</form>
         	</div>
       	</div>
@@ -153,7 +152,10 @@
 				  </div>
 				</div>			
 			</div>
-        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-6 offset-xl-0 offset-lg-0 offset-md-0 offset-sm-4 offset-3 mt-4 d-none d-sm-block d-md-block d-lg-block d-xl-block d-inline-block" id="fav" onmouseover="fadeInFav()" onmouseout="fadeOutFav()" style="text-align:center; visibility:hidden">
+        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-6 offset-xl-0 offset-lg-0 offset-md-0 offset-sm-4 
+        offset-3 mt-4 d-none d-sm-block d-md-block d-lg-block d-xl-block d-inline-block" 
+        id="fav" onmouseover="fadeInFav()" onmouseout="fadeOutFav()" style="text-align:center">
+        
 	        <a>---FAVORITES---</a><br>
 	        NOT IMPLEMENTED YET
         </div>
@@ -171,7 +173,25 @@
 			trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
 		</span>
       </div>
-    
+    </div>
+    </div>
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header" style="background-color:gold">
+	        <h5 class="modal-title" id="exampleModalLongTitle">API KEY Help</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        If you are not the developer you may need a new API Key.<br>
+	        In order to get a new one visit <a href="https://developer.riotgames.com/" target="_blank">https://developer.riotgames.com/</a> and sign in with your Riot Account.<br>
+	      	The key It is stored throughout the session.
+	      </div>
+	   	</div>
+	  </div>
+	</div>
     <!-- jQuery, Popper.js, Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

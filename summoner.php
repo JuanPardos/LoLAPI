@@ -18,11 +18,9 @@
 	
     <title>LOL Search</title>
   </head>
-  <body>
+  <body class="summoner" id="modal">
   <?php	error_reporting(0);?>
-  	<div class="container-fluid">
-  		<div class="row">
-  			<div class="col-6">    		<!-- TODO: Player Ranked, Match History -->
+  	<div class="container-fluid">		<!-- TODO: Player Ranked, Match History -->
 			    <?php
 			    	require_once 'key.php';  			//Get the API Key from a .gitignored file (Hide from public).
 			    	require_once 'apis/summonerapi.php';
@@ -30,6 +28,7 @@
 			    	include ("apis/alternativekeyapi");
 			    	
 					$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));  //Used to get ID => Name of champ
+					$icons = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'icon'));
 
 					if($data_lol == null){
 						print '
@@ -46,34 +45,87 @@
 						';
 					}
 					
-					print'<h1>Champion mastery of '.$summoner.'</h1>';			
-						
+					print'<hr><h1 style="text-align:center">'.$summoner.'</h1><hr>';			
+					
 					print 
 					'
-						<table class="table" id="masteryTable" style="border: 1px solid black">
-							<thead class="thead-dark">
-		    					<tr>
-		      						<th scope="col" style="text-align:center">#</th>
-		     						<th scope="col" style="text-align:center">Champion</th>
-		      						<th scope="col" style="text-align:center">Mastery Level</th>
-		      						<th scope="col" style="text-align:center">Mastery Points</th>
-		    					</tr>
-	  						</thead>
-	  						<tbody>
+						<div class="row">
+							<div class="col-6">
+								<div class="table-responsive">
+									<table class="table table-borderless table-sm table-striped" id="masteryTable" style="border: 1px solid black">
+										<thead class="thead-dark">
+					    					<tr>
+					      						<th scope="col" class="center">#</th>
+					     						<th scope="col" class="center">Champion</th>
+					      						<th scope="col" class="center">Mastery Level</th>
+					      						<th scope="col" class="center">Mastery Points</th>
+					    					</tr>
+				  						</thead>
+				  						<tbody>
   					';	
   						
-					for($i = 0; $i < count($data_lol); ++$i) {
-						print '<tr><th scope="row" style="text-align:center">' .($i + 1). '</th>';
-			    		print '<td style="text-align:center">' .$array[$data_lol[$i]["championId"]]. '</td>';
-			    		print '<td style="text-align:center">' .$data_lol[$i]['championLevel']. '</td>';
-			    		print '<td style="text-align:center">' .$data_lol[$i]['championPoints']. '</td></tr>';
+					for($i = 0; $i < 20; ++$i) {
+						print '<tr id="mtr"><th scope="row"  class="center">' .($i + 1). '</th>';
+			    		print '<td class="center"><img src="'.$icons[$data_lol[$i]["championId"]].'" width="40px" heigth="40px"><br>' .$array[$data_lol[$i]["championId"]]. '</td>';
+			    		print '<td class="center">' .$data_lol[$i]['championLevel']. '</td>';
+			    		print '<td class="center">' .$data_lol[$i]['championPoints']. '</td></tr>';
 					}
-					print '</tbody></table><br><a href="index.php">Return to main menu</a>';	
+					
+						$win_rate = array((($data_ELO['0']['wins']) / ($data_ELO['0']['wins'] + $data_ELO['0']['losses'])*100),
+							(($data_ELO['1']['wins']) / ($data_ELO['1']['wins'] + $data_ELO['1']['losses'])*100));
+							
+						$win_rated = array(number_format((float)$win_rate['0'], 1, '.', ''), 
+							number_format((float)$win_rate['1'], 1, '.', ''));    //Shows only 2 decimal
+						
+					
+					print '
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="table-responsive">
+									<table class="table table-sm table-striped" id="eloTable" style="border: 1px solid black">
+										<thead class="thead-dark">
+											<tr>
+												<th scope="col" class="center">Queue</th>
+					      						<th scope="col" class="center">Tier</th>
+					     						<th scope="col" class="center">Rank</th>
+					      						<th scope="col" class="center">League Points</th>
+					      						<th scope="col" class="center">Wins</th>
+					      						<th scope="col" class="center">Loses</th>
+												<th scope="col" class="center">Win Ratio</th>
+					    					</tr>
+										</thead>
+										<tbody>
+					';
+					
+					for($i = 0; $i < count($data_ELO); ++$i){
+						print'
+							<tr id="elotr">
+								<td class="center">' .$data_ELO[$i]['queueType']. '</td>
+								<td class="center">
+									<img src="resources/ranked_emblems/'.$data_ELO[$i]['tier'].'.png" width="50" heigth="50">' .$data_ELO[$i]['tier']. '
+								</td>
+								<td class="center">' .$data_ELO[$i]['rank']. '</td>
+								<td class="center">' .$data_ELO[$i]['leaguePoints']. '</td>
+								<td class="center">' .$data_ELO[$i]['wins']. '</td>
+								<td class="center">' .$data_ELO[$i]['losses']. '</td>
+								<td class="center">' .$win_rated[$i]. '%</td>
+							<tr>
+						';
+					}
+								    		
+					print'						
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<br><a href="index.php">Return to main menu</a>
+					';	
 				?>
-			</div>
-		</div>
-	</div>
-	
+			</div>	
     <!-- jQuery, Popper.js, Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
