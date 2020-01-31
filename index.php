@@ -75,9 +75,9 @@
 					      				<th scope="row">
 									      	<?php
 												require_once 'key.php'; 
+												$apikey = $_SESSION['sapikey'];
 												require_once 'apis/freechampapi.php';
 												require_once 'apis/champapi.php';
-												include ("apis/alternativekeyapi");
 												
 												$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'icon'));
 												$arrayNames = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));
@@ -118,9 +118,10 @@
 					      		<tr> 
 						      		<?php
 						      			require_once 'key.php'; 
+						      			$apikey = $_SESSION['sapikey'];
 										require_once 'apis/statusapi.php';
-										include ("apis/alternativekeyapi");
-											
+									
+										
 										//YEP, I KNOW I CAN DO THIS ONE BETTER								
 										
 						      			$online1 = array_column($data_status1['services'], 'status')['0'];  	//Online/offline

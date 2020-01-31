@@ -23,9 +23,9 @@
   	<div class="container-fluid">		<!-- TODO: Player Ranked, Match History -->
 			    <?php
 			    	require_once 'key.php';  			//Get the API Key from a .gitignored file (Hide from public).
+			    	$apikey = $_SESSION['sapikey'];
 			    	require_once 'apis/summonerapi.php';
 			    	require_once 'apis/champapi.php';
-			    	include ("apis/alternativekeyapi");
 			    	
 					$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));  //Used to get ID => Name of champ
 					$icons = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'icon'));
