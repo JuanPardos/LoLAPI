@@ -75,13 +75,20 @@
 					      				<th scope="row">
 									      	<?php
 												require_once 'key.php'; 
-												$apikey = $_SESSION['sapikey'];
+												if($apikey != $_SESSION['sapikey'] && $_SESSION['sapikey'] != null){
+													$apikey = $_SESSION['sapikey'];
+												}
 												require_once 'apis/freechampapi.php';
 												require_once 'apis/champapi.php';
 												
 												$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'icon'));
 												$arrayNames = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));
 											
+												if($data_freeChamps == null){
+													print'
+														<div class="col-8 offset-2" style="background-color:red; text-align:center"><a>API ERROR</a></div>
+													';
+												}
 												for($i = 0; $i < count($data_freeChamps['freeChampionIds']); ++$i) {
 													print '<td style="text-align:center"><img src="'.$array[$data_freeChamps['freeChampionIds'][$i]].'" width="48" height="48" title="'.$arrayNames[$data_freeChamps['freeChampionIds'][$i]].'"></td>';
 												}
@@ -118,7 +125,9 @@
 					      		<tr> 
 						      		<?php
 						      			require_once 'key.php'; 
-						      			$apikey = $_SESSION['sapikey'];
+						      			if($apikey != $_SESSION['sapikey'] && $_SESSION['sapikey'] != null){
+											$apikey = $_SESSION['sapikey'];
+										}
 										require_once 'apis/statusapi.php';
 									
 										
@@ -136,14 +145,20 @@
 										$auxon = array($online1, $online2, $online3, $online4);
 										$auxst = array($incidents1, $incidents2, $incidents3, $incidents4);
 										
-						      			for($i = 0; $i < count($auxon); ++$i){
-							      		  	if($auxon[$i] == 'online'){
-							      		  		if($auxst[$i] == null){
-							      		  			print'<td>'.$serverNames[$i].': PERFECT'.$perfect.'</td>';
-							      		  		}else
-							      		  			print'<td>'.$serverNames[$i].': OK'.$ok.'</td>';
-							      		  	}else
-							      		  		print'<td>'.$serverNames[$i].': OFFLINE'.$offline.'</td>';
+										if($auxon['1'] == null){
+											print'
+												<div class="col-8 offset-2" style="background-color:red; text-align:center"><a><b>API ERROR</b></a></div>
+											';
+										}else{
+							      			for($i = 0; $i < count($auxon); ++$i){
+								      		  	if($auxon[$i] == 'online'){
+								      		  		if($auxst[$i] == null){
+								      		  			print'<td>'.$serverNames[$i].': PERFECT'.$perfect.'</td>';
+								      		  		}else
+								      		  			print'<td>'.$serverNames[$i].': OK'.$ok.'</td>';
+								      		  	}else
+								      		  		print'<td>'.$serverNames[$i].': OFFLINE'.$offline.'</td>';
+											}
 										}	 
 										 	  					      				
 						      		?>

@@ -23,7 +23,9 @@
   	<div class="container-fluid">		<!-- TODO: Player Ranked, Match History -->
 			    <?php
 			    	require_once 'key.php';  			//Get the API Key from a .gitignored file (Hide from public).
-			    	$apikey = $_SESSION['sapikey'];
+			    	if($apikey != $_SESSION['sapikey'] && $_SESSION['sapikey'] != null){
+						$apikey = $_SESSION['sapikey'];
+					}
 			    	require_once 'apis/summonerapi.php';
 			    	require_once 'apis/champapi.php';
 			    	
@@ -84,20 +86,22 @@
 								</div>
 							</div>
 							<div class="col-6">
-								<div class="table-responsive">
-									<table class="table table-sm table-striped" id="eloTable" style="border: 1px solid black">
-										<thead class="thead-dark">
-											<tr>
-												<th scope="col" class="center">Queue</th>
-					      						<th scope="col" class="center">Tier</th>
-					     						<th scope="col" class="center">Rank</th>
-					      						<th scope="col" class="center">League Points</th>
-					      						<th scope="col" class="center">Wins</th>
-					      						<th scope="col" class="center">Loses</th>
-												<th scope="col" class="center">Win Ratio</th>
-					    					</tr>
-										</thead>
-										<tbody>
+								<div class="row">
+									<div class="col-12">
+										<div class="table-responsive">
+											<table class="table table-sm table-striped" id="eloTable" style="border: 1px solid black">
+												<thead class="thead-dark">
+													<tr>
+														<th scope="col" class="center">Queue</th>
+							      						<th scope="col" class="center">Tier</th>
+							     						<th scope="col" class="center">Rank</th>
+							      						<th scope="col" class="center">League Points</th>
+							      						<th scope="col" class="center">Wins</th>
+							      						<th scope="col" class="center">Loses</th>
+														<th scope="col" class="center">Win Ratio</th>
+							    					</tr>
+												</thead>
+												<tbody>
 					';
 					
 					if($data_ELO == null){
@@ -123,11 +127,17 @@
 					}
 								    		
 					print'						
-										</tbody>
-									</table>
+												</tbody>
+											</table>
+										</div>
+									</div> 
+								</div> 
+								<div class="col-12">
+									<div><a>PLACEHOLDER FOR MATCHES</a></div>
 								</div>
 							</div>
 						</div>
+
 						<br><a href="index.php">Return to main menu</a>
 					';	
 				?>
