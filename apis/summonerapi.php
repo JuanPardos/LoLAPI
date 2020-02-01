@@ -2,13 +2,17 @@
 	session_start();
 	$summoner = $_GET['summoner']; 			//Get summoner name from index.
 	$_SESSION['Summoner'] = $summoner;
+	$server = $_GET['server'];				//Get server name.
+	$_SESSION['Server'] = $server;
 	
 	if(is_array($_SESSION['favs']) == false){
 		$_SESSION['favs'] = [];
 	}
 	
-	$server = $_GET['server'];				//Get server name.
-	
+	if(is_array($_SESSION['ArrayServers']) == false){
+		$_SESSION['ArrayServers'] = [];
+	}
+
 	$requestSummoner = fopen("https://$server.api.riotgames.com/lol/summoner/v4/summoners/by-name/$summoner?api_key=$apikey", "r");		//Request to get encrypted summonerID.			
 	$json_summoner = stream_get_contents($requestSummoner); 
 	$data_summoner = json_decode($json_summoner, true); 		//Formats the Json for PHP.

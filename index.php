@@ -187,11 +187,12 @@
 				
 				if(in_array($_SESSION['Summoner'], $_SESSION['favs']) == false){   //Checks if summoner name already exist, if not add it.
 					array_push($_SESSION['favs'], $_SESSION['Summoner']);
+					array_push($_SESSION['ArrayServers'], $_SESSION['Server']);
 				}
 					
 				for($i = 0; $i < count($_SESSION['favs']); ++$i){
 					print'
-						<a href="http://localhost/tfg/summoner.php?summoner=' .$_SESSION["favs"][$i]. '&server=euw1">' .$_SESSION["favs"][$i]. '</a><br>
+						<a href="http://localhost/tfg/summoner.php?summoner=' .$_SESSION["favs"][$i]. '&server=' .$_SESSION["ArrayServers"][$i]. '">' .$_SESSION["favs"][$i]. '</a><br>
 					';
 				}
 				
