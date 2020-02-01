@@ -6,16 +6,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- Bootstrap, IziToast and CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/iziToast.min.css"> 
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/iziToast.min.css">
-    
     <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
     <script src="js/iziToast.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="js/script.js"></script>
-	
+	<script>
+		$(function () {
+	        $("[rel='tooltip']").tooltip();
+	    });	
+	</script>
     <title>LOL Search</title>
   </head>
   <body class="mainMenu">
@@ -25,7 +29,7 @@
         	<div class="col-10 offset-1 min-vh-25" id="header">
         		<p class="col-8" style="text-align:left; margin-top:5px"><b>LEAGUE OF LEGENDS API SEARCH</b><br> <a class="d-none d-sm-block" style="font-style:italic">©Juan Pardos Zarate</a></p> 
         		<form action="apis/alternativekeyapi.php" class="d-none d-md-block d-lg-block d-xl-block order-sm-12" method="post" style="text-align:right; margin-top:-50px">
-    				<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/VisualEditor_-_Icon_-_Help.svg/1024px-VisualEditor_-_Icon_-_Help.svg.png" id="helpbutton" data-toggle="modal" data-target="#exampleModalLong" width="30px" height="30px" title="Open API Key help" style="margin-top:-6px">
+    				<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/VisualEditor_-_Icon_-_Help.svg/1024px-VisualEditor_-_Icon_-_Help.svg.png" id="helpbutton" data-toggle="modal" data-target="#exampleModalLong" rel="tooltip" width="30px" height="30px" title="Open API Key help" style="margin-top:-6px">
     				<input type="text" name="api" id="api" value="" placeholder="Alternative API KEY">
     				<input type="submit" value="Save">
         		</form>
@@ -45,7 +49,7 @@
 				    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 				      	<div class="card-body">
 				      		<form name="form" action="summoner.php" method="get" style="text-align:center">
-				      			<img src="https://icons-for-free.com/iconfiles/png/512/mark+opinion+rating+star+icon-1320191205647153700.png" id="starimg" onclick="changeImg()" title="Mark as favorite" width="22px" height="22px" style="margin-bottom:7px">
+				      			<img src="https://icons-for-free.com/iconfiles/png/512/mark+opinion+rating+star+icon-1320191205647153700.png" id="starimg" onclick="changeImg()" rel="tooltip" title="Mark as favorite" width="22px" height="22px" style="margin-bottom:7px">
 				      			<input class="col-md-auto" type="text" name="summoner" id="summoner" value="" placeholder="Summoner name">
 				      			<select name="server" id="server">
 				      				<option value="euw1">EUW</option>
@@ -90,7 +94,7 @@
 													';
 												}
 												for($i = 0; $i < count($data_freeChamps['freeChampionIds']); ++$i) {
-													print '<td style="text-align:center"><img src="'.$array[$data_freeChamps['freeChampionIds'][$i]].'" width="48" height="48" title="'.$arrayNames[$data_freeChamps['freeChampionIds'][$i]].'"></td>';
+													print '<td style="text-align:center"><img src="'.$array[$data_freeChamps['freeChampionIds'][$i]].'" width="48" height="48"></td>';
 												}
 											?>
 										</th>
@@ -168,14 +172,34 @@
 				  </div>
 				</div>			
 			</div>
-        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-6 offset-xl-0 offset-lg-0 offset-md-0 offset-sm-4 
-        offset-3 mt-4 d-none d-sm-block d-md-block d-lg-block d-xl-block d-inline-block" 
-        id="fav" onmouseover="fadeInFav()" onmouseout="fadeOutFav()" style="text-align:center">
-        
-	        <a>---FAVORITES---</a><br>
-	        NOT IMPLEMENTED YET
-        </div>
-      </div>   
+		</div>
+	</div>
+    <div class="col-2 mt-2 ml-5" id="fav" onmouseover="fadeInFav()" onmouseout="fadeOutFav()" style="text-align:center">
+        <a>---FAVORITES---</a><br>
+	 	<div id="favs">
+	    	<?php
+	    		session_start();
+	    		require_once 'key.php'; 
+	    		
+				if($apikey != $_SESSION['sapikey'] && $_SESSION['sapikey'] != null){
+					$apikey = $_SESSION['sapikey'];
+				}				
+				
+				if(in_array($_SESSION['Summoner'], $_SESSION['favs']) == false){   //Checks if summoner name already exist, if not add it.
+					array_push($_SESSION['favs'], $_SESSION['Summoner']);
+				}
+					
+				for($i = 0; $i < count($_SESSION['favs']); ++$i){
+					print'
+						<a href="http://localhost/tfg/summoner.php?summoner=' .$_SESSION["favs"][$i]. '&server=euw1">' .$_SESSION["favs"][$i]. '</a><br>
+					';
+				}
+				
+				
+	    	?>
+	    </div>
+     </div>
+    </div>   
     </div>
     <div class="col-10 offset-1 fixed-bottom d-none d-sm-block" id="footer">
     	<span class="d-none d-sm-none d-md-block d-lg-block d-xl-block" style="color:black">
@@ -189,8 +213,6 @@
 			trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
 		</span>
       </div>
-    </div>
-    </div>
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
@@ -208,9 +230,5 @@
 	   	</div>
 	  </div>
 	</div>
-    <!-- jQuery, Popper.js, Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </body>
 </html>
