@@ -27,10 +27,11 @@
 	  <div class="container-fluid">
       	<div class="row">
         	<div class="col-10 offset-1 min-vh-25" id="header">
-        		<p class="col-8" style="text-align:left; margin-top:5px"><b>LEAGUE OF LEGENDS API SEARCH</b><br> <a class="d-none d-sm-block" style="font-style:italic">©Juan Pardos Zarate</a></p> 
-        		<form action="apis/alternativekeyapi.php" class="d-none d-md-block d-lg-block d-xl-block order-sm-12" method="post" style="text-align:right; margin-top:-50px">
+        	    <img class="offset-sm-11 offset-11 mt-2 mr-sm-2 mr-3 d-block d-sm-block d-md-none d-lg-none d-xl-none" src="https://www.stickpng.com/assets/images/588a64f5d06f6719692a2d13.png" id="menubutton" data-toggle="modal" data-target="#modalApi" rel="tooltip" width="45px" height="45px" title="Api Key Menu" style="margin-top:-6px;position:relative;z-index:9999">
+        		<p class="col-xl-8 col-lg-8 col-md-6 col-sm-6 col-8 mt-xl-2 mt-lg-2 mt-md-2" style="text-align:left; margin-top:-50px; position:absolute"><b>LEAGUE OF LEGENDS API SEARCH</b><br> <a class="d-none d-sm-none d-md-block" style="font-style:italic">©Juan Pardos Zarate</a></p> 
+        		<form action="apis/alternativekeyapi.php" class=" mt-xl-3 mt-lg-3 mt-md-3 d-none d-md-block d-lg-block d-xl-block order-sm-12" method="post" style="text-align:right; margin-top:-50px">
     				<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/VisualEditor_-_Icon_-_Help.svg/1024px-VisualEditor_-_Icon_-_Help.svg.png" id="helpbutton" data-toggle="modal" data-target="#exampleModalLong" rel="tooltip" width="30px" height="30px" title="Open API Key help" style="margin-top:-6px">
-    				<input type="text" name="api" id="api" value="" placeholder="Alternative API KEY">
+    				<input type="text" name="api" id="api" value="" placeholder="API KEY">
     				<input type="submit" value="Save">
         		</form>
         	</div>
@@ -174,8 +175,8 @@
 			</div>
 		</div>
 	</div>
-    <div class="col-2 mt-2 ml-5" id="fav" onmouseover="fadeInFav()" onmouseout="fadeOutFav()" style="text-align:center">
-        <a>---FAVORITES---</a><br>
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-4 mt-xl-2 mt-lg-2 mt-md-2 mt-sm-2 mt-4 offset-xl-0 offset-lg-0 offset-md-0 offset-sm-4 offset-4" id="fav" onmouseover="fadeInFav()" onmouseout="fadeOutFav()" style="text-align:center; min-width:125px">
+        <a><b>FAVORITES</b><hr></a>
 	 	<div id="favs">
 	    	<?php
 	    		session_start();
@@ -214,7 +215,8 @@
 			trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
 		</span>
       </div>
-    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  </body>
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header" style="background-color:gold">
@@ -231,5 +233,25 @@
 	   	</div>
 	  </div>
 	</div>
-  </body>
+	<div class="modal fade" id="modalApi" tabindex="-1" role="dialog" aria-labelledby="modalApiTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header" style="background-color:gold">
+	        <h5 class="modal-title" id="modalApiTitle">API KEY Help</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        If you are not the developer you may need a new API Key.<br>
+	        In order to get a new one visit <a href="https://developer.riotgames.com/" target="_blank">https://developer.riotgames.com/</a> and sign in with your Riot Account.<br>
+	      	The key It is stored throughout the session.<br><br>
+	      	<form action="apis/alternativekeyapi.php" method="post" style="text-align:center">
+    			<input type="text" name="api" id="api" value="" placeholder="API KEY">
+    			<input type="submit" value="Save">
+        	</form>
+	      </div>
+	   	</div>
+	  </div>
+	</div>
 </html>

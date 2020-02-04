@@ -119,13 +119,13 @@
 					<tr id="elotr">
 						<td class="center">' .$data_ELO[$i]['queueType']. '</td>
 						<td class="center">
-							<img src="resources/ranked_emblems/'.$data_ELO[$i]['tier'].'.png" width="50" heigth="50">' .$data_ELO[$i]['tier']. '
-						</td>
-						<td class="center">' .$data_ELO[$i]['rank']. '</td>
-						<td class="center">' .$data_ELO[$i]['leaguePoints']. '</td>
-						<td class="center">' .$data_ELO[$i]['wins']. '</td>
-						<td class="center">' .$data_ELO[$i]['losses']. '</td>
-						<td class="center">' .$win_rated[$i]. '%</td>
+							<img src="resources/ranked_emblems/'.$data_ELO[$i]['tier'].'.png" width="60" heigth="60"><b>' .$data_ELO[$i]['tier']. '
+						</b></td>
+						<td class="center"><b>' .$data_ELO[$i]['rank']. '</b></td>
+						<td class="center"><b>' .$data_ELO[$i]['leaguePoints']. '</b></td>
+						<td class="center" style="color:green">' .$data_ELO[$i]['wins']. '</td>
+						<td class="center" style="color:red">' .$data_ELO[$i]['losses']. '</td>
+						<td class="center" style="color:blue">' .$win_rated[$i]. '%</td>
 					<tr>
 				';
 			}
