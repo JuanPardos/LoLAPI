@@ -22,7 +22,7 @@
 	</script>
     <title>LOL Search</title>
   </head>
-  <body class="summoner" id="modal">
+  <body class="summoner">
   <?php	error_reporting(0);?>
   	<div class="container-fluid">		<!-- TODO: Player Ranked, Match History -->
 	    <?php

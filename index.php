@@ -28,7 +28,7 @@
       	<div class="row">
         	<div class="col-10 offset-1 min-vh-25" id="header">
         	    <img class="offset-sm-11 offset-11 mt-2 mr-sm-2 mr-3 d-block d-sm-block d-md-none d-lg-none d-xl-none" src="https://www.stickpng.com/assets/images/588a64f5d06f6719692a2d13.png" id="menubutton" data-toggle="modal" data-target="#modalApi" rel="tooltip" width="45px" height="45px" title="Api Key Menu" style="margin-top:-6px;position:relative;z-index:9999">
-        		<p class="col-xl-8 col-lg-8 col-md-6 col-sm-6 col-8 mt-xl-2 mt-lg-2 mt-md-2" style="text-align:left; margin-top:-50px; position:absolute"><b>LEAGUE OF LEGENDS API SEARCH</b><br> <a class="d-none d-sm-none d-md-block" style="font-style:italic">©Juan Pardos Zarate</a></p> 
+        		<p class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8 mt-xl-2 mt-lg-2 mt-md-2" style="text-align:left; margin-top:-50px; position:absolute"><b>LEAGUE OF LEGENDS API SEARCH</b><br> <a class="d-none d-sm-none d-md-block" style="font-style:italic">©Juan Pardos Zarate</a></p> 
         		<form action="apis/alternativekeyapi.php" class=" mt-xl-3 mt-lg-3 mt-md-3 d-none d-md-block d-lg-block d-xl-block order-sm-12" method="post" style="text-align:right; margin-top:-50px">
     				<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/VisualEditor_-_Icon_-_Help.svg/1024px-VisualEditor_-_Icon_-_Help.svg.png" id="helpbutton" data-toggle="modal" data-target="#exampleModalLong" rel="tooltip" width="30px" height="30px" title="Open API Key help" style="margin-top:-6px">
     				<input type="text" name="api" id="api" value="" placeholder="API KEY">
@@ -186,7 +186,7 @@
 					$apikey = $_SESSION['sapikey'];
 				}				
 				
-				if(in_array($_SESSION['Summoner'], $_SESSION['favs']) == false){   //Checks if summoner name already exist, if not add it.
+				if(in_array($_SESSION['Summoner'], $_SESSION['favs']) == false /*&& $_SESSION['Fav'] == "true"*/){   //Checks if summoner name already exist, if not add it.
 					array_push($_SESSION['favs'], $_SESSION['Summoner']);
 					array_push($_SESSION['ArrayServers'], $_SESSION['Server']);
 				}
@@ -215,7 +215,10 @@
 			trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
 		</span>
       </div>
-  </body>
+      <form action="apis/summonerapi.php" method="post">
+      	<input type="text" name="aux" id="aux" value="false" style="display:none"/>
+      </form>
+   </body>
   <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
@@ -247,7 +250,7 @@
 	        In order to get a new one visit <a href="https://developer.riotgames.com/" target="_blank">https://developer.riotgames.com/</a> and sign in with your Riot Account.<br>
 	      	The key It is stored throughout the session.<br><br>
 	      	<form action="apis/alternativekeyapi.php" method="post" style="text-align:center">
-    			<input type="text" name="api" id="api" value="" placeholder="API KEY">
+    			<input type="text" name="api" id="apimobile" value="" placeholder="API KEY">
     			<input type="submit" value="Save">
         	</form>
 	      </div>

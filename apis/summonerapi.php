@@ -5,6 +5,9 @@
 	$server = $_GET['server'];				//Get server name.
 	$_SESSION['Server'] = $server;
 	
+	$aux = $_POST['aux'];
+	$_SESSION['Fav'] = $aux;
+	
 	if(is_array($_SESSION['favs']) == false){
 		$_SESSION['favs'] = [];
 	}
