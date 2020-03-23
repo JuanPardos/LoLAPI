@@ -51,7 +51,7 @@
 				';
 			}
 			
-			print'<hr><h1 style="text-align:center">'.$summoner.'</h1><hr>';			
+			print'<hr style="border-color:grey"><h1 style="text-align:center; color:white">'.$summoner.'</h1><hr style="border-color:grey">';			
 			
 			print 
 			'
@@ -65,16 +65,24 @@
 			     						<th scope="col" class="center">Champion</th>
 			      						<th scope="col" class="center">Mastery Level</th>
 			      						<th scope="col" class="center">Mastery Points</th>
+			      						<th scope="col" class="center">Chest</th>
 			    					</tr>
 		  						</thead>
 		  						<tbody>
 			';	
 				
-			for($i = 0; $i < 20; ++$i) {
-				print '<tr id="mtr"><th scope="row"  class="center">' .($i + 1). '</th>';
+			for($i = 0; $i < 20; ++$i) {  
+				print '<tr><td scope="row"  class="center">' .($i + 1).'</td>';
 	    		print '<td class="center"><img src="'.$icons[$data_lol[$i]["championId"]].'" rel="tooltip" title="" width="40px" heigth="40px"><br>' .$array[$data_lol[$i]["championId"]]. '</td>';
-	    		print '<td class="center">' .$data_lol[$i]['championLevel']. '</td>';
-	    		print '<td class="center">' .$data_lol[$i]['championPoints']. '</td></tr>';
+	    		print '<td class="center"><img src="resources/mastery_emblems/'.$data_lol[$i]['championLevel'].'.png" rel="tooltip" title="'.$data_lol[$i]['championLevel'].'" width="60px" heigth="60px"></td>';
+	    		print '<td class="center">' .$data_lol[$i]['championPoints']. '</td>';
+	    		if($data_lol[$i]['chestGranted'] == 1){
+	    			print '<td class="center"><img src="https://img.rankedboost.com/wp-content/uploads/2017/08/League-of-Legends-Hextech-Crafting.png" width="50px" heigth="50px"></td></tr>';
+				}
+				else{
+					print '<td class="center"></td></tr>';
+				}
+	    		
 			}
 			
 				$win_rate = array((($data_ELO['0']['wins']) / ($data_ELO['0']['wins'] + $data_ELO['0']['losses'])*100),

@@ -88,6 +88,8 @@
 												
 												$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'icon'));
 												$arrayNames = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));
+												$arrayID = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'id'));
+
 											
 												if($data_freeChamps == null){
 													print'
@@ -95,7 +97,7 @@
 													';
 												}
 												for($i = 0; $i < count($data_freeChamps['freeChampionIds']); ++$i) {
-													print '<td style="text-align:center"><img src="'.$array[$data_freeChamps['freeChampionIds'][$i]].'" width="48" height="48"></td>';
+													print '<td style="text-align:center"><a href="https://na.leagueoflegends.com/en-us/champions/'.$arrayID[$data_freeChamps['freeChampionIds'][$i]].'/"><img src="'.$array[$data_freeChamps['freeChampionIds'][$i]].'" width="48" height="48" rel="tooltip" title="View champion info"></a></td>';
 												}
 											?>
 										</th>

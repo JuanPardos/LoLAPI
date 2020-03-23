@@ -36,6 +36,13 @@ body.mainMenu{
 	background-attachment: fixed;
 }
 
+body.summoner{
+	background-image: url('https://i.pinimg.com/originals/6c/dd/a7/6cdda74aef801e92bac9270506312ca4.jpg');
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-attachment: fixed;
+}
+
 #elotr > td{
 	vertical-align: middle;
 }
@@ -59,5 +66,9 @@ body {
 
 #starimg{
 	cursor: pointer;
+}
+
+#masteryTable, #eloTable, #gamesTable{
+	background-color:white;
 }
 
