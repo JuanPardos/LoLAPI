@@ -6,6 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="resources/icon.png" type="image/ico">
     <!-- CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/iziToast.min.css"> 
@@ -51,7 +52,7 @@
 				';
 			}
 			
-			print'<hr style="border-color:grey"><h1 style="text-align:center; color:white">'.$summoner.'</h1><hr style="border-color:grey">';			
+			print'<hr style="border-color:grey"><h1 style="text-align:center; color:white">'.$summoner.' <img src="http://ddragon.leagueoflegends.com/cdn/10.8.1/img/profileicon/'.$profileIcon.'.png" heigth="56px" width="56px"></h1><hr style="border-color:grey">';			
 			
 			print 
 			'
@@ -75,9 +76,9 @@
 				print '<tr><td scope="row"  class="center">' .($i + 1).'</td>';
 	    		print '<td class="center"><img src="'.$icons[$data_lol[$i]["championId"]].'" rel="tooltip" title="" width="40px" heigth="40px"><br>' .$array[$data_lol[$i]["championId"]]. '</td>';
 	    		print '<td class="center"><img src="resources/mastery_emblems/'.$data_lol[$i]['championLevel'].'.png" rel="tooltip" title="'.$data_lol[$i]['championLevel'].'" width="60px" heigth="60px"></td>';
-	    		print '<td class="center">' .$data_lol[$i]['championPoints']. '</td>';
+	    		print '<td class="center" style="vertical-align: middle">' .$data_lol[$i]['championPoints']. '</td>';
 	    		if($data_lol[$i]['chestGranted'] == 1){
-	    			print '<td class="center"><img src="https://img.rankedboost.com/wp-content/uploads/2017/08/League-of-Legends-Hextech-Crafting.png" width="50px" heigth="50px"></td></tr>';
+	    			print '<td class="center" style="vertical-align: middle"><img src="https://img.rankedboost.com/wp-content/uploads/2017/08/League-of-Legends-Hextech-Crafting.png" width="50px" heigth="50px"></td></tr>';
 				}
 				else{
 					print '<td class="center"></td></tr>';
@@ -145,7 +146,56 @@
 							</div> 
 						</div> 
 						<div class="col-12">
-							<div><a>PLACEHOLDER FOR MATCHES</a></div>
+							<div class="table-responsive">
+									<table class="table table-sm table-striped" id="matchTable" style="border: 1px solid black">
+										<thead class="thead-dark">
+											<tr>
+												<th scope="col" class="center">RESULT</th>
+												<th scope="col" class="center">KDA</th>
+												<th scope="col" class="center">DURATION</th>
+												<th scope="col" class="center">CHAMPION</th>	
+												<th scope="col" class="center">POSITION</th>		
+												<th scope="col" class="center">TEST</th>	 					    
+											</tr>
+										</thead>
+										<tbody>
+			';
+			
+			if($data_match == null){
+				print'
+					<tr><td colspan="7" class="center">--NOT ENOUGH GAMES--</td></tr>
+				';
+			}
+			
+			for($i = 0; $i < count($arrayMatches); ++$i){
+				$duration = $data_match[$i]['gameDuration'] / 60;
+				$duration¡ = number_format((float)$duration, 0, '.', '');
+				if($data_match[$i]['participants'][$id[$i]]['stats']['win'] == 'true'){
+					print'
+						<tr id="matchtr" style="background-color:green">
+							<td class="center"> WIN </td>
+					';
+				}
+				else{
+					print'
+						<tr id="matchtr" style="background-color:red">
+							<td class="center"> DEFEAT </td>
+					';
+				}
+					print'	
+							<td class="center">' .$data_match[$i]['participants'][$id[$i] + 1]['stats']['kills']. '/' .$data_match['participants'][$id[$i] + 1]['stats']['deaths']. '/' .$data_match['participants'][$id[$i] + 1]['stats']['assists']. '</td>
+							<td class="center">' .$duration¡. '´</td>
+							<td class="center">' .$array[$arrayChamps[$i]]. '</td>
+							<td class="center">' .$arrayLanes[$i]. '</td>
+							<td class="center">' .$id[$i]. '</td>
+						<tr>
+					';
+			}
+						    		
+			print'						
+										</tbody>
+									</table>
+								</div>
 						</div>
 					</div>
 				</div>
