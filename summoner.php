@@ -57,10 +57,13 @@
 			print 
 			'
 				<div class="row">
-					<div class="col-6">
+					<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 order-2 order-sm-2 order-md-1 order-lg-1 order-xl-1">
 						<div class="table-responsive">
 							<table class="table table-borderless table-sm table-striped" id="masteryTable" style="border: 1px solid black">
 								<thead class="thead-dark">
+									<tr>
+										<th colspan="5" class="center"><u>Champion Mastery</u></th>
+									</tr>
 			    					<tr>
 			      						<th scope="col" class="center">#</th>
 			     						<th scope="col" class="center">Champion</th>
@@ -98,12 +101,15 @@
 							</table>
 						</div>
 					</div>
-					<div class="col-6">
+					<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 order-1 order-sm-1 order-md-2 order-lg-2 order-xl-2">
 						<div class="row">
 							<div class="col-12">
 								<div class="table-responsive">
-									<table class="table table-sm table-striped" id="eloTable" style="border: 1px solid black">
+									<table class="table table-sm table-striped table-borderless" id="eloTable" style="border: 1px solid black">
 										<thead class="thead-dark">
+											<tr>
+												<th colspan="7" class="center"><u>Ranked Stats</u></th>
+											</tr>
 											<tr>
 												<th scope="col" class="center">Queue</th>
 					      						<th scope="col" class="center">Tier</th>
@@ -124,9 +130,18 @@
 			}
 			
 			for($i = 0; $i < count($data_ELO); ++$i){
+				if($data_ELO[$i]['queueType'] == 'RANKED_SOLO_5x5'){
+					print'
+						<tr id="elotr">
+							<td class="center">Ranked Solo</td>
+					';
+				}else{
+					print'
+						<tr id="elotr">
+							<td class="center">Flex Queue</td>
+					';
+				}
 				print'
-					<tr id="elotr">
-						<td class="center">' .$data_ELO[$i]['queueType']. '</td>
 						<td class="center">
 							<img src="resources/ranked_emblems/'.$data_ELO[$i]['tier'].'.png" width="60" heigth="60"><b>' .$data_ELO[$i]['tier']. '
 						</b></td>
@@ -147,15 +162,17 @@
 						</div> 
 						<div class="col-12">
 							<div class="table-responsive">
-									<table class="table table-sm table-striped" id="matchTable" style="border: 1px solid black">
+									<table class="table table-sm table-striped table-borderless" id="matchTable" style="border: 1px solid black">
 										<thead class="thead-dark">
 											<tr>
-												<th scope="col" class="center">RESULT</th>
-												<th scope="col" class="center">KDA</th>
-												<th scope="col" class="center">DURATION</th>
-												<th scope="col" class="center">CHAMPION</th>	
-												<th scope="col" class="center">POSITION</th>		
-												<th scope="col" class="center">TEST</th>	 					    
+												<th colspan="5" class="center"><u>Match History</u></th>
+											</tr>
+											<tr>
+												<th scope="col" class="center">Result</th>
+												<th scope="col" class="center">K/D/A</th>
+												<th scope="col" class="center">Duration</th>
+												<th scope="col" class="center">Champion</th>	
+												<th scope="col" class="center">Position</th>			 					    
 											</tr>
 										</thead>
 										<tbody>
@@ -173,13 +190,13 @@
 				if($data_match[$i]['participants'][$id[$i]]['stats']['win'] == 'true'){
 					print'
 						<tr id="matchtr" style="background-color:green">
-							<td class="center"> WIN </td>
+							<td class="center"><b> VICTORY </b></td>
 					';
 				}
 				else{
 					print'
 						<tr id="matchtr" style="background-color:red">
-							<td class="center"> DEFEAT </td>
+							<td class="center"><b> DEFEAT </b></td>
 					';
 				}
 					print'	
@@ -187,7 +204,6 @@
 							<td class="center">' .$duration¡. '´</td>
 							<td class="center">' .$array[$arrayChamps[$i]]. '</td>
 							<td class="center">' .$arrayLanes[$i]. '</td>
-							<td class="center">' .$id[$i]. '</td>
 						<tr>
 					';
 			}
@@ -197,6 +213,36 @@
 									</table>
 								</div>
 						</div>
+			';
+			if($server == 'euw1'){
+				print'
+					<div class="col-12" style="margin-top:25px; margin-bottom:50px">					
+						<a href="https://euw.op.gg/summoner/userName='.$summoner.'"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
+					</div>
+				';
+			}
+			if($server == 'na1'){
+				print'
+					<div class="col-12" style="margin-top:25px; margin-bottom:50px">					
+						<a href="https://na.op.gg/summoner/userName='.$summoner.'"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
+					</div>
+				';
+			}
+			if($server == 'la1'){
+				print'
+					<div class="col-12" style="margin-top:25px; margin-bottom:50px">					
+						<a href="https://lan.op.gg/summoner/userName='.$summoner.'"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
+					</div>
+				';
+			}
+			if($server == 'oc1'){
+				print'
+					<div class="col-12" style="margin-top:25px; margin-bottom:50px">					
+						<a href="https://oce.op.gg/summoner/userName='.$summoner.'"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a>
+					</div>
+				';
+			}
+			print'
 					</div>
 				</div>
 
