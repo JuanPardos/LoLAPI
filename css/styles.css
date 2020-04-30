@@ -36,6 +36,14 @@ body.mainMenu{
 	background-attachment: fixed;
 }
 
+body.error{
+	background-image: url('../resources/error.png');
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
 body.summoner{
 	background-image: url('https://i.pinimg.com/originals/6c/dd/a7/6cdda74aef801e92bac9270506312ca4.jpg');
 	background-repeat: no-repeat;

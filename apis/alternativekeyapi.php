@@ -6,4 +6,3 @@
 	}	
 	
 	header("location:../index.php");  //Only is executed if calls from Form Action (Index).
-?>

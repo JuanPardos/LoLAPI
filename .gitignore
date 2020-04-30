@@ -385,4 +385,6 @@ MigrationBackup/
 
 
 key.php
+resources/error2.png
+resources/error3.png
 *.code-workspace

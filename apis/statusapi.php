@@ -35,4 +35,3 @@
 	fclose($status2);
 	fclose($status3);
 	fclose($status4);
-?>

@@ -1,60 +1,70 @@
 <?php
-	session_start();
+session_start();
 ?>
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="resources/icon.png" type="image/ico">
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/iziToast.min.css"> 
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Javascript -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
-    <script src="js/iziToast.min.js" type="text/javascript"></script>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link id="favicon" rel="shortcut icon" type="image/png" href="resources/icon.png">
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/iziToast.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<!-- Javascript -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+	<script src="js/iziToast.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 	<script>
-		$(function () {
-	        $("[rel='tooltip']").tooltip();
-	    });	
+		$(function() {
+			$("[rel='tooltip']").tooltip();
+		});
 	</script>
-    <title>LOL Search</title>
-  </head>
-  <body class="summoner">
-  <?php	error_reporting(0);?>
-  	<div class="container-fluid">		<!-- TODO: Player Ranked, Match History -->
-	    <?php
-	    	require_once 'key.php';  			//Get the API Key from a .gitignored file (Hide from public).
-	    	if($apikey != $_SESSION['sapikey'] && $_SESSION['sapikey'] != null){
-				$apikey = $_SESSION['sapikey'];
-			}
-	    	require_once 'apis/summonerapi.php';
-	    	require_once 'apis/champapi.php';
-	    	
-			$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));  //Used to get ID => Name of champ
-			$icons = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'icon'));
+	<title>LOL Search</title>
+</head>
 
-			if($data_lol == null){
-				print '
+<body class="summoner" id="bd">
+	<?php error_reporting(0); ?>
+	<div class="container-fluid">
+		<?php
+		require_once 'key.php';  			//Get the API Key from a .gitignored file (Hide from public).
+		if ($apikey != $_SESSION['sapikey'] && $_SESSION['sapikey'] != null) {
+			$apikey = $_SESSION['sapikey'];
+		}
+		require_once 'apis/summonerapi.php';
+		require_once 'apis/champapi.php';
+
+		$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));  //Used to get ID => Name of champ
+		$icons = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'icon'));
+
+		print '
+					<script type="text/javascript">
+						$("#favicon").attr("href","http://ddragon.leagueoflegends.com/cdn/10.8.1/img/profileicon/' . $profileIcon . '.png");
+						document.title = "' . $summoner . ' - ' . $serverAux . '";
+					</script>
+				';
+
+		if ($data_lol == null) {
+			print '
 					<script type="text/javascript">
 						window.stop();
-						iziToast.error({
+						iziToast.warning({
 						    title: "ERROR",
-						    message: "Invalid summoner name or API key",
-						    timeout: 3000,
+						    message: "Returning to main page",
+						    timeout: 5000,
 						    position: "topCenter",
 						    onClosed: function () {window.location.href = "index.php";}
 						});
+						document.getElementById("bd").className="error";
 					</script>
 				';
-			}
-			
-			print'<hr style="border-color:grey"><h1 style="text-align:center; color:white">'.$summoner.' <img src="http://ddragon.leagueoflegends.com/cdn/10.8.1/img/profileicon/'.$profileIcon.'.png" heigth="56px" width="56px"></h1><hr style="border-color:grey">';			
-			
-			print 
+		}
+
+		print '<hr style="border-color:grey"><h1 style="text-align:center; color:white">' . $summoner . ' <img src="http://ddragon.leagueoflegends.com/cdn/10.8.1/img/profileicon/' . $profileIcon . '.png" heigth="56px" width="56px"></h1><hr style="border-color:grey">';
+
+		print
 			'
 				<div class="row">
 					<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 order-2 order-sm-2 order-md-1 order-lg-1 order-xl-1">
@@ -73,30 +83,31 @@
 			    					</tr>
 		  						</thead>
 		  						<tbody>
-			';	
-				
-			for($i = 0; $i < 20; ++$i) {  
-				print '<tr><td scope="row"  class="center">' .($i + 1).'</td>';
-	    		print '<td class="center"><img src="'.$icons[$data_lol[$i]["championId"]].'" rel="tooltip" title="" width="40px" heigth="40px"><br>' .$array[$data_lol[$i]["championId"]]. '</td>';
-	    		print '<td class="center"><img src="resources/mastery_emblems/'.$data_lol[$i]['championLevel'].'.png" rel="tooltip" title="'.$data_lol[$i]['championLevel'].'" width="60px" heigth="60px"></td>';
-	    		print '<td class="center" style="vertical-align: middle">' .$data_lol[$i]['championPoints']. '</td>';
-	    		if($data_lol[$i]['chestGranted'] == 1){
-	    			print '<td class="center" style="vertical-align: middle"><img src="https://img.rankedboost.com/wp-content/uploads/2017/08/League-of-Legends-Hextech-Crafting.png" width="50px" heigth="50px"></td></tr>';
-				}
-				else{
-					print '<td class="center"></td></tr>';
-				}
-	    		
+			';
+
+		for ($i = 0; $i < 20; ++$i) {
+			print '<tr><td scope="row"  class="center">' . ($i + 1) . '</td>';
+			print '<td class="center"><img src="' . $icons[$data_lol[$i]["championId"]] . '" rel="tooltip" title="" width="40px" heigth="40px"><br>' . $array[$data_lol[$i]["championId"]] . '</td>';
+			print '<td class="center"><img src="resources/mastery_emblems/' . $data_lol[$i]['championLevel'] . '.png" rel="tooltip" title="' . $data_lol[$i]['championLevel'] . '" width="60px" heigth="60px"></td>';
+			print '<td class="center" style="vertical-align: middle">' . $data_lol[$i]['championPoints'] . '</td>';
+			if ($data_lol[$i]['chestGranted'] == 1) {
+				print '<td class="center" style="vertical-align: middle"><img src="https://img.rankedboost.com/wp-content/uploads/2017/08/League-of-Legends-Hextech-Crafting.png" width="50px" heigth="50px"></td></tr>';
+			} else {
+				print '<td class="center"></td></tr>';
 			}
-			
-				$win_rate = array((($data_ELO['0']['wins']) / ($data_ELO['0']['wins'] + $data_ELO['0']['losses'])*100),
-					(($data_ELO['1']['wins']) / ($data_ELO['1']['wins'] + $data_ELO['1']['losses'])*100));
-					
-				$win_rated = array(number_format((float)$win_rate['0'], 1, '.', ''), 
-					number_format((float)$win_rate['1'], 1, '.', ''));    //Shows only 2 decimal
-				
-			
-			print '
+		}
+
+		$win_rate = array((($data_ELO['0']['wins']) / ($data_ELO['0']['wins'] + $data_ELO['0']['losses']) * 100),
+			(($data_ELO['1']['wins']) / ($data_ELO['1']['wins'] + $data_ELO['1']['losses']) * 100)
+		);
+
+		$win_rated = array(
+			number_format((float) $win_rate['0'], 1, '.', ''),
+			number_format((float) $win_rate['1'], 1, '.', '')
+		);    //Shows only 2 decimal
+
+
+		print '
 								</tbody>
 							</table>
 						</div>
@@ -122,39 +133,39 @@
 										</thead>
 										<tbody>
 			';
-			
-			if($data_ELO == null){
-				print'
+
+		if ($data_ELO == null) {
+			print '
 					<tr><td colspan="7" class="center">--NOT ENOUGH RANKED GAMES--</td></tr>
 				';
-			}
-			
-			for($i = 0; $i < count($data_ELO); ++$i){
-				if($data_ELO[$i]['queueType'] == 'RANKED_SOLO_5x5'){
-					print'
+		}
+
+		for ($i = 0; $i < count($data_ELO); ++$i) {
+			if ($data_ELO[$i]['queueType'] == 'RANKED_SOLO_5x5') {
+				print '
 						<tr id="elotr">
 							<td class="center">Ranked Solo</td>
 					';
-				}else{
-					print'
+			} else {
+				print '
 						<tr id="elotr">
 							<td class="center">Flex Queue</td>
 					';
-				}
-				print'
+			}
+			print '
 						<td class="center">
-							<img src="resources/ranked_emblems/'.$data_ELO[$i]['tier'].'.png" width="60" heigth="60"><b>' .$data_ELO[$i]['tier']. '
+							<img src="resources/ranked_emblems/' . $data_ELO[$i]['tier'] . '.png" width="60" heigth="60"><b>' . $data_ELO[$i]['tier'] . '
 						</b></td>
-						<td class="center"><b>' .$data_ELO[$i]['rank']. '</b></td>
-						<td class="center"><b>' .$data_ELO[$i]['leaguePoints']. '</b></td>
-						<td class="center" style="color:green">' .$data_ELO[$i]['wins']. '</td>
-						<td class="center" style="color:red">' .$data_ELO[$i]['losses']. '</td>
-						<td class="center" style="color:blue">' .$win_rated[$i]. '%</td>
+						<td class="center"><b>' . $data_ELO[$i]['rank'] . '</b></td>
+						<td class="center"><b>' . $data_ELO[$i]['leaguePoints'] . '</b></td>
+						<td class="center" style="color:green">' . $data_ELO[$i]['wins'] . '</td>
+						<td class="center" style="color:red">' . $data_ELO[$i]['losses'] . '</td>
+						<td class="center" style="color:blue">' . $win_rated[$i] . '%</td>
 					<tr>
 				';
-			}
-						    		
-			print'						
+		}
+
+		print '						
 										</tbody>
 									</table>
 								</div>
@@ -177,78 +188,78 @@
 										</thead>
 										<tbody>
 			';
-			
-			if($data_match == null){
-				print'
+
+		if ($data_match == null) {
+			print '
 					<tr><td colspan="7" class="center">--NOT ENOUGH GAMES--</td></tr>
 				';
-			}
-			
-			for($i = 0; $i < count($arrayMatches); ++$i){
-				$duration = $data_match[$i]['gameDuration'] / 60;
-				$duration¡ = number_format((float)$duration, 0, '.', '');
-				if($data_match[$i]['participants'][$id[$i]]['stats']['win'] == 'true'){
-					print'
+		}
+
+		for ($i = 0; $i < count($arrayMatches); ++$i) {
+			$duration = $data_match[$i]['gameDuration'] / 60;
+			$duration¡ = number_format((float) $duration, 0, '.', '');
+			if ($data_match[$i]['participants'][$id[$i]]['stats']['win'] == 'true') {
+				print '
 						<tr id="matchtr" style="background-color:green">
 							<td class="center"><b> VICTORY </b></td>
 					';
-				}
-				else{
-					print'
+			} else {
+				print '
 						<tr id="matchtr" style="background-color:red">
 							<td class="center"><b> DEFEAT </b></td>
 					';
-				}
-					print'	
-							<td class="center">' .$data_match[$i]['participants'][$id[$i] + 1]['stats']['kills']. '/' .$data_match['participants'][$id[$i] + 1]['stats']['deaths']. '/' .$data_match['participants'][$id[$i] + 1]['stats']['assists']. '</td>
-							<td class="center">' .$duration¡. '´</td>
-							<td class="center">' .$array[$arrayChamps[$i]]. '</td>
-							<td class="center">' .$arrayLanes[$i]. '</td>
+			}
+			print '	
+							<td class="center">' . $data_match[$i]['participants'][$id[$i] + 1]['stats']['kills'] . '/' . $data_match['participants'][$id[$i] + 1]['stats']['deaths'] . '/' . $data_match['participants'][$id[$i] + 1]['stats']['assists'] . '</td>
+							<td class="center">' . $duration¡ . '´</td>
+							<td class="center">' . $array[$arrayChamps[$i]] . '</td>
+							<td class="center">' . $arrayLanes[$i] . '</td>
 						<tr>
 					';
-			}
-						    		
-			print'						
+		}
+
+		print '						
 										</tbody>
 									</table>
 								</div>
 						</div>
 			';
-			if($server == 'euw1'){
-				print'
+		if ($server == 'euw1') {
+			print '
 					<div class="col-12" style="margin-top:25px; margin-bottom:50px">					
-						<a href="https://euw.op.gg/summoner/userName='.$summoner.'"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
+						<a href="https://euw.op.gg/summoner/userName=' . $summoner . '"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
 					</div>
 				';
-			}
-			if($server == 'na1'){
-				print'
+		}
+		if ($server == 'na1') {
+			print '
 					<div class="col-12" style="margin-top:25px; margin-bottom:50px">					
-						<a href="https://na.op.gg/summoner/userName='.$summoner.'"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
+						<a href="https://na.op.gg/summoner/userName=' . $summoner . '"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
 					</div>
 				';
-			}
-			if($server == 'la1'){
-				print'
+		}
+		if ($server == 'la1') {
+			print '
 					<div class="col-12" style="margin-top:25px; margin-bottom:50px">					
-						<a href="https://lan.op.gg/summoner/userName='.$summoner.'"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
+						<a href="https://lan.op.gg/summoner/userName=' . $summoner . '"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
 					</div>
 				';
-			}
-			if($server == 'oc1'){
-				print'
+		}
+		if ($server == 'oc1') {
+			print '
 					<div class="col-12" style="margin-top:25px; margin-bottom:50px">					
-						<a href="https://oce.op.gg/summoner/userName='.$summoner.'"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a>
+						<a href="https://oce.op.gg/summoner/userName=' . $summoner . '"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a>
 					</div>
 				';
-			}
-			print'
+		}
+		print '
 					</div>
 				</div>
 
 				<br><a href="index.php">Return to main menu</a>
-			';	
+			';
 		?>
-	</div>	
-  </body>
+	</div>
+</body>
+
 </html>

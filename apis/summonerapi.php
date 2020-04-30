@@ -26,6 +26,20 @@
 	
 	fclose($requestSummoner);		//Close connection to file.
 	
+	if($server == 'euw1'){
+		$serverAux = 'EUW';
+	}
+	if($server == 'na1'){
+		$serverAux = 'NA';
+	}
+	if($server == 'la1'){
+		$serverAux = 'LAN';
+	}
+	if($server == 'oc1'){
+		$serverAux = 'OCE';
+	}
+
+
 	$request = fopen("https://$server.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/$encryptSummoner?api_key=$apikey", "r");  //Request of Mastery.
 	$json_lol = stream_get_contents($request);
 	$data_lol = json_decode($json_lol, true);
@@ -70,5 +84,3 @@
 			}
 		}
 	}
-	
-?>
