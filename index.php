@@ -217,7 +217,7 @@ session_start();
 
 					for ($i = 0; $i < count($_SESSION['favs']); ++$i) {
 						print '
-						<a href="http://localhost:8080/tfg/summoner.php?summoner=' . $_SESSION["favs"][$i] . '&server=' . $_SESSION["ArrayServers"][$i] . '">' . $_SESSION["favs"][$i] . ' </a><br>
+						<a href="http://localhost:8080/tfg/summoner.php?summoner=' . $_SESSION["favs"][$i] . '&server=' . $_SESSION["ArrayServers"][$i] . '">' . rawurldecode($_SESSION['favs'][$i]) . ' </a><br>
 					';
 					}
 
@@ -296,9 +296,9 @@ session_start();
 			<div class="modal-body">
 				Ask for help or give Feedback<br><br>
 				<form action="" method="post">
-					<input type="email" name="email" id="email" value="" placeholder="youremail@domain"><br>
-					<input type="text" name="subject" id="subject" value="" placeholder="Subject"><br>
-					<textarea name="message" id="message" rows="4" cols="40" placeholder="Write a message..."></textarea><br><br>
+					<input type="email" name="email" id="email" value="" required placeholder="Your email"><br>
+					<input type="text" name="subject" id="subject" value="" required placeholder="Subject"><br>
+					<textarea name="message" id="message" rows="4" cols="45" required placeholder="Write a message..."></textarea><br><br>
 					<input type="submit" value="Send">
 				</form>
 			</div>

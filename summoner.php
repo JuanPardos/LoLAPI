@@ -42,7 +42,7 @@ session_start();
 		print '
 					<script type="text/javascript">
 						$("#favicon").attr("href","http://ddragon.leagueoflegends.com/cdn/10.8.1/img/profileicon/' . $profileIcon . '.png");
-						document.title = "' . $summoner . ' - ' . $serverAux . '";
+						document.title = "' . $summonerDecoded . ' - ' . $serverAux . '";
 					</script>
 				';
 
@@ -62,7 +62,7 @@ session_start();
 				';
 		}
 
-		print '<hr style="border-color:grey"><h1 style="text-align:center; color:white">' . $summoner . ' <img src="http://ddragon.leagueoflegends.com/cdn/10.8.1/img/profileicon/' . $profileIcon . '.png" heigth="64px" width="64px"></h1><hr style="border-color:grey">';
+		print '<hr style="border-color:grey"><h1 style="text-align:center; color:white">' . $summonerDecoded . ' <img src="http://ddragon.leagueoflegends.com/cdn/10.8.1/img/profileicon/' . $profileIcon . '.png" heigth="64px" width="64px"></h1><hr style="border-color:grey">';
 
 		print
 			'
@@ -227,28 +227,28 @@ session_start();
 		if ($server == 'euw1') {
 			print '
 					<div class="col-12" style="margin-top:25px; margin-bottom:50px">					
-						<a href="https://euw.op.gg/summoner/userName=' . $summoner . '"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
+						<a href="https://euw.op.gg/summoner/userName=' . $summonerDecoded . '"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
 					</div>
 				';
 		}
 		if ($server == 'na1') {
 			print '
 					<div class="col-12" style="margin-top:25px; margin-bottom:50px">					
-						<a href="https://na.op.gg/summoner/userName=' . $summoner . '"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
+						<a href="https://na.op.gg/summoner/userName=' . $summonerDecoded . '"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
 					</div>
 				';
 		}
 		if ($server == 'la1') {
 			print '
 					<div class="col-12" style="margin-top:25px; margin-bottom:50px">					
-						<a href="https://lan.op.gg/summoner/userName=' . $summoner . '"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
+						<a href="https://lan.op.gg/summoner/userName=' . $summonerDecoded . '"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
 					</div>
 				';
 		}
 		if ($server == 'oc1') {
 			print '
 					<div class="col-12" style="margin-top:25px; margin-bottom:50px">					
-						<a href="https://oce.op.gg/summoner/userName=' . $summoner . '"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a>
+						<a href="https://oce.op.gg/summoner/userName=' . $summonerDecoded . '"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a>
 					</div>
 				';
 		}

@@ -1,6 +1,7 @@
 <?php
 	session_start();
-	$summoner = $_GET['summoner']; 			//Get summoner name from index.
+	$summoner = rawurlencode($_GET['summoner']);  //Get summoner from Index. Fix spaces in summoner names.
+	$summonerDecoded = rawurldecode($summoner);  //Fix correct spelling for summoner names with simbols, spaces etc.
 	$_SESSION['Summoner'] = $summoner;
 	$server = $_GET['server'];				//Get server name.
 	$_SESSION['Server'] = $server;
@@ -11,7 +12,7 @@
 	if(is_array($_SESSION['favs']) == false){
 		$_SESSION['favs'] = [];
 	}
-	
+		
 	if(is_array($_SESSION['ArrayServers']) == false){
 		$_SESSION['ArrayServers'] = [];
 	}
@@ -58,7 +59,7 @@
 	$arrayMatches = [];
 	$arrayChamps = [];
 	$arrayLanes = [];
-	for($i = 0; $i < 10; ++$i){
+	for($i = 0; $i < 8; ++$i){
 		array_push($arrayMatches, $data_matches['matches'][$i]['gameId']); 
 		array_push($arrayChamps, $data_matches['matches'][$i]['champion']);
 		array_push($arrayLanes, $data_matches['matches'][$i]['lane']);  
@@ -77,9 +78,9 @@
 	
 	$id = [];
 	
-	for($i = 0; $i < 10; ++$i){
+	for($i = 0; $i < count($arrayMatches); ++$i){
 		for($j = 0; $j < 10; ++$j){
-			if($data_match[$i]['participantIdentities'][$j]['player']['summonerName'] == $summoner){
+			if($data_match[$i]['participantIdentities'][$j]['player']['summonerName'] == $summonerDecoded){
 				array_push($id, $data_match[$i]['participantIdentities'][$j]['participantId']);
 			}
 		}
