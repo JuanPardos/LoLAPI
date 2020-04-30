@@ -26,8 +26,7 @@ session_start();
 </head>
 
 <body class="mainMenu">
-	<?php error_reporting(0); ?>
-	<!-- Disable PHP Debug messages -->
+	<?php error_reporting(0); ?> <!-- Disable PHP Debug messages -->
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-12 col-md-10 col-lg-10 col-xl-10 offset-md-1 offset-lg-1 offset-xl-1 min-vh-25" id="header">
@@ -94,7 +93,25 @@ session_start();
 													$arrayNames = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));
 													$arrayID = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'id'));
 
-
+													$subject = $_POST['subject'];
+													$email = $_POST['email'];
+													$message = $_POST['message'];
+													$header = 'From: '.$email.'';
+													
+													if($message != null && $subject != null && $email != null){
+														print '
+															<script type="text/javascript">
+																iziToast.success({
+																    title: "Success",
+																    message: "Successfully sent email",
+																    timeout: 3000,
+																    position: "topCenter",
+																});
+															</script>
+														';
+														mail($personalMail, $subject, $message, $header); 
+													}
+													
 													if ($data_freeChamps == null) {
 														print '
 														<div class="col-8 offset-2" style="background-color:red; text-align:center"><a>API ERROR</a></div>
@@ -259,6 +276,30 @@ session_start();
 				<form action="apis/alternativekeyapi.php" method="post" style="text-align:center">
 					<input type="text" name="api" id="apimobile" value="" placeholder="API KEY">
 					<input type="submit" value="Save">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="d-none d-xl-block" id="supportButton">
+		<button class="support" data-toggle="modal" data-target="#supportModal">Support</button>
+	</div>
+	<div class="modal fade" id="supportModal" tabindex="-1" role="dialog" aria-labelledby="modalApiTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header" style="background-color:#0099CC">
+				<h5 class="modal-title" id="modalApiTitle">Email Support</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				Ask for help or give Feedback<br><br>
+				<form action="" method="post">
+					<input type="email" name="email" id="email" value="" placeholder="youremail@domain"><br>
+					<input type="text" name="subject" id="subject" value="" placeholder="Subject"><br>
+					<textarea name="message" id="message" rows="4" cols="40" placeholder="Write a message..."></textarea><br><br>
+					<input type="submit" value="Send">
 				</form>
 			</div>
 		</div>

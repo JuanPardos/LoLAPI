@@ -62,7 +62,7 @@ session_start();
 				';
 		}
 
-		print '<hr style="border-color:grey"><h1 style="text-align:center; color:white">' . $summoner . ' <img src="http://ddragon.leagueoflegends.com/cdn/10.8.1/img/profileicon/' . $profileIcon . '.png" heigth="56px" width="56px"></h1><hr style="border-color:grey">';
+		print '<hr style="border-color:grey"><h1 style="text-align:center; color:white">' . $summoner . ' <img src="http://ddragon.leagueoflegends.com/cdn/10.8.1/img/profileicon/' . $profileIcon . '.png" heigth="64px" width="64px"></h1><hr style="border-color:grey">';
 
 		print
 			'
@@ -189,7 +189,7 @@ session_start();
 										<tbody>
 			';
 
-		if ($data_match == null) {
+		if ($data_match == null) { 
 			print '
 					<tr><td colspan="7" class="center">--NOT ENOUGH GAMES--</td></tr>
 				';
@@ -205,12 +205,12 @@ session_start();
 					';
 			} else {
 				print '
-						<tr id="matchtr" style="background-color:red">
+						<tr id="matchtr" style="background-color:#FF3535">
 							<td class="center"><b> DEFEAT </b></td>
 					';
 			}
 			print '	
-							<td class="center">' . $data_match[$i]['participants'][$id[$i] + 1]['stats']['kills'] . '/' . $data_match['participants'][$id[$i] + 1]['stats']['deaths'] . '/' . $data_match['participants'][$id[$i] + 1]['stats']['assists'] . '</td>
+							<td class="center">' . $data_match[$i]['participants'][$id[$i] + 1]['stats']['kills'] . '/' . $data_match[$i]['participants'][$id[$i] + 1]['stats']['deaths'] . '/' . $data_match[$i]['participants'][$id[$i] + 1]['stats']['assists'] . '</td>
 							<td class="center">' . $duration¡ . '´</td>
 							<td class="center">' . $array[$arrayChamps[$i]] . '</td>
 							<td class="center">' . $arrayLanes[$i] . '</td>

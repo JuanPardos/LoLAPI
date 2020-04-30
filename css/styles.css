@@ -36,6 +36,20 @@ body.mainMenu{
 	background-attachment: fixed;
 }
 
+.support {
+  background-color : #31B0D5;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border-color: #46b8da;
+}
+
+#supportButton {
+  position: fixed;
+  bottom: -4px;
+  right: 10px;
+}
+
 body.error{
 	background-image: url('../resources/error.png');
 	background-repeat: no-repeat;
