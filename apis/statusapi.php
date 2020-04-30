@@ -7,13 +7,6 @@
  	$ok = '<a href="https://status.riotgames.com/?locale=en_GB&product=leagueoflegends"><img src="https://www.publicdomainpictures.net/pictures/310000/velka/orange-circle.png" rel="tooltip" data-placement="right" title="Atleast 1 issue" width="20px" height="20px"></a>';
  	$offline = '<a href="https://status.riotgames.com/?locale=en_GB&product=leagueoflegends"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/WX_circle_red.png" rel="tooltip" data-placement="right" title="Server OFFLINE" width="20px" height="20px"></a>';
 	
-//	for($i = 0; $i < 4; ++$i) {
-//		${"status.$i"} = fopen("https://$server[$i].api.riotgames.com/lol/status/v3/shard-data?api_key=$apikey", "r");
-//		${"json_status.$i"} = stream_get_contents(${"status.$i"});
-//		${"data_status.$i"} = json_decode(${"json_status.$i"}, true); 
-//		fclose(${"status.$i"});
-//	}
-	
 	//YEP, HAS TO BE A WAY TO REDUCE ALL THAT CODE ;(
 	
 	$status1 = fopen("https://euw1.api.riotgames.com/lol/status/v3/shard-data?api_key=$apikey", "r");

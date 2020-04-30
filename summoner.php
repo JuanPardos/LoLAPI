@@ -62,14 +62,14 @@ session_start();
 				';
 		}
 
-		print '<hr style="border-color:grey"><h1 style="text-align:center; color:white">' . $summonerDecoded . ' <img src="http://ddragon.leagueoflegends.com/cdn/10.8.1/img/profileicon/' . $profileIcon . '.png" heigth="64px" width="64px"></h1><hr style="border-color:grey">';
+		print '<hr><h1 style="text-align:center; color:white">' . $summonerDecoded . ' <img src="http://ddragon.leagueoflegends.com/cdn/10.8.1/img/profileicon/' . $profileIcon . '.png" heigth="64px" width="64px"></h1><hr>';
 
 		print
 			'
 				<div class="row">
 					<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 order-2 order-sm-2 order-md-1 order-lg-1 order-xl-1">
 						<div class="table-responsive">
-							<table class="table table-borderless table-sm table-striped" id="masteryTable" style="border: 1px solid black">
+							<table class="table table-borderless table-sm table-striped" id="masteryTable">
 								<thead class="thead-dark">
 									<tr>
 										<th colspan="5" class="center"><u>Champion Mastery</u></th>
@@ -116,7 +116,7 @@ session_start();
 						<div class="row">
 							<div class="col-12">
 								<div class="table-responsive">
-									<table class="table table-sm table-striped table-borderless" id="eloTable" style="border: 1px solid black">
+									<table class="table table-sm table-striped table-borderless" id="eloTable">
 										<thead class="thead-dark">
 											<tr>
 												<th colspan="7" class="center"><u>Ranked Stats</u></th>
@@ -173,7 +173,7 @@ session_start();
 						</div> 
 						<div class="col-12">
 							<div class="table-responsive">
-									<table class="table table-sm table-striped table-borderless" id="matchTable" style="border: 1px solid black">
+									<table class="table table-sm table-striped table-borderless" id="matchTable">
 										<thead class="thead-dark">
 											<tr>
 												<th colspan="5" class="center"><u>Match History</u></th>
@@ -189,7 +189,7 @@ session_start();
 										<tbody>
 			';
 
-		if ($data_match == null) { 
+		if ($data_match == null) {
 			print '
 					<tr><td colspan="7" class="center">--NOT ENOUGH GAMES--</td></tr>
 				';
@@ -226,29 +226,29 @@ session_start();
 			';
 		if ($server == 'euw1') {
 			print '
-					<div class="col-12" style="margin-top:25px; margin-bottom:50px">					
-						<a href="https://euw.op.gg/summoner/userName=' . $summonerDecoded . '"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
+					<div id="opgg" class="col-12">					
+						<a href="https://euw.op.gg/summoner/userName=' . $summonerDecoded . '"><img src="resources/opgg.png" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
 					</div>
 				';
 		}
 		if ($server == 'na1') {
 			print '
-					<div class="col-12" style="margin-top:25px; margin-bottom:50px">					
-						<a href="https://na.op.gg/summoner/userName=' . $summonerDecoded . '"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
+					<div id="opgg" class="col-12">					
+						<a href="https://na.op.gg/summoner/userName=' . $summonerDecoded . '"><img src="resources/opgg.png" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
 					</div>
 				';
 		}
 		if ($server == 'la1') {
 			print '
-					<div class="col-12" style="margin-top:25px; margin-bottom:50px">					
-						<a href="https://lan.op.gg/summoner/userName=' . $summonerDecoded . '"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
+					<div id="opgg" class="col-12">					
+						<a href="https://lan.op.gg/summoner/userName=' . $summonerDecoded . '"><img src="resources/opgg.png" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
 					</div>
 				';
 		}
 		if ($server == 'oc1') {
 			print '
-					<div class="col-12" style="margin-top:25px; margin-bottom:50px">					
-						<a href="https://oce.op.gg/summoner/userName=' . $summonerDecoded . '"><img src="resources/opgg.png" style="display: block; margin-left: auto; margin-right: auto" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a>
+					<div id="opgg" class="col-12">					
+						<a href="https://oce.op.gg/summoner/userName=' . $summonerDecoded . '"><img src="resources/opgg.png" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a>
 					</div>
 				';
 		}

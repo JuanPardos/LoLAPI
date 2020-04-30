@@ -26,14 +26,15 @@ session_start();
 </head>
 
 <body class="mainMenu">
-	<?php error_reporting(0); ?> <!-- Disable PHP Debug messages -->
+	<?php error_reporting(0); ?>
+	<!-- Disable PHP Debug messages -->
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-12 col-md-10 col-lg-10 col-xl-10 offset-md-1 offset-lg-1 offset-xl-1 min-vh-25" id="header">
-				<img class="offset-sm-11 offset-11 mt-2 mr-sm-2 mr-3 d-block d-sm-block d-md-none d-lg-none d-xl-none" src="https://www.stickpng.com/assets/images/588a64f5d06f6719692a2d13.png" id="menubutton" data-toggle="modal" data-target="#modalApi" rel="tooltip" width="45px" height="45px" title="Api Key Menu" style="margin-top:-6px;position:relative;z-index:9999">
+				<img class="offset-sm-11 offset-11 mt-2 mr-sm-2 mr-3 d-block d-sm-block d-md-none d-lg-none d-xl-none" src="https://www.stickpng.com/assets/images/588a64f5d06f6719692a2d13.png" id="menubutton" data-toggle="modal" data-target="#modalApi" rel="tooltip" title="Api Key Menu">
 				<p class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8 mt-xl-2 mt-lg-2 mt-md-2" style="text-align:left; margin-top:-50px; position:absolute"><b>LEAGUE OF LEGENDS API SEARCH</b><br> <a class="d-none d-sm-block" style="font-style:italic">©Juan Pardos Zarate</a></p>
 				<form action="apis/alternativekeyapi.php" class=" mt-xl-3 mt-lg-3 mt-md-3 d-none d-md-block d-lg-block d-xl-block order-sm-12" method="post" style="text-align:right; margin-top:-50px">
-					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/VisualEditor_-_Icon_-_Help.svg/1024px-VisualEditor_-_Icon_-_Help.svg.png" id="helpbutton" data-toggle="modal" data-target="#exampleModalLong" rel="tooltip" width="30px" height="30px" title="Open API Key help" style="margin-top:-6px">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/VisualEditor_-_Icon_-_Help.svg/1024px-VisualEditor_-_Icon_-_Help.svg.png" id="helpbutton" data-toggle="modal" data-target="#exampleModalLong" rel="tooltip" width="30px" height="30px" title="Open API Key help">
 					<input type="text" name="api" id="api" value="" placeholder="API KEY">
 					<input type="submit" value="Save">
 				</form>
@@ -53,7 +54,7 @@ session_start();
 						<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 							<div class="card-body">
 								<form name="form" action="summoner.php" method="get" style="text-align:center">
-									<img src="https://icons-for-free.com/iconfiles/png/512/mark+opinion+rating+star+icon-1320191205647153700.png" id="starimg" onclick="changeImg()" rel="tooltip" title="Mark as favorite" width="22px" height="22px" style="margin-bottom:7px">
+									<img src="https://icons-for-free.com/iconfiles/png/512/mark+opinion+rating+star+icon-1320191205647153700.png" id="starimg" onclick="changeImg()" rel="tooltip" title="Mark as favorite">
 									<input class="col-md-auto" type="text" name="summoner" id="summoner" value="" placeholder="Summoner name">
 									<select name="server" id="server">
 										<option value="euw1">EUW</option>
@@ -96,9 +97,9 @@ session_start();
 													$subject = $_POST['subject'];
 													$email = $_POST['email'];
 													$message = $_POST['message'];
-													$header = 'From: '.$email.'';
-													
-													if($message != null && $subject != null && $email != null){
+													$header = 'From: ' . $email . '';
+
+													if ($message != null && $subject != null && $email != null) {
 														print '
 															<script type="text/javascript">
 																iziToast.success({
@@ -109,9 +110,9 @@ session_start();
 																});
 															</script>
 														';
-														mail($personalMail, $subject, $message, $header); 
+														mail($personalMail, $subject, $message, $header);
 													}
-													
+
 													if ($data_freeChamps == null) {
 														print '
 														<div class="col-8 offset-2" style="background-color:red; text-align:center"><a>API ERROR</a></div>
@@ -198,7 +199,7 @@ session_start();
 					</div>
 				</div>
 			</div>
-			<div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6 mt-xl-2 mt-lg-2 mt-md-2 mt-sm-2 mt-4 offset-xl-0 offset-lg-0 offset-md-0 offset-sm-3 offset-3" id="fav" onmouseover="fadeInFav()" onmouseout="fadeOutFav()" style="text-align:center; min-width:125px">
+			<div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6 mt-xl-2 mt-lg-2 mt-md-2 mt-sm-2 mt-4 offset-xl-0 offset-lg-0 offset-md-0 offset-sm-3 offset-3" id="fav">
 				<a><b>FAVORITES</b>
 					<hr></a>
 				<div id="favs">
@@ -228,19 +229,19 @@ session_start();
 		</div>
 	</div>
 	<div class="col-10 offset-1 fixed-bottom d-none d-sm-block" id="footer">
-		<span class="d-none d-sm-none d-md-block d-lg-block d-xl-block" style="color:black">
+		<span class="d-none d-sm-none d-md-block d-lg-block d-xl-block">
 			This Website isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games
 			or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are
 			trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
 		</span>
-		<span class="d-block d-sm-block d-md-none d-lg-none d-xl-none" style="color:black; font-size:10px">
+		<span class="d-block d-sm-block d-md-none d-lg-none d-xl-none" style="font-size:10px">
 			This Website isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games
 			or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are
 			trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
 		</span>
 	</div>
 	<form action="apis/summonerapi.php" method="post">
-		<input type="text" name="aux" id="aux" value="false" style="display:none" />
+		<input type="text" name="aux" id="aux" value="false" />
 	</form>
 </body>
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -281,10 +282,10 @@ session_start();
 		</div>
 	</div>
 </div>
-	<div class="d-none d-xl-block" id="supportButton">
-		<button class="support" data-toggle="modal" data-target="#supportModal">Support</button>
-	</div>
-	<div class="modal fade" id="supportModal" tabindex="-1" role="dialog" aria-labelledby="modalApiTitle" aria-hidden="true">
+<div class="d-none d-xl-block" id="supportButton">
+	<button class="support" data-toggle="modal" data-target="#supportModal">Support</button>
+</div>
+<div class="modal fade" id="supportModal" tabindex="-1" role="dialog" aria-labelledby="modalApiTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-header" style="background-color:#0099CC">

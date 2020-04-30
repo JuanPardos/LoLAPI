@@ -3,6 +3,8 @@
     border: 2px solid skyblue;
     border-radius: 10px;
     height: 200px;
+    text-align:center; 
+    min-width:125px;
 }
 
 #header{
@@ -53,7 +55,7 @@ body.mainMenu{
 body.error{
 	background-image: url('../resources/error.png');
 	background-repeat: no-repeat;
-	background-size:cover;
+	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
 }
@@ -83,14 +85,50 @@ body {
 }
 
 #helpbutton{
-	cursor:pointer;
+	cursor: pointer;
+	margin-top: -6px;
+}
+
+#footer>span{
+	color: black;
+}
+
+#aux{
+	display: none;
+}
+
+hr{
+	border-color: grey;
+}
+
+#opgg{
+	margin-top: 25px; 
+	margin-bottom: 50px;
+}
+
+#opgg img{
+	display: block; 
+	margin-left: auto; 
+	margin-right: auto;
 }
 
 #starimg{
 	cursor: pointer;
+	width: 22px;
+	height: 22px;
+	margin-bottom: 7px;
 }
 
-#masteryTable, #eloTable, #gamesTable{
-	background-color:white;
+#masteryTable, #eloTable, #matchTable{
+	background-color: white;
+	border: 1px solid black;
+}
+
+#menubutton{
+	width: 45px;
+	height: 45px;
+	margin-top: -6px;
+	position: relative;
+	z-index: 9999;
 }
 

@@ -40,7 +40,6 @@
 		$serverAux = 'OCE';
 	}
 
-
 	$request = fopen("https://$server.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/$encryptSummoner?api_key=$apikey", "r");  //Request of Mastery.
 	$json_lol = stream_get_contents($request);
 	$data_lol = json_decode($json_lol, true);
@@ -59,6 +58,7 @@
 	$arrayMatches = [];
 	$arrayChamps = [];
 	$arrayLanes = [];
+	
 	for($i = 0; $i < 8; ++$i){
 		array_push($arrayMatches, $data_matches['matches'][$i]['gameId']); 
 		array_push($arrayChamps, $data_matches['matches'][$i]['champion']);
