@@ -1,4 +1,5 @@
 <?php
+ob_start("ob_gzhandler");
 session_start();
 ?>
 <!doctype html>
@@ -9,17 +10,17 @@ session_start();
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link id="favicon" rel="shortcut icon" type="image/png" href="resources/icon.png">
 	<!-- CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/iziToast.min.css">
 	<link rel="stylesheet" href="css/styles.css">
-	<!-- Javascript -->
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+	<!-- JS -->
+	<script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
 	<script src="js/iziToast.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="js/script.js"></script>
+	<script src="js/script.js" type="text/javascript"></script>
 	<script>
 		$(function() {
-			$("[rel='tooltip']").tooltip();
+			$("[rel='tooltip']").tooltip(); //Enables tooltips
 		});
 	</script>
 	<title>LOL Search</title>
@@ -37,6 +38,7 @@ session_start();
 		require_once 'apis/champapi.php';
 
 		$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));  //Used to get ID => Name of champ
+		$arrayID = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'id'));
 		$icons = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'icon'));
 
 		print '
@@ -62,7 +64,7 @@ session_start();
 				';
 		}
 
-		print '<hr><h1 style="text-align:center; color:white">' . $summonerDecoded . ' <img src="http://ddragon.leagueoflegends.com/cdn/10.8.1/img/profileicon/' . $profileIcon . '.png" heigth="64px" width="64px"></h1><hr>';
+		print '<hr><h1 style="text-align:center; color:white">' . $summonerDecoded . '<img src="http://ddragon.leagueoflegends.com/cdn/10.8.1/img/profileicon/' . $profileIcon . '.png" heigth="64px" width="64px"></h1><hr>';
 
 		print
 			'
@@ -87,11 +89,11 @@ session_start();
 
 		for ($i = 0; $i < 20; ++$i) {
 			print '<tr><td scope="row"  class="center">' . ($i + 1) . '</td>';
-			print '<td class="center"><img src="' . $icons[$data_lol[$i]["championId"]] . '" rel="tooltip" title="" width="40px" heigth="40px"><br>' . $array[$data_lol[$i]["championId"]] . '</td>';
+			print '<td class="center"><img src="resources/champion_icons/' . ucfirst($arrayID[$data_lol[$i]["championId"]]) . '.png" rel="tooltip" title="" width="40px" heigth="40px"><br>' . $array[$data_lol[$i]["championId"]] . '</td>';
 			print '<td class="center"><img src="resources/mastery_emblems/' . $data_lol[$i]['championLevel'] . '.png" rel="tooltip" title="' . $data_lol[$i]['championLevel'] . '" width="60px" heigth="60px"></td>';
 			print '<td class="center" style="vertical-align: middle">' . $data_lol[$i]['championPoints'] . '</td>';
 			if ($data_lol[$i]['chestGranted'] == 1) {
-				print '<td class="center" style="vertical-align: middle"><img src="https://img.rankedboost.com/wp-content/uploads/2017/08/League-of-Legends-Hextech-Crafting.png" width="50px" heigth="50px"></td></tr>';
+				print '<td class="center" style="vertical-align: middle"><img src="resources/chest.png" width="50px" heigth="50px"></td></tr>';
 			} else {
 				print '<td class="center"></td></tr>';
 			}
@@ -144,12 +146,12 @@ session_start();
 			if ($data_ELO[$i]['queueType'] == 'RANKED_SOLO_5x5') {
 				print '
 						<tr id="elotr">
-							<td class="center">Ranked Solo</td>
+							<td class="center">Solo Queue</td>
 					';
 			} else {
 				print '
 						<tr id="elotr">
-							<td class="center">Flex Queue</td>
+							<td class="center">Flex</td>
 					';
 			}
 			print '
@@ -198,20 +200,27 @@ session_start();
 		for ($i = 0; $i < count($arrayMatches); ++$i) {
 			$duration = $data_match[$i]['gameDuration'] / 60;
 			$duration¡ = number_format((float) $duration, 0, '.', '');
-			if ($data_match[$i]['participants'][$id[$i]]['stats']['win'] == 'true') {
+			if ($data_match[$i]['gameDuration'] < 360) {  //If game length <6 min probably its a remake. Riot API classifies remake as victory.
 				print '
+						<tr id="matchtr" style="background-color:grey">
+							<td class="center"><b> REMAKE </b></td>
+					';
+			} else {
+				if ($data_match[$i]['participants'][$id[$i]]['stats']['win'] == 'true') {
+					print '
 						<tr id="matchtr" style="background-color:green">
 							<td class="center"><b> VICTORY </b></td>
 					';
-			} else {
-				print '
+				} else {
+					print '
 						<tr id="matchtr" style="background-color:#FF3535">
 							<td class="center"><b> DEFEAT </b></td>
 					';
+				}
 			}
 			print '	
-							<td class="center">' . $data_match[$i]['participants'][$id[$i] + 1]['stats']['kills'] . '/' . $data_match[$i]['participants'][$id[$i] + 1]['stats']['deaths'] . '/' . $data_match[$i]['participants'][$id[$i] + 1]['stats']['assists'] . '</td>
-							<td class="center">' . $duration¡ . '´</td>
+							<td class="center">' . $data_match[$i]['participants'][$id[$i]]['stats']['kills'] . '/' . $data_match[$i]['participants'][$id[$i]]['stats']['deaths'] . '/' . $data_match[$i]['participants'][$id[$i]]['stats']['assists'] . '</td>
+							<td class="center">' . $duration¡ . '&apos;</td>
 							<td class="center">' . $array[$arrayChamps[$i]] . '</td>
 							<td class="center">' . $arrayLanes[$i] . '</td>
 						<tr>
@@ -227,28 +236,28 @@ session_start();
 		if ($server == 'euw1') {
 			print '
 					<div id="opgg" class="col-12">					
-						<a href="https://euw.op.gg/summoner/userName=' . $summonerDecoded . '"><img src="resources/opgg.png" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
+						<a href="https://euw.op.gg/summoner/userName=' . $summonerDecoded . '" target="_blank"><img src="resources/opgg.png" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
 					</div>
 				';
 		}
 		if ($server == 'na1') {
 			print '
 					<div id="opgg" class="col-12">					
-						<a href="https://na.op.gg/summoner/userName=' . $summonerDecoded . '"><img src="resources/opgg.png" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
+						<a href="https://na.op.gg/summoner/userName=' . $summonerDecoded . '" target="_blank"><img src="resources/opgg.png" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
 					</div>
 				';
 		}
 		if ($server == 'la1') {
 			print '
 					<div id="opgg" class="col-12">					
-						<a href="https://lan.op.gg/summoner/userName=' . $summonerDecoded . '"><img src="resources/opgg.png" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
+						<a href="https://lan.op.gg/summoner/userName=' . $summonerDecoded . '" target="_blank"><img src="resources/opgg.png" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a> 
 					</div>
 				';
 		}
 		if ($server == 'oc1') {
 			print '
 					<div id="opgg" class="col-12">					
-						<a href="https://oce.op.gg/summoner/userName=' . $summonerDecoded . '"><img src="resources/opgg.png" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a>
+						<a href="https://oce.op.gg/summoner/userName=' . $summonerDecoded . '" target="_blank"><img src="resources/opgg.png" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a>
 					</div>
 				';
 		}
@@ -256,10 +265,13 @@ session_start();
 					</div>
 				</div>
 
-				<br><a href="index.php">Return to main menu</a>
+				<br><a href="../..">Return to main menu</a>
 			';
 		?>
 	</div>
 </body>
 
 </html>
+<?php
+ob_end_flush();
+?>

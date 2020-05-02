@@ -1,45 +1,60 @@
-﻿#fav{
-    background-color: khaki;
-    border: 2px solid skyblue;
-    border-radius: 10px;
-    height: 200px;
-    text-align:center; 
-    min-width:125px;
+﻿#fav {
+  background-color: khaki;
+  border: 2px solid skyblue;
+  border-radius: 10px;
+  height: 200px;
+  text-align: center;
+  min-width: 125px;
 }
 
-#header{
-	margin-top: -7px;
-	height: 60px;
-   	background-color: lightseagreen;
-   	border: 2px solid orangered;
-   	opacity: 0.7;
-   	border-radius: 10px;
+#header {
+  margin-top: -7px;
+  height: 60px;
+  background-color: lightseagreen;
+  border: 2px solid orangered;
+  opacity: 0.7;
+  border-radius: 10px;
 }
 
-#footer{
-	background-color: beige;
-	border-radius: 15px;
-	opacity: 0.7;
-	margin-bottom:5px;
+#footer {
+  background-color: beige;
+  border-radius: 15px;
+  opacity: 0.7;
+  margin-bottom: 5px;
 }
 
-input #header{
-	opacity:1;
+input #header {
+  opacity: 1;
 }
 
-#search{
-	margin-top:20px;
+#search {
+  margin-top: 20px;
 }
 
-body.mainMenu{
-	background-image: url('https://images.wallpapersden.com/image/download/soraka-nightbringer-dawnbringer-lol_68262_3840x2160.jpg');
-	background-repeat: no-repeat;
-	background-position: center top;
-	background-attachment: fixed;
+body.mainMenu {
+  background-image: url("../resources/bgmain.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+}
+
+body.summoner {
+  background-image: url("../resources/bgsumm.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+}
+
+body.error {
+  background-image: url("../resources/error.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .support {
-  background-color : #31B0D5;
+  background-color: #0099cc;
   color: white;
   padding: 10px 20px;
   border-radius: 4px;
@@ -52,83 +67,73 @@ body.mainMenu{
   right: 10px;
 }
 
-body.error{
-	background-image: url('../resources/error.png');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
+#elotr > td {
+  vertical-align: middle;
 }
 
-body.summoner{
-	background-image: url('https://i.pinimg.com/originals/6c/dd/a7/6cdda74aef801e92bac9270506312ca4.jpg');
-	background-repeat: no-repeat;
-	background-position: center top;
-	background-attachment: fixed;
+#mtr > td {
+  vertical-align: middle;
 }
 
-#elotr > td{
-	vertical-align: middle;
+.center {
+  text-align: center;
 }
 
-#mtr > td{
-	vertical-align: middle;
+#helpbutton {
+  cursor: pointer;
+  margin-top: -6px;
 }
 
-
-.center{
-	text-align: center;
+#footer > span {
+  color: black;
 }
 
-body {
-
+#aux {
+  display: none;
 }
 
-#helpbutton{
-	cursor: pointer;
-	margin-top: -6px;
+hr {
+  border-color: grey;
 }
 
-#footer>span{
-	color: black;
+#opgg {
+  margin-top: 25px;
+  margin-bottom: 50px;
 }
 
-#aux{
-	display: none;
+#opgg img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-hr{
-	border-color: grey;
+#starimg {
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+  margin-bottom: 7px;
 }
 
-#opgg{
-	margin-top: 25px; 
-	margin-bottom: 50px;
+#masteryTable,
+#eloTable,
+#matchTable {
+  background-color: white;
+  border: 1px solid black;
 }
 
-#opgg img{
-	display: block; 
-	margin-left: auto; 
-	margin-right: auto;
+#menubutton {
+  width: 45px;
+  height: 45px;
+  margin-top: -6px;
+  position: relative;
+  z-index: 9999;
 }
 
-#starimg{
-	cursor: pointer;
-	width: 22px;
-	height: 22px;
-	margin-bottom: 7px;
+#supportModal {
+  position: fixed;
+  top: 40%;
+  left: 33%;
+  z-index: 10040;
+  overflow: auto;
+  overflow-y: auto;
 }
-
-#masteryTable, #eloTable, #matchTable{
-	background-color: white;
-	border: 1px solid black;
-}
-
-#menubutton{
-	width: 45px;
-	height: 45px;
-	margin-top: -6px;
-	position: relative;
-	z-index: 9999;
-}
-

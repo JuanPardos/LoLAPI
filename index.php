@@ -1,4 +1,5 @@
 <?php
+ob_start("ob_gzhandler");
 session_start();
 ?>
 <!doctype html>
@@ -9,17 +10,17 @@ session_start();
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="icon" href="resources/icon.png" type="image/ico">
 	<!-- CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/iziToast.min.css">
 	<link rel="stylesheet" href="css/styles.css">
-	<!-- Javascript -->
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+	<!-- JS -->
+	<script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
 	<script src="js/iziToast.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="js/script.js"></script>
+	<script src="js/script.js" type="text/javascript"></script>
 	<script>
 		$(function() {
-			$("[rel='tooltip']").tooltip(); //Enables iziToast
+			$("[rel='tooltip']").tooltip(); //Enables tooltips
 		});
 	</script>
 	<title>LOL API</title>
@@ -31,10 +32,10 @@ session_start();
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-12 col-md-10 col-lg-10 col-xl-10 offset-md-1 offset-lg-1 offset-xl-1 min-vh-25" id="header">
-				<img class="offset-sm-11 offset-11 mt-2 mr-sm-2 mr-3 d-block d-sm-block d-md-none d-lg-none d-xl-none" src="https://www.stickpng.com/assets/images/588a64f5d06f6719692a2d13.png" id="menubutton" data-toggle="modal" data-target="#modalApi" rel="tooltip" title="Api Key Menu">
+				<img class="offset-sm-11 offset-11 mt-2 mr-sm-2 mr-3 d-block d-sm-block d-md-none d-lg-none d-xl-none" src="resources/menuicon.png" id="menubutton" data-toggle="modal" data-target="#modalApi" rel="tooltip" title="Api Key Menu">
 				<p class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8 mt-xl-2 mt-lg-2 mt-md-2" style="text-align:left; margin-top:-50px; position:absolute"><b>LEAGUE OF LEGENDS API SEARCH</b><br> <a class="d-none d-sm-block" style="font-style:italic">©Juan Pardos Zarate</a></p>
 				<form action="apis/alternativekeyapi.php" class=" mt-xl-3 mt-lg-3 mt-md-3 d-none d-md-block d-lg-block d-xl-block order-sm-12" method="post" style="text-align:right; margin-top:-50px">
-					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/VisualEditor_-_Icon_-_Help.svg/1024px-VisualEditor_-_Icon_-_Help.svg.png" id="helpbutton" data-toggle="modal" data-target="#exampleModalLong" rel="tooltip" width="30px" height="30px" title="Open API Key help">
+					<img src="resources/help.png" id="helpbutton" data-toggle="modal" data-target="#exampleModalLong" rel="tooltip" width="30px" height="30px" title="Open API Key help">
 					<input type="text" name="api" id="api" value="" placeholder="API KEY">
 					<input type="submit" value="Save">
 				</form>
@@ -54,7 +55,6 @@ session_start();
 						<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 							<div class="card-body">
 								<form name="form" action="summoner.php" method="get" style="text-align:center">
-									<img src="https://icons-for-free.com/iconfiles/png/512/mark+opinion+rating+star+icon-1320191205647153700.png" id="starimg" onclick="changeImg()" rel="tooltip" title="Mark as favorite">
 									<input class="col-md-auto" type="text" name="summoner" id="summoner" value="" placeholder="Summoner name">
 									<select name="server" id="server">
 										<option value="euw1">EUW</option>
@@ -110,7 +110,7 @@ session_start();
 																});
 															</script>
 														';
-														mail($personalMail, $subject, $message, $header);
+														mail($personalMail, $subject, $message, $header); //Sends email
 													}
 
 													if ($data_freeChamps == null) {
@@ -119,7 +119,7 @@ session_start();
 													';
 													}
 													for ($i = 0; $i < count($data_freeChamps['freeChampionIds']); ++$i) {
-														print '<td style="text-align:center"><a href="https://na.leagueoflegends.com/en-us/champions/' . $arrayID[$data_freeChamps['freeChampionIds'][$i]] . '/"><img src="' . $array[$data_freeChamps['freeChampionIds'][$i]] . '" width="48" height="48" rel="tooltip" title="View champion info"></a></td>';
+														print '<td style="text-align:center"><a href="https://na.leagueoflegends.com/en-us/champions/' . $arrayID[$data_freeChamps['freeChampionIds'][$i]] . '/"><img src="resources/champion_icons/' . ucfirst($arrayID[$data_freeChamps['freeChampionIds'][$i]]) . '.png" width="48" height="48" rel="tooltip" title="View champion info"></a></td>';
 													}
 													?>
 												</th>
@@ -218,10 +218,9 @@ session_start();
 
 					for ($i = 0; $i < count($_SESSION['favs']); ++$i) {
 						print '
-						<a href="http://localhost:8080/tfg/summoner.php?summoner=' . $_SESSION["favs"][$i] . '&server=' . $_SESSION["ArrayServers"][$i] . '">' . rawurldecode($_SESSION['favs'][$i]) . ' </a><br>
-					';
+							<a href="/summoner.php?summoner=' . $_SESSION["favs"][$i] . '&server=' . $_SESSION["ArrayServers"][$i] . '">' . rawurldecode($_SESSION['favs'][$i]) . ' </a><br>
+						';
 					}
-
 
 					?>
 				</div>
@@ -285,8 +284,8 @@ session_start();
 <div class="d-none d-xl-block" id="supportButton">
 	<button class="support" data-toggle="modal" data-target="#supportModal">Support</button>
 </div>
-<div class="modal fade" id="supportModal" tabindex="-1" role="dialog" aria-labelledby="modalApiTitle" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade" id="supportModal" tabindex="-1" role="dialog" data-backdrop="false" aria-labelledby="modalApiTitle" aria-hidden="true">
+	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header" style="background-color:#0099CC">
 				<h5 class="modal-title" id="modalApiTitle">Email Support</h5>
@@ -308,3 +307,6 @@ session_start();
 </div>
 
 </html>
+<?php
+ob_end_flush();
+?>

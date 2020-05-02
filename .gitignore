@@ -385,6 +385,5 @@ MigrationBackup/
 
 
 key.php
-resources/error2.png
-resources/error3.png
+.vscode
 *.code-workspace
