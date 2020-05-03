@@ -12,12 +12,11 @@ session_start();
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/iziToast.min.css">
-	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/styles.min.css">
 	<!-- JS -->
 	<script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
 	<script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
 	<script src="js/iziToast.min.js" type="text/javascript"></script>
-	<script src="js/script.js" type="text/javascript"></script>
 	<script>
 		$(function() {
 			$("[rel='tooltip']").tooltip(); //Enables tooltips
@@ -34,7 +33,7 @@ session_start();
 			<div class="col-12 col-md-10 col-lg-10 col-xl-10 offset-md-1 offset-lg-1 offset-xl-1 min-vh-25" id="header">
 				<img class="offset-sm-11 offset-11 mt-2 mr-sm-2 mr-3 d-block d-sm-block d-md-none d-lg-none d-xl-none" src="resources/menuicon.png" id="menubutton" data-toggle="modal" data-target="#modalApi" rel="tooltip" title="Api Key Menu">
 				<p class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8 mt-xl-2 mt-lg-2 mt-md-2" style="text-align:left; margin-top:-50px; position:absolute"><b>LEAGUE OF LEGENDS API SEARCH</b><br> <a class="d-none d-sm-block" style="font-style:italic">©Juan Pardos Zarate</a></p>
-				<form action="apis/alternativekeyapi.php" class=" mt-xl-3 mt-lg-3 mt-md-3 d-none d-md-block d-lg-block d-xl-block order-sm-12" method="post" style="text-align:right; margin-top:-50px">
+				<form action="api/alternativekeyapi.php" class=" mt-xl-3 mt-lg-3 mt-md-3 d-none d-md-block d-lg-block d-xl-block order-sm-12" method="post" style="text-align:right; margin-top:-50px">
 					<img src="resources/help.png" id="helpbutton" data-toggle="modal" data-target="#exampleModalLong" rel="tooltip" width="30px" height="30px" title="Open API Key help">
 					<input type="text" name="api" id="api" value="" placeholder="API KEY">
 					<input type="submit" value="Save">
@@ -87,8 +86,8 @@ session_start();
 													if ($apikey != $_SESSION['sapikey'] && $_SESSION['sapikey'] != null) {
 														$apikey = $_SESSION['sapikey'];
 													}
-													require_once 'apis/freechampapi.php';
-													require_once 'apis/champapi.php';
+													require_once 'api/freechampapi.php';
+													require_once 'api/champapi.php';
 
 													$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'icon'));
 													$arrayNames = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));
@@ -157,7 +156,7 @@ session_start();
 											if ($apikey != $_SESSION['sapikey'] && $_SESSION['sapikey'] != null) {
 												$apikey = $_SESSION['sapikey'];
 											}
-											require_once 'apis/statusapi.php';
+											require_once 'api/statusapi.php';
 
 
 											//YEP, I KNOW I CAN DO THIS ONE BETTER								
@@ -239,7 +238,7 @@ session_start();
 			trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
 		</span>
 	</div>
-	<form action="apis/summonerapi.php" method="post">
+	<form action="api/summonerapi.php" method="post">
 		<input type="text" name="aux" id="aux" value="false" />
 	</form>
 </body>
@@ -273,7 +272,7 @@ session_start();
 				If you are not the developer you may need a new API Key.<br>
 				In order to get a new one visit <a href="https://developer.riotgames.com/" target="_blank">https://developer.riotgames.com/</a> and sign in with your Riot Account.<br>
 				The key is stored throughout the session.<br><br>
-				<form action="apis/alternativekeyapi.php" method="post" style="text-align:center">
+				<form action="api/alternativekeyapi.php" method="post" style="text-align:center">
 					<input type="text" name="api" id="apimobile" value="" placeholder="API KEY">
 					<input type="submit" value="Save">
 				</form>

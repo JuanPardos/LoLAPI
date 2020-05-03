@@ -385,5 +385,6 @@ MigrationBackup/
 
 
 key.php
+.htaccess
 .vscode
 *.code-workspace

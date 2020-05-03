@@ -1,34 +1,10 @@
-﻿#fav {
-  background-color: khaki;
-  border: 2px solid skyblue;
-  border-radius: 10px;
-  height: 200px;
-  text-align: center;
-  min-width: 125px;
-}
-
-#header {
+﻿#header {
   margin-top: -7px;
   height: 60px;
   background-color: lightseagreen;
   border: 2px solid orangered;
   opacity: 0.7;
   border-radius: 10px;
-}
-
-#footer {
-  background-color: beige;
-  border-radius: 15px;
-  opacity: 0.7;
-  margin-bottom: 5px;
-}
-
-input #header {
-  opacity: 1;
-}
-
-#search {
-  margin-top: 20px;
 }
 
 body.mainMenu {
@@ -53,6 +29,30 @@ body.error {
   background-attachment: fixed;
 }
 
+#footer {
+  background-color: beige;
+  border-radius: 15px;
+  opacity: 0.7;
+  margin-bottom: 5px;
+}
+
+#fav {
+  background-color: khaki;
+  border: 2px solid skyblue;
+  border-radius: 10px;
+  height: 200px;
+  text-align: center;
+  min-width: 125px;
+}
+
+#favs img{
+  cursor: pointer;
+}
+
+#search {
+  margin-top: 20px;
+}
+
 .support {
   background-color: #0099cc;
   color: white;
@@ -68,10 +68,6 @@ body.error {
 }
 
 #elotr > td {
-  vertical-align: middle;
-}
-
-#mtr > td {
   vertical-align: middle;
 }
 
@@ -105,13 +101,6 @@ hr {
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
-
-#starimg {
-  cursor: pointer;
-  width: 22px;
-  height: 22px;
-  margin-bottom: 7px;
 }
 
 #masteryTable,

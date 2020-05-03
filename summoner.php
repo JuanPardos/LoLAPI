@@ -12,12 +12,11 @@ session_start();
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/iziToast.min.css">
-	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/styles.min.css">
 	<!-- JS -->
 	<script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
 	<script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
 	<script src="js/iziToast.min.js" type="text/javascript"></script>
-	<script src="js/script.js" type="text/javascript"></script>
 	<script>
 		$(function() {
 			$("[rel='tooltip']").tooltip(); //Enables tooltips
@@ -34,8 +33,8 @@ session_start();
 		if ($apikey != $_SESSION['sapikey'] && $_SESSION['sapikey'] != null) {
 			$apikey = $_SESSION['sapikey'];
 		}
-		require_once 'apis/summonerapi.php';
-		require_once 'apis/champapi.php';
+		require_once 'api/summonerapi.php';
+		require_once 'api/champapi.php';
 
 		$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));  //Used to get ID => Name of champ
 		$arrayID = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'id'));
@@ -156,8 +155,8 @@ session_start();
 			}
 			print '
 						<td class="center">
-							<img src="resources/ranked_emblems/' . $data_ELO[$i]['tier'] . '.png" width="60" heigth="60"><b>' . $data_ELO[$i]['tier'] . '
-						</b></td>
+							<img src="resources/ranked_emblems/' . $data_ELO[$i]['tier'] . '.png" width="60" heigth="60"><b>' . $data_ELO[$i]['tier'] . '</b>
+						</td>
 						<td class="center"><b>' . $data_ELO[$i]['rank'] . '</b></td>
 						<td class="center"><b>' . $data_ELO[$i]['leaguePoints'] . '</b></td>
 						<td class="center" style="color:green">' . $data_ELO[$i]['wins'] . '</td>
