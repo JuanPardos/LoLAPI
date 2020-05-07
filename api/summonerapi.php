@@ -1,8 +1,8 @@
 <?php
-session_start();
 $summoner = rawurlencode($_GET['summoner']);  //Get summoner from Index. Fix spaces in summoner names.
 $summonerDecoded = rawurldecode($summoner);
 $_SESSION['Summoner'] = $summoner;
+$_SESSION['SummonerDecoded'] = $summonerDecoded;
 $server = $_GET['server'];				//Get server name.
 $_SESSION['Server'] = $server;
 

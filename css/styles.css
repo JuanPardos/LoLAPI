@@ -45,7 +45,7 @@ body.error {
   min-width: 125px;
 }
 
-#favs img{
+#favs img {
   cursor: pointer;
 }
 
@@ -105,7 +105,7 @@ hr {
 
 #masteryTable,
 #eloTable,
-#matchTable {
+#matchesTable {
   background-color: white;
   border: 1px solid black;
 }

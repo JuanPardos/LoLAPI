@@ -1,4 +1,11 @@
 
+phpinfo.php
+key.php
+.htaccess
+.vscode
+*.code-workspace
+js/bootstrap-table-multiple-sort.js
+
 # Created by https://www.gitignore.io/api/angular,visualstudio
 # Edit at https://www.gitignore.io/?templates=angular,visualstudio
 
@@ -383,8 +390,3 @@ MigrationBackup/
 
 # End of https://www.gitignore.io/api/angular,visualstudio
 
-
-key.php
-.htaccess
-.vscode
-*.code-workspace

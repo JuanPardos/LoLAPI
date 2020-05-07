@@ -36,10 +36,6 @@ session_start();
 		require_once 'api/summonerapi.php';
 		require_once 'api/champapi.php';
 
-		$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));  //Used to get ID => Name of champ
-		$arrayID = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'id'));
-		$icons = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'icon'));
-
 		print '
 					<script type="text/javascript">
 						$("#favicon").attr("href","http://ddragon.leagueoflegends.com/cdn/10.8.1/img/profileicon/' . $profileIcon . '.png");
@@ -174,7 +170,7 @@ session_start();
 						</div> 
 						<div class="col-12">
 							<div class="table-responsive">
-									<table class="table table-sm table-striped table-borderless" id="matchTable">
+									<table class="table table-sm table-borderless" id="matchesTable">
 										<thead class="thead-dark">
 											<tr>
 												<th colspan="5" class="center"><u>Match History</u></th>
@@ -202,18 +198,18 @@ session_start();
 			if ($data_match[$i]['gameDuration'] < 360) {  //If game length <6 min probably its a remake. Riot API classifies remake as victory.
 				print '
 						<tr id="matchtr" style="background-color:grey">
-							<td class="center"><b> REMAKE </b></td>
+							<td class="center"><a href="match.php?matchId=' . $arrayMatches[$i] . '"><b> REMAKE </b></a></td>
 					';
 			} else {
 				if ($data_match[$i]['participants'][$id[$i]]['stats']['win'] == 'true') {
 					print '
-						<tr id="matchtr" style="background-color:green">
-							<td class="center"><b> VICTORY </b></td>
+						<tr id="matchtr" style="background-color:#4eef21">
+							<td class="center"><a href="match.php?matchId=' . $arrayMatches[$i] . '"><b> VICTORY </b></a></td>
 					';
 				} else {
 					print '
 						<tr id="matchtr" style="background-color:#FF3535">
-							<td class="center"><b> DEFEAT </b></td>
+							<td class="center"><a href="match.php?matchId=' . $arrayMatches[$i] . '"><b> DEFEAT </b></a></td>
 					';
 				}
 			}

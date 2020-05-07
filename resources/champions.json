@@ -4,10 +4,7 @@
     "key": "266",
     "name": "Aatrox",
     "title": "the Darkin Blade",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 580,
       "hpperlevel": 85,
@@ -39,14 +36,47 @@
     "description": "One of the ancient darkin, Aatrox was once a peerless swordmaster who reveled in the bloody chaos of the battlefield. Trapped within his own blade by the magic of his foes, he waited out the millennia for a suitable host to wield him—this mortal warrior..."
   },
   {
+    "id": "noban",
+    "key": "-1",
+    "name": "noban",
+    "title": "the Nine-Tailed Fox",
+    "tags": ["Mage", "Assassin"],
+    "stats": {
+      "hp": 526,
+      "hpperlevel": 92,
+      "mp": 418,
+      "mpperlevel": 25,
+      "movespeed": 330,
+      "armor": 20.88,
+      "armorperlevel": 3.5,
+      "spellblock": 30,
+      "spellblockperlevel": 0.5,
+      "attackrange": 550,
+      "hpregen": 6.5,
+      "hpregenperlevel": 0.6,
+      "mpregen": 8,
+      "mpregenperlevel": 0.8,
+      "crit": 0,
+      "critperlevel": 0,
+      "attackdamage": 53.04,
+      "attackdamageperlevel": 3,
+      "attackspeedoffset": -0.065,
+      "attackspeedperlevel": 2
+    },
+    "icon": "http://ddragon.leagueoflegends.com/cdn/10.1.1/img/champion/Ahri.png",
+    "sprite": {
+      "url": "http://ddragon.leagueoflegends.com/cdn/10.1.1/img/sprite/champion0.png",
+      "x": 48,
+      "y": 0
+    },
+    "description": "Innately connected to the latent power of Runeterra, Ahri is a vastaya who can reshape magic into orbs of raw energy. She revels in toying with her prey by manipulating their emotions before devouring their life essence. Despite her predatory nature..."
+  },
+  {
     "id": "ahri",
     "key": "103",
     "name": "Ahri",
     "title": "the Nine-Tailed Fox",
-    "tags": [
-      "Mage",
-      "Assassin"
-    ],
+    "tags": ["Mage", "Assassin"],
     "stats": {
       "hp": 526,
       "hpperlevel": 92,
@@ -82,9 +112,7 @@
     "key": "84",
     "name": "Akali",
     "title": "the Fist of Shadow",
-    "tags": [
-      "Assassin"
-    ],
+    "tags": ["Assassin"],
     "stats": {
       "hp": 593,
       "hpperlevel": 90,
@@ -120,10 +148,7 @@
     "key": "12",
     "name": "Alistar",
     "title": "the Minotaur",
-    "tags": [
-      "Tank",
-      "Support"
-    ],
+    "tags": ["Tank", "Support"],
     "stats": {
       "hp": 613.36,
       "hpperlevel": 106,
@@ -159,10 +184,7 @@
     "key": "32",
     "name": "Amumu",
     "title": "the Sad Mummy",
-    "tags": [
-      "Tank",
-      "Mage"
-    ],
+    "tags": ["Tank", "Mage"],
     "stats": {
       "hp": 613.12,
       "hpperlevel": 84,
@@ -198,10 +220,7 @@
     "key": "34",
     "name": "Anivia",
     "title": "the Cryophoenix",
-    "tags": [
-      "Mage",
-      "Support"
-    ],
+    "tags": ["Mage", "Support"],
     "stats": {
       "hp": 480,
       "hpperlevel": 82,
@@ -237,9 +256,7 @@
     "key": "1",
     "name": "Annie",
     "title": "the Dark Child",
-    "tags": [
-      "Mage"
-    ],
+    "tags": ["Mage"],
     "stats": {
       "hp": 524,
       "hpperlevel": 88,
@@ -275,10 +292,7 @@
     "key": "22",
     "name": "Ashe",
     "title": "the Frost Archer",
-    "tags": [
-      "Marksman",
-      "Support"
-    ],
+    "tags": ["Marksman", "Support"],
     "stats": {
       "hp": 539,
       "hpperlevel": 85,
@@ -314,10 +328,7 @@
     "key": "136",
     "name": "Aurelion Sol",
     "title": "The Star Forger",
-    "tags": [
-      "Mage",
-      "Fighter"
-    ],
+    "tags": ["Mage", "Fighter"],
     "stats": {
       "hp": 562,
       "hpperlevel": 92,
@@ -353,10 +364,7 @@
     "key": "268",
     "name": "Azir",
     "title": "the Emperor of the Sands",
-    "tags": [
-      "Mage",
-      "Marksman"
-    ],
+    "tags": ["Mage", "Marksman"],
     "stats": {
       "hp": 552,
       "hpperlevel": 92,
@@ -392,10 +400,7 @@
     "key": "432",
     "name": "Bard",
     "title": "the Wandering Caretaker",
-    "tags": [
-      "Support",
-      "Mage"
-    ],
+    "tags": ["Support", "Mage"],
     "stats": {
       "hp": 535,
       "hpperlevel": 89,
@@ -431,10 +436,7 @@
     "key": "53",
     "name": "Blitzcrank",
     "title": "the Great Steam Golem",
-    "tags": [
-      "Tank",
-      "Fighter"
-    ],
+    "tags": ["Tank", "Fighter"],
     "stats": {
       "hp": 582.6,
       "hpperlevel": 95,
@@ -470,9 +472,7 @@
     "key": "63",
     "name": "Brand",
     "title": "the Burning Vengeance",
-    "tags": [
-      "Mage"
-    ],
+    "tags": ["Mage"],
     "stats": {
       "hp": 519.68,
       "hpperlevel": 88,
@@ -508,10 +508,7 @@
     "key": "201",
     "name": "Braum",
     "title": "the Heart of the Freljord",
-    "tags": [
-      "Support",
-      "Tank"
-    ],
+    "tags": ["Support", "Tank"],
     "stats": {
       "hp": 576.16,
       "hpperlevel": 87,
@@ -547,9 +544,7 @@
     "key": "51",
     "name": "Caitlyn",
     "title": "the Sheriff of Piltover",
-    "tags": [
-      "Marksman"
-    ],
+    "tags": ["Marksman"],
     "stats": {
       "hp": 481,
       "hpperlevel": 91,
@@ -585,10 +580,7 @@
     "key": "164",
     "name": "Camille",
     "title": "the Steel Shadow",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 575.6,
       "hpperlevel": 85,
@@ -624,9 +616,7 @@
     "key": "69",
     "name": "Cassiopeia",
     "title": "the Serpent's Embrace",
-    "tags": [
-      "Mage"
-    ],
+    "tags": ["Mage"],
     "stats": {
       "hp": 537,
       "hpperlevel": 87,
@@ -662,10 +652,7 @@
     "key": "31",
     "name": "Cho'Gath",
     "title": "the Terror of the Void",
-    "tags": [
-      "Tank",
-      "Mage"
-    ],
+    "tags": ["Tank", "Mage"],
     "stats": {
       "hp": 574.4,
       "hpperlevel": 80,
@@ -701,9 +688,7 @@
     "key": "42",
     "name": "Corki",
     "title": "the Daring Bombardier",
-    "tags": [
-      "Marksman"
-    ],
+    "tags": ["Marksman"],
     "stats": {
       "hp": 518,
       "hpperlevel": 87,
@@ -739,10 +724,7 @@
     "key": "122",
     "name": "Darius",
     "title": "the Hand of Noxus",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 582.24,
       "hpperlevel": 100,
@@ -778,10 +760,7 @@
     "key": "131",
     "name": "Diana",
     "title": "Scorn of the Moon",
-    "tags": [
-      "Fighter",
-      "Mage"
-    ],
+    "tags": ["Fighter", "Mage"],
     "stats": {
       "hp": 594,
       "hpperlevel": 95,
@@ -817,9 +796,7 @@
     "key": "119",
     "name": "Draven",
     "title": "the Glorious Executioner",
-    "tags": [
-      "Marksman"
-    ],
+    "tags": ["Marksman"],
     "stats": {
       "hp": 574,
       "hpperlevel": 88,
@@ -855,10 +832,7 @@
     "key": "36",
     "name": "Dr. Mundo",
     "title": "the Madman of Zaun",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 582.52,
       "hpperlevel": 89,
@@ -894,10 +868,7 @@
     "key": "245",
     "name": "Ekko",
     "title": "the Boy Who Shattered Time",
-    "tags": [
-      "Assassin",
-      "Fighter"
-    ],
+    "tags": ["Assassin", "Fighter"],
     "stats": {
       "hp": 585,
       "hpperlevel": 85,
@@ -933,10 +904,7 @@
     "key": "60",
     "name": "Elise",
     "title": "the Spider Queen",
-    "tags": [
-      "Mage",
-      "Fighter"
-    ],
+    "tags": ["Mage", "Fighter"],
     "stats": {
       "hp": 534,
       "hpperlevel": 85,
@@ -972,10 +940,7 @@
     "key": "28",
     "name": "Evelynn",
     "title": "Agony's Embrace",
-    "tags": [
-      "Assassin",
-      "Mage"
-    ],
+    "tags": ["Assassin", "Mage"],
     "stats": {
       "hp": 572,
       "hpperlevel": 84,
@@ -1011,10 +976,7 @@
     "key": "81",
     "name": "Ezreal",
     "title": "the Prodigal Explorer",
-    "tags": [
-      "Marksman",
-      "Mage"
-    ],
+    "tags": ["Marksman", "Mage"],
     "stats": {
       "hp": 491,
       "hpperlevel": 86,
@@ -1050,10 +1012,7 @@
     "key": "9",
     "name": "Fiddlesticks",
     "title": "the Harbinger of Doom",
-    "tags": [
-      "Mage",
-      "Support"
-    ],
+    "tags": ["Mage", "Support"],
     "stats": {
       "hp": 524.4,
       "hpperlevel": 80,
@@ -1089,10 +1048,7 @@
     "key": "114",
     "name": "Fiora",
     "title": "the Grand Duelist",
-    "tags": [
-      "Fighter",
-      "Assassin"
-    ],
+    "tags": ["Fighter", "Assassin"],
     "stats": {
       "hp": 550,
       "hpperlevel": 85,
@@ -1128,10 +1084,7 @@
     "key": "105",
     "name": "Fizz",
     "title": "the Tidal Trickster",
-    "tags": [
-      "Assassin",
-      "Fighter"
-    ],
+    "tags": ["Assassin", "Fighter"],
     "stats": {
       "hp": 570,
       "hpperlevel": 98,
@@ -1167,10 +1120,7 @@
     "key": "3",
     "name": "Galio",
     "title": "the Colossus",
-    "tags": [
-      "Tank",
-      "Mage"
-    ],
+    "tags": ["Tank", "Mage"],
     "stats": {
       "hp": 562,
       "hpperlevel": 112,
@@ -1206,9 +1156,7 @@
     "key": "41",
     "name": "Gangplank",
     "title": "the Saltwater Scourge",
-    "tags": [
-      "Fighter"
-    ],
+    "tags": ["Fighter"],
     "stats": {
       "hp": 540,
       "hpperlevel": 82,
@@ -1244,10 +1192,7 @@
     "key": "86",
     "name": "Garen",
     "title": "The Might of Demacia",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 616.28,
       "hpperlevel": 84.25,
@@ -1283,10 +1228,7 @@
     "key": "150",
     "name": "Gnar",
     "title": "the Missing Link",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 510,
       "hpperlevel": 65,
@@ -1322,10 +1264,7 @@
     "key": "79",
     "name": "Gragas",
     "title": "the Rabble Rouser",
-    "tags": [
-      "Fighter",
-      "Mage"
-    ],
+    "tags": ["Fighter", "Mage"],
     "stats": {
       "hp": 583.52,
       "hpperlevel": 89,
@@ -1361,9 +1300,7 @@
     "key": "104",
     "name": "Graves",
     "title": "the Outlaw",
-    "tags": [
-      "Marksman"
-    ],
+    "tags": ["Marksman"],
     "stats": {
       "hp": 551.12,
       "hpperlevel": 92,
@@ -1399,10 +1336,7 @@
     "key": "120",
     "name": "Hecarim",
     "title": "the Shadow of War",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 580,
       "hpperlevel": 90,
@@ -1438,10 +1372,7 @@
     "key": "74",
     "name": "Heimerdinger",
     "title": "the Revered Inventor",
-    "tags": [
-      "Mage",
-      "Support"
-    ],
+    "tags": ["Mage", "Support"],
     "stats": {
       "hp": 488,
       "hpperlevel": 87,
@@ -1477,10 +1408,7 @@
     "key": "420",
     "name": "Illaoi",
     "title": "the Kraken Priestess",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 585.6,
       "hpperlevel": 95,
@@ -1516,10 +1444,7 @@
     "key": "39",
     "name": "Irelia",
     "title": "the Blade Dancer",
-    "tags": [
-      "Fighter",
-      "Assassin"
-    ],
+    "tags": ["Fighter", "Assassin"],
     "stats": {
       "hp": 550,
       "hpperlevel": 85,
@@ -1555,10 +1480,7 @@
     "key": "427",
     "name": "Ivern",
     "title": "the Green Father",
-    "tags": [
-      "Support",
-      "Mage"
-    ],
+    "tags": ["Support", "Mage"],
     "stats": {
       "hp": 585,
       "hpperlevel": 95,
@@ -1594,10 +1516,7 @@
     "key": "40",
     "name": "Janna",
     "title": "the Storm's Fury",
-    "tags": [
-      "Support",
-      "Mage"
-    ],
+    "tags": ["Support", "Mage"],
     "stats": {
       "hp": 500,
       "hpperlevel": 70,
@@ -1633,10 +1552,7 @@
     "key": "59",
     "name": "Jarvan IV",
     "title": "the Exemplar of Demacia",
-    "tags": [
-      "Tank",
-      "Fighter"
-    ],
+    "tags": ["Tank", "Fighter"],
     "stats": {
       "hp": 571.2,
       "hpperlevel": 90,
@@ -1672,10 +1588,7 @@
     "key": "24",
     "name": "Jax",
     "title": "Grandmaster at Arms",
-    "tags": [
-      "Fighter",
-      "Assassin"
-    ],
+    "tags": ["Fighter", "Assassin"],
     "stats": {
       "hp": 592.8,
       "hpperlevel": 85,
@@ -1711,10 +1624,7 @@
     "key": "126",
     "name": "Jayce",
     "title": "the Defender of Tomorrow",
-    "tags": [
-      "Fighter",
-      "Marksman"
-    ],
+    "tags": ["Fighter", "Marksman"],
     "stats": {
       "hp": 576,
       "hpperlevel": 95,
@@ -1750,10 +1660,7 @@
     "key": "202",
     "name": "Jhin",
     "title": "the Virtuoso",
-    "tags": [
-      "Marksman",
-      "Assassin"
-    ],
+    "tags": ["Marksman", "Assassin"],
     "stats": {
       "hp": 556,
       "hpperlevel": 91,
@@ -1789,9 +1696,7 @@
     "key": "222",
     "name": "Jinx",
     "title": "the Loose Cannon",
-    "tags": [
-      "Marksman"
-    ],
+    "tags": ["Marksman"],
     "stats": {
       "hp": 531,
       "hpperlevel": 88,
@@ -1827,9 +1732,7 @@
     "key": "145",
     "name": "Kai'Sa",
     "title": "Daughter of the Void",
-    "tags": [
-      "Marksman"
-    ],
+    "tags": ["Marksman"],
     "stats": {
       "hp": 571,
       "hpperlevel": 86,
@@ -1865,9 +1768,7 @@
     "key": "429",
     "name": "Kalista",
     "title": "the Spear of Vengeance",
-    "tags": [
-      "Marksman"
-    ],
+    "tags": ["Marksman"],
     "stats": {
       "hp": 534,
       "hpperlevel": 89,
@@ -1903,10 +1804,7 @@
     "key": "43",
     "name": "Karma",
     "title": "the Enlightened One",
-    "tags": [
-      "Mage",
-      "Support"
-    ],
+    "tags": ["Mage", "Support"],
     "stats": {
       "hp": 534,
       "hpperlevel": 95,
@@ -1942,9 +1840,7 @@
     "key": "30",
     "name": "Karthus",
     "title": "the Deathsinger",
-    "tags": [
-      "Mage"
-    ],
+    "tags": ["Mage"],
     "stats": {
       "hp": 528,
       "hpperlevel": 87,
@@ -1980,10 +1876,7 @@
     "key": "38",
     "name": "Kassadin",
     "title": "the Void Walker",
-    "tags": [
-      "Assassin",
-      "Mage"
-    ],
+    "tags": ["Assassin", "Mage"],
     "stats": {
       "hp": 576,
       "hpperlevel": 90,
@@ -2019,10 +1912,7 @@
     "key": "55",
     "name": "Katarina",
     "title": "the Sinister Blade",
-    "tags": [
-      "Assassin",
-      "Mage"
-    ],
+    "tags": ["Assassin", "Mage"],
     "stats": {
       "hp": 602,
       "hpperlevel": 94,
@@ -2058,10 +1948,7 @@
     "key": "10",
     "name": "Kayle",
     "title": "The Judicator",
-    "tags": [
-      "Fighter",
-      "Support"
-    ],
+    "tags": ["Fighter", "Support"],
     "stats": {
       "hp": 586,
       "hpperlevel": 105,
@@ -2097,10 +1984,7 @@
     "key": "141",
     "name": "Kayn",
     "title": "the Shadow Reaper",
-    "tags": [
-      "Fighter",
-      "Assassin"
-    ],
+    "tags": ["Fighter", "Assassin"],
     "stats": {
       "hp": 585,
       "hpperlevel": 85,
@@ -2136,10 +2020,7 @@
     "key": "85",
     "name": "Kennen",
     "title": "the Heart of the Tempest",
-    "tags": [
-      "Mage",
-      "Marksman"
-    ],
+    "tags": ["Mage", "Marksman"],
     "stats": {
       "hp": 541,
       "hpperlevel": 84,
@@ -2175,10 +2056,7 @@
     "key": "121",
     "name": "Kha'Zix",
     "title": "the Voidreaver",
-    "tags": [
-      "Assassin",
-      "Fighter"
-    ],
+    "tags": ["Assassin", "Fighter"],
     "stats": {
       "hp": 572.8,
       "hpperlevel": 85,
@@ -2214,9 +2092,7 @@
     "key": "203",
     "name": "Kindred",
     "title": "The Eternal Hunters",
-    "tags": [
-      "Marksman"
-    ],
+    "tags": ["Marksman"],
     "stats": {
       "hp": 540,
       "hpperlevel": 85,
@@ -2252,10 +2128,7 @@
     "key": "240",
     "name": "Kled",
     "title": "the Cantankerous Cavalier",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 340,
       "hpperlevel": 70,
@@ -2291,10 +2164,7 @@
     "key": "96",
     "name": "Kog'Maw",
     "title": "the Mouth of the Abyss",
-    "tags": [
-      "Marksman",
-      "Mage"
-    ],
+    "tags": ["Marksman", "Mage"],
     "stats": {
       "hp": 534,
       "hpperlevel": 88,
@@ -2330,10 +2200,7 @@
     "key": "7",
     "name": "LeBlanc",
     "title": "the Deceiver",
-    "tags": [
-      "Assassin",
-      "Mage"
-    ],
+    "tags": ["Assassin", "Mage"],
     "stats": {
       "hp": 528,
       "hpperlevel": 92,
@@ -2369,10 +2236,7 @@
     "key": "64",
     "name": "Lee Sin",
     "title": "the Blind Monk",
-    "tags": [
-      "Fighter",
-      "Assassin"
-    ],
+    "tags": ["Fighter", "Assassin"],
     "stats": {
       "hp": 570.8,
       "hpperlevel": 85,
@@ -2408,10 +2272,7 @@
     "key": "89",
     "name": "Leona",
     "title": "the Radiant Dawn",
-    "tags": [
-      "Tank",
-      "Support"
-    ],
+    "tags": ["Tank", "Support"],
     "stats": {
       "hp": 576.16,
       "hpperlevel": 87,
@@ -2447,9 +2308,7 @@
     "key": "127",
     "name": "Lissandra",
     "title": "the Ice Witch",
-    "tags": [
-      "Mage"
-    ],
+    "tags": ["Mage"],
     "stats": {
       "hp": 518,
       "hpperlevel": 87,
@@ -2485,9 +2344,7 @@
     "key": "236",
     "name": "Lucian",
     "title": "the Purifier",
-    "tags": [
-      "Marksman"
-    ],
+    "tags": ["Marksman"],
     "stats": {
       "hp": 571,
       "hpperlevel": 86,
@@ -2523,10 +2380,7 @@
     "key": "117",
     "name": "Lulu",
     "title": "the Fae Sorceress",
-    "tags": [
-      "Support",
-      "Mage"
-    ],
+    "tags": ["Support", "Mage"],
     "stats": {
       "hp": 525,
       "hpperlevel": 74,
@@ -2562,10 +2416,7 @@
     "key": "99",
     "name": "Lux",
     "title": "the Lady of Luminosity",
-    "tags": [
-      "Mage",
-      "Support"
-    ],
+    "tags": ["Mage", "Support"],
     "stats": {
       "hp": 490,
       "hpperlevel": 85,
@@ -2601,10 +2452,7 @@
     "key": "54",
     "name": "Malphite",
     "title": "Shard of the Monolith",
-    "tags": [
-      "Tank",
-      "Fighter"
-    ],
+    "tags": ["Tank", "Fighter"],
     "stats": {
       "hp": 574.2,
       "hpperlevel": 90,
@@ -2640,10 +2488,7 @@
     "key": "90",
     "name": "Malzahar",
     "title": "the Prophet of the Void",
-    "tags": [
-      "Mage",
-      "Assassin"
-    ],
+    "tags": ["Mage", "Assassin"],
     "stats": {
       "hp": 537,
       "hpperlevel": 87,
@@ -2679,10 +2524,7 @@
     "key": "57",
     "name": "Maokai",
     "title": "the Twisted Treant",
-    "tags": [
-      "Tank",
-      "Mage"
-    ],
+    "tags": ["Tank", "Mage"],
     "stats": {
       "hp": 565,
       "hpperlevel": 95,
@@ -2718,10 +2560,7 @@
     "key": "11",
     "name": "Master Yi",
     "title": "the Wuju Bladesman",
-    "tags": [
-      "Assassin",
-      "Fighter"
-    ],
+    "tags": ["Assassin", "Fighter"],
     "stats": {
       "hp": 598.56,
       "hpperlevel": 92,
@@ -2757,9 +2596,7 @@
     "key": "21",
     "name": "Miss Fortune",
     "title": "the Bounty Hunter",
-    "tags": [
-      "Marksman"
-    ],
+    "tags": ["Marksman"],
     "stats": {
       "hp": 541,
       "hpperlevel": 91,
@@ -2795,10 +2632,7 @@
     "key": "62",
     "name": "Wukong",
     "title": "the Monkey King",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 577.8,
       "hpperlevel": 85,
@@ -2834,9 +2668,7 @@
     "key": "82",
     "name": "Mordekaiser",
     "title": "the Iron Revenant",
-    "tags": [
-      "Fighter"
-    ],
+    "tags": ["Fighter"],
     "stats": {
       "hp": 530,
       "hpperlevel": 78,
@@ -2872,10 +2704,7 @@
     "key": "25",
     "name": "Morgana",
     "title": "Fallen Angel",
-    "tags": [
-      "Mage",
-      "Support"
-    ],
+    "tags": ["Mage", "Support"],
     "stats": {
       "hp": 559.48,
       "hpperlevel": 90,
@@ -2911,10 +2740,7 @@
     "key": "267",
     "name": "Nami",
     "title": "the Tidecaller",
-    "tags": [
-      "Support",
-      "Mage"
-    ],
+    "tags": ["Support", "Mage"],
     "stats": {
       "hp": 489.32,
       "hpperlevel": 74,
@@ -2950,10 +2776,7 @@
     "key": "75",
     "name": "Nasus",
     "title": "the Curator of the Sands",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 561.2,
       "hpperlevel": 90,
@@ -2989,10 +2812,7 @@
     "key": "111",
     "name": "Nautilus",
     "title": "the Titan of the Depths",
-    "tags": [
-      "Tank",
-      "Fighter"
-    ],
+    "tags": ["Tank", "Fighter"],
     "stats": {
       "hp": 576.48,
       "hpperlevel": 86,
@@ -3028,10 +2848,7 @@
     "key": "76",
     "name": "Nidalee",
     "title": "the Bestial Huntress",
-    "tags": [
-      "Assassin",
-      "Fighter"
-    ],
+    "tags": ["Assassin", "Fighter"],
     "stats": {
       "hp": 545,
       "hpperlevel": 85,
@@ -3067,10 +2884,7 @@
     "key": "56",
     "name": "Nocturne",
     "title": "the Eternal Nightmare",
-    "tags": [
-      "Assassin",
-      "Fighter"
-    ],
+    "tags": ["Assassin", "Fighter"],
     "stats": {
       "hp": 582.8,
       "hpperlevel": 85,
@@ -3106,10 +2920,7 @@
     "key": "20",
     "name": "Nunu",
     "title": "the Yeti Rider",
-    "tags": [
-      "Support",
-      "Fighter"
-    ],
+    "tags": ["Support", "Fighter"],
     "stats": {
       "hp": 590,
       "hpperlevel": 90,
@@ -3145,10 +2956,7 @@
     "key": "2",
     "name": "Olaf",
     "title": "the Berserker",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 597.24,
       "hpperlevel": 93,
@@ -3184,10 +2992,7 @@
     "key": "61",
     "name": "Orianna",
     "title": "the Lady of Clockwork",
-    "tags": [
-      "Mage",
-      "Support"
-    ],
+    "tags": ["Mage", "Support"],
     "stats": {
       "hp": 530,
       "hpperlevel": 91,
@@ -3223,10 +3028,7 @@
     "key": "516",
     "name": "Ornn",
     "title": "The Fire below the Mountain",
-    "tags": [
-      "Tank",
-      "Fighter"
-    ],
+    "tags": ["Tank", "Fighter"],
     "stats": {
       "hp": 565.64,
       "hpperlevel": 90,
@@ -3262,10 +3064,7 @@
     "key": "80",
     "name": "Pantheon",
     "title": "the Artisan of War",
-    "tags": [
-      "Fighter",
-      "Assassin"
-    ],
+    "tags": ["Fighter", "Assassin"],
     "stats": {
       "hp": 579.16,
       "hpperlevel": 87,
@@ -3301,10 +3100,7 @@
     "key": "78",
     "name": "Poppy",
     "title": "Keeper of the Hammer",
-    "tags": [
-      "Tank",
-      "Fighter"
-    ],
+    "tags": ["Tank", "Fighter"],
     "stats": {
       "hp": 540,
       "hpperlevel": 90,
@@ -3340,10 +3136,7 @@
     "key": "555",
     "name": "Pyke",
     "title": "the Bloodharbor Ripper",
-    "tags": [
-      "Support",
-      "Assassin"
-    ],
+    "tags": ["Support", "Assassin"],
     "stats": {
       "hp": 600,
       "hpperlevel": 110,
@@ -3379,10 +3172,7 @@
     "key": "133",
     "name": "Quinn",
     "title": "Demacia's Wings",
-    "tags": [
-      "Marksman",
-      "Fighter"
-    ],
+    "tags": ["Marksman", "Fighter"],
     "stats": {
       "hp": 532.8,
       "hpperlevel": 85,
@@ -3418,9 +3208,7 @@
     "key": "497",
     "name": "Rakan",
     "title": "The Charmer",
-    "tags": [
-      "Support"
-    ],
+    "tags": ["Support"],
     "stats": {
       "hp": 510,
       "hpperlevel": 85,
@@ -3456,10 +3244,7 @@
     "key": "33",
     "name": "Rammus",
     "title": "the Armordillo",
-    "tags": [
-      "Tank",
-      "Fighter"
-    ],
+    "tags": ["Tank", "Fighter"],
     "stats": {
       "hp": 564.48,
       "hpperlevel": 86,
@@ -3495,9 +3280,7 @@
     "key": "421",
     "name": "Rek'Sai",
     "title": "the Void Burrower",
-    "tags": [
-      "Fighter"
-    ],
+    "tags": ["Fighter"],
     "stats": {
       "hp": 570,
       "hpperlevel": 85,
@@ -3533,10 +3316,7 @@
     "key": "58",
     "name": "Renekton",
     "title": "the Butcher of the Sands",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 572.16,
       "hpperlevel": 87,
@@ -3572,10 +3352,7 @@
     "key": "107",
     "name": "Rengar",
     "title": "the Pridestalker",
-    "tags": [
-      "Assassin",
-      "Fighter"
-    ],
+    "tags": ["Assassin", "Fighter"],
     "stats": {
       "hp": 585,
       "hpperlevel": 90,
@@ -3611,10 +3388,7 @@
     "key": "92",
     "name": "Riven",
     "title": "the Exile",
-    "tags": [
-      "Fighter",
-      "Assassin"
-    ],
+    "tags": ["Fighter", "Assassin"],
     "stats": {
       "hp": 558.48,
       "hpperlevel": 86,
@@ -3650,10 +3424,7 @@
     "key": "68",
     "name": "Rumble",
     "title": "the Mechanized Menace",
-    "tags": [
-      "Fighter",
-      "Mage"
-    ],
+    "tags": ["Fighter", "Mage"],
     "stats": {
       "hp": 589,
       "hpperlevel": 85,
@@ -3689,10 +3460,7 @@
     "key": "13",
     "name": "Ryze",
     "title": "the Rune Mage",
-    "tags": [
-      "Mage",
-      "Fighter"
-    ],
+    "tags": ["Mage", "Fighter"],
     "stats": {
       "hp": 570.48,
       "hpperlevel": 98,
@@ -3728,10 +3496,7 @@
     "key": "113",
     "name": "Sejuani",
     "title": "Fury of the North",
-    "tags": [
-      "Tank",
-      "Fighter"
-    ],
+    "tags": ["Tank", "Fighter"],
     "stats": {
       "hp": 560,
       "hpperlevel": 88,
@@ -3767,9 +3532,7 @@
     "key": "35",
     "name": "Shaco",
     "title": "the Demon Jester",
-    "tags": [
-      "Assassin"
-    ],
+    "tags": ["Assassin"],
     "stats": {
       "hp": 587,
       "hpperlevel": 89,
@@ -3805,9 +3568,7 @@
     "key": "98",
     "name": "Shen",
     "title": "the Eye of Twilight",
-    "tags": [
-      "Tank"
-    ],
+    "tags": ["Tank"],
     "stats": {
       "hp": 540,
       "hpperlevel": 85,
@@ -3843,10 +3604,7 @@
     "key": "102",
     "name": "Shyvana",
     "title": "the Half-Dragon",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 595,
       "hpperlevel": 95,
@@ -3882,10 +3640,7 @@
     "key": "27",
     "name": "Singed",
     "title": "the Mad Chemist",
-    "tags": [
-      "Tank",
-      "Fighter"
-    ],
+    "tags": ["Tank", "Fighter"],
     "stats": {
       "hp": 580,
       "hpperlevel": 85,
@@ -3921,10 +3676,7 @@
     "key": "14",
     "name": "Sion",
     "title": "The Undead Juggernaut",
-    "tags": [
-      "Tank",
-      "Fighter"
-    ],
+    "tags": ["Tank", "Fighter"],
     "stats": {
       "hp": 542.64,
       "hpperlevel": 73,
@@ -3960,9 +3712,7 @@
     "key": "15",
     "name": "Sivir",
     "title": "the Battle Mistress",
-    "tags": [
-      "Marksman"
-    ],
+    "tags": ["Marksman"],
     "stats": {
       "hp": 532,
       "hpperlevel": 88,
@@ -3998,10 +3748,7 @@
     "key": "72",
     "name": "Skarner",
     "title": "the Crystal Vanguard",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 601.28,
       "hpperlevel": 90,
@@ -4037,10 +3784,7 @@
     "key": "37",
     "name": "Sona",
     "title": "Maven of the Strings",
-    "tags": [
-      "Support",
-      "Mage"
-    ],
+    "tags": ["Support", "Mage"],
     "stats": {
       "hp": 482.36,
       "hpperlevel": 77,
@@ -4076,10 +3820,7 @@
     "key": "16",
     "name": "Soraka",
     "title": "the Starchild",
-    "tags": [
-      "Support",
-      "Mage"
-    ],
+    "tags": ["Support", "Mage"],
     "stats": {
       "hp": 529.04,
       "hpperlevel": 78,
@@ -4115,10 +3856,7 @@
     "key": "50",
     "name": "Swain",
     "title": "the Noxian Grand General",
-    "tags": [
-      "Mage",
-      "Fighter"
-    ],
+    "tags": ["Mage", "Fighter"],
     "stats": {
       "hp": 525,
       "hpperlevel": 90,
@@ -4154,10 +3892,7 @@
     "key": "134",
     "name": "Syndra",
     "title": "the Dark Sovereign",
-    "tags": [
-      "Mage",
-      "Support"
-    ],
+    "tags": ["Mage", "Support"],
     "stats": {
       "hp": 523,
       "hpperlevel": 90,
@@ -4193,10 +3928,7 @@
     "key": "223",
     "name": "Tahm Kench",
     "title": "the River King",
-    "tags": [
-      "Support",
-      "Tank"
-    ],
+    "tags": ["Support", "Tank"],
     "stats": {
       "hp": 610,
       "hpperlevel": 95,
@@ -4232,10 +3964,7 @@
     "key": "163",
     "name": "Taliyah",
     "title": "the Stoneweaver",
-    "tags": [
-      "Mage",
-      "Support"
-    ],
+    "tags": ["Mage", "Support"],
     "stats": {
       "hp": 532,
       "hpperlevel": 90,
@@ -4271,10 +4000,7 @@
     "key": "91",
     "name": "Talon",
     "title": "the Blade's Shadow",
-    "tags": [
-      "Assassin",
-      "Fighter"
-    ],
+    "tags": ["Assassin", "Fighter"],
     "stats": {
       "hp": 588,
       "hpperlevel": 95,
@@ -4310,10 +4036,7 @@
     "key": "44",
     "name": "Taric",
     "title": "the Shield of Valoran",
-    "tags": [
-      "Support",
-      "Fighter"
-    ],
+    "tags": ["Support", "Fighter"],
     "stats": {
       "hp": 575,
       "hpperlevel": 90,
@@ -4349,10 +4072,7 @@
     "key": "17",
     "name": "Teemo",
     "title": "the Swift Scout",
-    "tags": [
-      "Marksman",
-      "Assassin"
-    ],
+    "tags": ["Marksman", "Assassin"],
     "stats": {
       "hp": 528,
       "hpperlevel": 90,
@@ -4388,10 +4108,7 @@
     "key": "412",
     "name": "Thresh",
     "title": "the Chain Warden",
-    "tags": [
-      "Support",
-      "Fighter"
-    ],
+    "tags": ["Support", "Fighter"],
     "stats": {
       "hp": 560.52,
       "hpperlevel": 93,
@@ -4427,10 +4144,7 @@
     "key": "18",
     "name": "Tristana",
     "title": "the Yordle Gunner",
-    "tags": [
-      "Marksman",
-      "Assassin"
-    ],
+    "tags": ["Marksman", "Assassin"],
     "stats": {
       "hp": 559,
       "hpperlevel": 88,
@@ -4466,10 +4180,7 @@
     "key": "48",
     "name": "Trundle",
     "title": "the Troll King",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 616.28,
       "hpperlevel": 96,
@@ -4505,10 +4216,7 @@
     "key": "23",
     "name": "Tryndamere",
     "title": "the Barbarian King",
-    "tags": [
-      "Fighter",
-      "Assassin"
-    ],
+    "tags": ["Fighter", "Assassin"],
     "stats": {
       "hp": 625.64,
       "hpperlevel": 98,
@@ -4544,9 +4252,7 @@
     "key": "4",
     "name": "Twisted Fate",
     "title": "the Card Master",
-    "tags": [
-      "Mage"
-    ],
+    "tags": ["Mage"],
     "stats": {
       "hp": 534,
       "hpperlevel": 94,
@@ -4582,10 +4288,7 @@
     "key": "29",
     "name": "Twitch",
     "title": "the Plague Rat",
-    "tags": [
-      "Marksman",
-      "Assassin"
-    ],
+    "tags": ["Marksman", "Assassin"],
     "stats": {
       "hp": 542,
       "hpperlevel": 87,
@@ -4621,10 +4324,7 @@
     "key": "77",
     "name": "Udyr",
     "title": "the Spirit Walker",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 593.32,
       "hpperlevel": 99,
@@ -4660,10 +4360,7 @@
     "key": "6",
     "name": "Urgot",
     "title": "the Dreadnought",
-    "tags": [
-      "Fighter",
-      "Marksman"
-    ],
+    "tags": ["Fighter", "Marksman"],
     "stats": {
       "hp": 585,
       "hpperlevel": 88,
@@ -4699,10 +4396,7 @@
     "key": "110",
     "name": "Varus",
     "title": "the Arrow of Retribution",
-    "tags": [
-      "Marksman",
-      "Mage"
-    ],
+    "tags": ["Marksman", "Mage"],
     "stats": {
       "hp": 549,
       "hpperlevel": 86,
@@ -4738,10 +4432,7 @@
     "key": "67",
     "name": "Vayne",
     "title": "the Night Hunter",
-    "tags": [
-      "Marksman",
-      "Assassin"
-    ],
+    "tags": ["Marksman", "Assassin"],
     "stats": {
       "hp": 515,
       "hpperlevel": 89,
@@ -4777,9 +4468,7 @@
     "key": "45",
     "name": "Veigar",
     "title": "the Tiny Master of Evil",
-    "tags": [
-      "Mage"
-    ],
+    "tags": ["Mage"],
     "stats": {
       "hp": 505,
       "hpperlevel": 94,
@@ -4815,9 +4504,7 @@
     "key": "161",
     "name": "Vel'Koz",
     "title": "the Eye of the Void",
-    "tags": [
-      "Mage"
-    ],
+    "tags": ["Mage"],
     "stats": {
       "hp": 520,
       "hpperlevel": 88,
@@ -4853,10 +4540,7 @@
     "key": "254",
     "name": "Vi",
     "title": "the Piltover Enforcer",
-    "tags": [
-      "Fighter",
-      "Assassin"
-    ],
+    "tags": ["Fighter", "Assassin"],
     "stats": {
       "hp": 585,
       "hpperlevel": 85,
@@ -4892,9 +4576,7 @@
     "key": "112",
     "name": "Viktor",
     "title": "the Machine Herald",
-    "tags": [
-      "Mage"
-    ],
+    "tags": ["Mage"],
     "stats": {
       "hp": 528.04,
       "hpperlevel": 90,
@@ -4930,10 +4612,7 @@
     "key": "8",
     "name": "Vladimir",
     "title": "the Crimson Reaper",
-    "tags": [
-      "Mage",
-      "Tank"
-    ],
+    "tags": ["Mage", "Tank"],
     "stats": {
       "hp": 537,
       "hpperlevel": 96,
@@ -4969,10 +4648,7 @@
     "key": "106",
     "name": "Volibear",
     "title": "the Thunder's Roar",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 584.48,
       "hpperlevel": 86,
@@ -5008,10 +4684,7 @@
     "key": "19",
     "name": "Warwick",
     "title": "the Uncaged Wrath of Zaun",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 550,
       "hpperlevel": 85,
@@ -5047,9 +4720,7 @@
     "key": "498",
     "name": "Xayah",
     "title": "the Rebel",
-    "tags": [
-      "Marksman"
-    ],
+    "tags": ["Marksman"],
     "stats": {
       "hp": 561,
       "hpperlevel": 86,
@@ -5085,10 +4756,7 @@
     "key": "101",
     "name": "Xerath",
     "title": "the Magus Ascendant",
-    "tags": [
-      "Mage",
-      "Assassin"
-    ],
+    "tags": ["Mage", "Assassin"],
     "stats": {
       "hp": 526,
       "hpperlevel": 92,
@@ -5124,10 +4792,7 @@
     "key": "5",
     "name": "Xin Zhao",
     "title": "the Seneschal of Demacia",
-    "tags": [
-      "Fighter",
-      "Assassin"
-    ],
+    "tags": ["Fighter", "Assassin"],
     "stats": {
       "hp": 570,
       "hpperlevel": 92,
@@ -5163,10 +4828,7 @@
     "key": "157",
     "name": "Yasuo",
     "title": "the Unforgiven",
-    "tags": [
-      "Fighter",
-      "Assassin"
-    ],
+    "tags": ["Fighter", "Assassin"],
     "stats": {
       "hp": 523,
       "hpperlevel": 87,
@@ -5202,10 +4864,7 @@
     "key": "83",
     "name": "Yorick",
     "title": "Shepherd of Souls",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 580,
       "hpperlevel": 100,
@@ -5241,10 +4900,7 @@
     "key": "154",
     "name": "Zac",
     "title": "the Secret Weapon",
-    "tags": [
-      "Tank",
-      "Fighter"
-    ],
+    "tags": ["Tank", "Fighter"],
     "stats": {
       "hp": 615,
       "hpperlevel": 95,
@@ -5280,10 +4936,7 @@
     "key": "238",
     "name": "Zed",
     "title": "the Master of Shadows",
-    "tags": [
-      "Assassin",
-      "Fighter"
-    ],
+    "tags": ["Assassin", "Fighter"],
     "stats": {
       "hp": 584,
       "hpperlevel": 85,
@@ -5319,9 +4972,7 @@
     "key": "115",
     "name": "Ziggs",
     "title": "the Hexplosives Expert",
-    "tags": [
-      "Mage"
-    ],
+    "tags": ["Mage"],
     "stats": {
       "hp": 536,
       "hpperlevel": 92,
@@ -5357,10 +5008,7 @@
     "key": "26",
     "name": "Zilean",
     "title": "the Chronokeeper",
-    "tags": [
-      "Support",
-      "Mage"
-    ],
+    "tags": ["Support", "Mage"],
     "stats": {
       "hp": 504,
       "hpperlevel": 82,
@@ -5396,10 +5044,7 @@
     "key": "142",
     "name": "Zoe",
     "title": "the Aspect of Twilight",
-    "tags": [
-      "Mage",
-      "Support"
-    ],
+    "tags": ["Mage", "Support"],
     "stats": {
       "hp": 560,
       "hpperlevel": 92,
@@ -5435,10 +5080,7 @@
     "key": "143",
     "name": "Zyra",
     "title": "Rise of the Thorns",
-    "tags": [
-      "Mage",
-      "Support"
-    ],
+    "tags": ["Mage", "Support"],
     "stats": {
       "hp": 504,
       "hpperlevel": 79,
@@ -5474,10 +5116,7 @@
     "key": "523",
     "name": "Aphelios",
     "title": "the Darkin Blade",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 580,
       "hpperlevel": 85,
@@ -5513,10 +5152,7 @@
     "key": "246",
     "name": "Qiyana",
     "title": "the Darkin Blade",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 580,
       "hpperlevel": 85,
@@ -5552,10 +5188,7 @@
     "key": "518",
     "name": "Neeko",
     "title": "the Darkin Blade",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 580,
       "hpperlevel": 85,
@@ -5591,10 +5224,7 @@
     "key": "235",
     "name": "Senna",
     "title": "the Darkin Blade",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 580,
       "hpperlevel": 85,
@@ -5630,10 +5260,7 @@
     "key": "875",
     "name": "Sett",
     "title": "the Darkin Blade",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 580,
       "hpperlevel": 85,
@@ -5669,10 +5296,7 @@
     "key": "517",
     "name": "Sylas",
     "title": "the Darkin Blade",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 580,
       "hpperlevel": 85,
@@ -5708,10 +5332,7 @@
     "key": "350",
     "name": "Yuumi",
     "title": "the Darkin Blade",
-    "tags": [
-      "Fighter",
-      "Tank"
-    ],
+    "tags": ["Fighter", "Tank"],
     "stats": {
       "hp": 580,
       "hpperlevel": 85,

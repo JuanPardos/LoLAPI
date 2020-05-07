@@ -89,10 +89,6 @@ session_start();
 													require_once 'api/freechampapi.php';
 													require_once 'api/champapi.php';
 
-													$array = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'icon'));
-													$arrayNames = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'name'));
-													$arrayID = array_combine(array_column($data_champ, 'key'), array_column($data_champ, 'id'));
-
 													$subject = $_POST['subject'];
 													$email = $_POST['email'];
 													$message = $_POST['message'];
@@ -110,6 +106,19 @@ session_start();
 															</script>
 														';
 														mail($personalMail, $subject, $message, $header); //Sends email
+													}
+
+													if ($_SESSION['sapikey'] != null) {
+														print '
+															<script type="text/javascript">
+																iziToast.success({
+																    title: "Success",
+																    message: "API Key added/updated",
+																    timeout: 3000,
+																    position: "topCenter",
+																});
+															</script>
+														';
 													}
 
 													if ($data_freeChamps == null) {
@@ -157,21 +166,6 @@ session_start();
 												$apikey = $_SESSION['sapikey'];
 											}
 											require_once 'api/statusapi.php';
-
-
-											//YEP, I KNOW I CAN DO THIS ONE BETTER								
-
-											$online1 = array_column($data_status1['services'], 'status')['0'];  	//Online/offline
-											$incidents1 = array_column($data_status1['services'], 'incidents')['0']; 	//Incidents
-											$online2 = array_column($data_status2['services'], 'status')['0'];
-											$incidents2 = array_column($data_status2['services'], 'incidents')['0'];
-											$online3 = array_column($data_status3['services'], 'status')['0'];
-											$incidents3 = array_column($data_status3['services'], 'incidents')['0'];
-											$online4 = array_column($data_status4['services'], 'status')['0'];
-											$incidents4 = array_column($data_status4['services'], 'incidents')['0'];
-
-											$auxon = array($online1, $online2, $online3, $online4);
-											$auxst = array($incidents1, $incidents2, $incidents3, $incidents4);
 
 											if ($auxon['1'] == null) {
 												print '

@@ -27,3 +27,17 @@ fclose($status1);
 fclose($status2);
 fclose($status3);
 fclose($status4);
+
+//YEP, I KNOW I CAN DO THIS ONE BETTER								
+
+$online1 = array_column($data_status1['services'], 'status')['0'];      //Online/offline
+$incidents1 = array_column($data_status1['services'], 'incidents')['0'];     //Incidents
+$online2 = array_column($data_status2['services'], 'status')['0'];
+$incidents2 = array_column($data_status2['services'], 'incidents')['0'];
+$online3 = array_column($data_status3['services'], 'status')['0'];
+$incidents3 = array_column($data_status3['services'], 'incidents')['0'];
+$online4 = array_column($data_status4['services'], 'status')['0'];
+$incidents4 = array_column($data_status4['services'], 'incidents')['0'];
+
+$auxon = array($online1, $online2, $online3, $online4);
+$auxst = array($incidents1, $incidents2, $incidents3, $incidents4);
