@@ -12,7 +12,7 @@ session_start();
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/iziToast.min.css">
-	<link rel="stylesheet" href="css/styles.min.css">
+	<link rel="stylesheet" href="css/styles.css">
 	<!-- JS -->
 	<script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
 	<script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
@@ -82,7 +82,7 @@ session_start();
 		  						<tbody>
 			';
 
-		for ($i = 0; $i < 20; ++$i) {
+		for ($i = 0; $i < 15; ++$i) {
 			print '<tr><td scope="row"  class="center">' . ($i + 1) . '</td>';
 			print '<td class="center"><img src="resources/champion_icons/' . ucfirst($arrayID[$data_lol[$i]["championId"]]) . '.png" rel="tooltip" title="" width="40px" heigth="40px"><br>' . $array[$data_lol[$i]["championId"]] . '</td>';
 			print '<td class="center"><img src="resources/mastery_emblems/' . $data_lol[$i]['championLevel'] . '.png" rel="tooltip" title="' . $data_lol[$i]['championLevel'] . '" width="60px" heigth="60px"></td>';
@@ -260,7 +260,7 @@ session_start();
 					</div>
 				</div>
 
-				<br><a href="../..">Return to main menu</a>
+				<br><a href="../">Return to main menu</a>
 			';
 		?>
 	</div>

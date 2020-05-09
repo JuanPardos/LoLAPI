@@ -29,6 +29,14 @@ body.error {
   background-attachment: fixed;
 }
 
+body.match {
+  background-image: url("../resources/bgsumm.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 #footer {
   background-color: beige;
   border-radius: 15px;
@@ -67,7 +75,7 @@ body.error {
   right: 10px;
 }
 
-#elotr > td {
+#elotr>td {
   vertical-align: middle;
 }
 
@@ -80,12 +88,16 @@ body.error {
   margin-top: -6px;
 }
 
-#footer > span {
+#footer>span {
   color: black;
 }
 
 #aux {
   display: none;
+}
+
+#winlose {
+  margin-left: 30%;
 }
 
 hr {
@@ -105,7 +117,8 @@ hr {
 
 #masteryTable,
 #eloTable,
-#matchesTable {
+#matchesTable,
+#matchTable {
   background-color: white;
   border: 1px solid black;
 }

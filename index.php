@@ -12,7 +12,7 @@ session_start();
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/iziToast.min.css">
-	<link rel="stylesheet" href="css/styles.min.css">
+	<link rel="stylesheet" href="css/styles.css">
 	<!-- JS -->
 	<script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
 	<script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
@@ -105,10 +105,10 @@ session_start();
 																});
 															</script>
 														';
-														mail($personalMail, $subject, $message, $header); //Sends email
+														mail($personalMail, $subject, $message, $header); //Sends email. Might not work without key.php.
 													}
 
-													if ($_SESSION['sapikey'] != null) {
+													if ($_SESSION['save'] == true) {
 														print '
 															<script type="text/javascript">
 																iziToast.success({
@@ -120,6 +120,8 @@ session_start();
 															</script>
 														';
 													}
+
+													$_SESSION['save'] = false;
 
 													if ($data_freeChamps == null) {
 														print '
@@ -136,7 +138,7 @@ session_start();
 												<th scope="row">
 													<?php
 													for ($i = 0; $i < count($data_freeChamps['freeChampionIds']); ++$i) {
-														print '<td style="text-align:center"><a style="font-size: 13px">' . $arrayNames[$data_freeChamps['freeChampionIds'][$i]] . '</td>';
+														print '<td style="text-align:center"><a style="font-size: 13px">' . $array[$data_freeChamps['freeChampionIds'][$i]] . '</td>';
 													}
 													?>
 												</th>
