@@ -60,6 +60,7 @@ session_start();
 										<option value="na1">NA</option>
 										<option value="la1">LAN</option>
 										<option value="oc1">OCE</option>
+										<option value="kr">KR</option>
 									</select>
 									<input type="submit" value="Search">
 								</form>

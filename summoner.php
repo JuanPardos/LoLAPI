@@ -35,6 +35,7 @@ session_start();
 		}
 		require_once 'api/summonerapi.php';
 		require_once 'api/champapi.php';
+		require_once 'api/queuetypes.php';
 
 		print '
 					<script type="text/javascript">
@@ -173,10 +174,11 @@ session_start();
 									<table class="table table-sm table-borderless" id="matchesTable">
 										<thead class="thead-dark">
 											<tr>
-												<th colspan="5" class="center"><u>Match History</u></th>
+												<th colspan="6" class="center"><u>Match History</u></th>
 											</tr>
 											<tr>
 												<th scope="col" class="center">Result</th>
+												<th scope="col" class="center">Type</th>
 												<th scope="col" class="center">K/D/A</th>
 												<th scope="col" class="center">Duration</th>
 												<th scope="col" class="center">Champion</th>	
@@ -213,7 +215,8 @@ session_start();
 					';
 				}
 			}
-			print '	
+			print '			
+							<td class="center">' . $queues[$data_matches['matches'][$i]['queue']] . '</td>
 							<td class="center">' . $data_match[$i]['participants'][$id[$i]]['stats']['kills'] . '/' . $data_match[$i]['participants'][$id[$i]]['stats']['deaths'] . '/' . $data_match[$i]['participants'][$id[$i]]['stats']['assists'] . '</td>
 							<td class="center">' . $duration¡ . '&apos;</td>
 							<td class="center">' . $array[$arrayChamps[$i]] . '</td>
@@ -253,6 +256,13 @@ session_start();
 			print '
 					<div id="opgg" class="col-12">					
 						<a href="https://oce.op.gg/summoner/userName=' . $summonerDecoded . '" target="_blank"><img src="resources/opgg.png" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a>
+					</div>
+				';
+		}
+		if ($server == 'kr') {
+			print '
+					<div id="opgg" class="col-12">					
+						<a href="https://www.op.gg/summoner/userName=' . $summonerDecoded . '" target="_blank"><img src="resources/opgg.png" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a>
 					</div>
 				';
 		}
