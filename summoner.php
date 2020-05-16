@@ -29,7 +29,7 @@ session_start();
 	<?php error_reporting(0); ?>
 	<div class="container-fluid">
 		<?php
-		require_once 'key.php';  			//Get the API Key from a .gitignored file (Hide from public).
+		include_once 'key.php';  			//Get the API Key from a .gitignored file (Hide from public).
 		if ($apikey != $_SESSION['sapikey'] && $_SESSION['sapikey'] != null) {
 			$apikey = $_SESSION['sapikey'];
 		}

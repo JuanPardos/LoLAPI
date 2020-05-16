@@ -1,5 +1,4 @@
 <?php
-session_start();
 $server = $_SESSION['Server'];
 
 $matchID = $_GET['matchId'];

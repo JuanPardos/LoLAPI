@@ -206,7 +206,7 @@ session_start();
 						$apikey = $_SESSION['sapikey'];
 					}
 
-					if (in_array($_SESSION['Summoner'], $_SESSION['favs']) == false /*&& $_SESSION['Fav'] == "true"*/) {   //Checks if summoner name already exist, if not add it.
+					if (in_array($_SESSION['Summoner'], $_SESSION['favs']) == false) {   //Checks if summoner name already exist, if not add it.
 						array_push($_SESSION['favs'], $_SESSION['Summoner']);
 						array_push($_SESSION['ArrayServers'], $_SESSION['Server']);
 					}
@@ -234,9 +234,6 @@ session_start();
 			trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
 		</span>
 	</div>
-	<form action="api/summonerapi.php" method="post">
-		<input type="text" name="aux" id="aux" value="false" />
-	</form>
 </body>
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 	<div class="modal-dialog" role="document">
