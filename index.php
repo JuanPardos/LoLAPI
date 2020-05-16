@@ -82,7 +82,7 @@ session_start();
 											<tr>
 												<th scope="row">
 													<?php
-													require_once 'key.php';
+													include_once 'key.php';
 													if ($apikey != $_SESSION['sapikey'] && $_SESSION['sapikey'] != null) {
 														$apikey = $_SESSION['sapikey'];
 													}
@@ -163,7 +163,7 @@ session_start();
 									<table class="table table-borderless table-sm">
 										<tr>
 											<?php
-											require_once 'key.php';
+											include_once 'key.php';
 											if ($apikey != $_SESSION['sapikey'] && $_SESSION['sapikey'] != null) {
 												$apikey = $_SESSION['sapikey'];
 											}
@@ -200,7 +200,7 @@ session_start();
 				<div id="favs">
 					<?php
 					session_start();
-					require_once 'key.php';
+					include_once 'key.php';
 
 					if ($apikey != $_SESSION['sapikey'] && $_SESSION['sapikey'] != null) {
 						$apikey = $_SESSION['sapikey'];
