@@ -39,7 +39,7 @@ session_start();
 
 		print '
 					<script type="text/javascript">
-						$("#favicon").attr("href","http://ddragon.leagueoflegends.com/cdn/10.8.1/img/profileicon/' . $profileIcon . '.png");
+						$("#favicon").attr("href","https://ddragon.leagueoflegends.com/cdn/10.10.3216176/img/profileicon/' . $profileIcon . '.png");
 						document.title = "' . $summonerDecoded . ' - ' . $serverAux . '";
 					</script>
 				';
@@ -60,7 +60,7 @@ session_start();
 				';
 		}
 
-		print '<hr><h1 style="text-align:center; color:white">' . $summonerDecoded . '<img src="http://ddragon.leagueoflegends.com/cdn/10.8.1/img/profileicon/' . $profileIcon . '.png" heigth="64px" width="64px"></h1><hr>';
+		print '<hr><h1 style="text-align:center; color:white">' . $summonerDecoded . '<img src="https://ddragon.leagueoflegends.com/cdn/10.10.3216176/img/profileicon/' . $profileIcon . '.png" heigth="64px" width="64px"></h1><hr>';
 
 		print
 			'
@@ -178,7 +178,7 @@ session_start();
 											</tr>
 											<tr>
 												<th scope="col" class="center">Result</th>
-												<th scope="col" class="center">Type</th>
+												<th scope="col" class="center">Game Mode</th>
 												<th scope="col" class="center">K/D/A</th>
 												<th scope="col" class="center">Duration</th>
 												<th scope="col" class="center">Champion</th>	

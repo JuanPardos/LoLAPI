@@ -60,7 +60,6 @@ session_start();
 										<option value="na1">NA</option>
 										<option value="la1">LAN</option>
 										<option value="oc1">OCE</option>
-										<option value="kr">KR</option>
 									</select>
 									<input type="submit" value="Search">
 								</form>
@@ -90,9 +89,9 @@ session_start();
 													require_once 'api/freechampapi.php';
 													require_once 'api/champapi.php';
 
-													$subject = $_POST['subject'];
+													$subject = "LOLAPI: " . $_POST['subject'];
 													$email = $_POST['email'];
-													$message = $_POST['message'];
+													$message = "From: $email \n \n" . $_POST['message'];
 													$header = 'From: ' . $email . '';
 
 													if ($message != null && $subject != null && $email != null) {
@@ -106,7 +105,7 @@ session_start();
 																});
 															</script>
 														';
-														mail($personalMail, $subject, $message, $header); //Sends email. Might not work without key.php.
+														mail($personalMail, $subject, $message, $header); //Sends email.
 													}
 
 													if ($_SESSION['save'] == true) {
@@ -224,12 +223,7 @@ session_start();
 		</div>
 	</div>
 	<div class="col-10 offset-1 fixed-bottom d-none d-sm-block" id="footer">
-		<span class="d-none d-sm-none d-md-block d-lg-block d-xl-block">
-			This Website isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games
-			or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are
-			trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
-		</span>
-		<span class="d-block d-sm-block d-md-none d-lg-none d-xl-none" style="font-size:10px">
+		<span class="d-none d-sm-none d-xl-block">
 			This Website isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games
 			or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are
 			trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
@@ -274,7 +268,7 @@ session_start();
 		</div>
 	</div>
 </div>
-<div class="d-none d-xl-block" id="supportButton">
+<div class="d-block" id="supportButton">
 	<button class="support" data-toggle="modal" data-target="#supportModal">Support</button>
 </div>
 <div class="modal fade" id="supportModal" tabindex="-1" role="dialog" data-backdrop="false" aria-labelledby="modalApiTitle" aria-hidden="true">
@@ -291,7 +285,7 @@ session_start();
 				<form action="" method="post">
 					<input type="email" name="email" id="email" value="" required placeholder="Your email"><br>
 					<input type="text" name="subject" id="subject" value="" required placeholder="Subject"><br>
-					<textarea name="message" id="message" rows="4" cols="45" required placeholder="Write a message..."></textarea><br><br>
+					<textarea name="message" id="message" rows="4" required placeholder="Write a message..."></textarea><br><br>
 					<input type="submit" value="Send">
 				</form>
 			</div>

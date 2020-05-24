@@ -1,8 +1,11 @@
 <?php
 $queues = array(
-    450 => "ARAM",
-    900 => "URF",
-    430 => "Normal",
+    400 => "Normal",
     420 => "Ranked Solo",
-    440 => "Ranked Flex"
+    430 => "Normal",
+    440 => "Ranked Flex",
+    450 => "ARAM",
+    700 => "Clash",
+    850 => "IA",
+    900 => "URF",
 );

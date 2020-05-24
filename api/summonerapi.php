@@ -43,9 +43,6 @@ if ($server == 'la1') {
 if ($server == 'oc1') {
 	$serverAux = 'OCE';
 }
-if ($server == 'kr') {
-	$serverAux = 'KR';
-}
 
 $request = fopen("https://$server.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/$encryptSummoner?api_key=$apikey", "r");  //Request of Mastery.
 $json_lol = stream_get_contents($request);

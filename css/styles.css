@@ -131,11 +131,27 @@ hr {
   z-index: 9999;
 }
 
-#supportModal {
-  position: fixed;
-  top: 40%;
-  left: 33%;
-  z-index: 10040;
-  overflow: auto;
-  overflow-y: auto;
+@media only all and (max-width: 600px) {
+  #supportModal {
+    position: fixed;
+    top: 20%;
+    z-index: 10040;
+    overflow: auto;
+    overflow-y: auto;
+  }
+}
+
+@media only all and (min-width: 601px) {
+  #supportModal {
+    position: fixed;
+    top: 40%;
+    left: 33%;
+    z-index: 10040;
+    overflow: auto;
+    overflow-y: auto;
+  }
+}
+
+#message {
+  width: 95%;
 }
