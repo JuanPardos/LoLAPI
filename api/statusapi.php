@@ -2,9 +2,9 @@
 $server = array("euw1", "na1", "la1", "oc1");
 
 $serverNames = array("EUW", "NA", "LAN", "OCE");
-$perfect = '<a href="https://status.riotgames.com/?locale=en_GB&product=leagueoflegends"><img src="../resources/green-circle.png" rel="tooltip" data-placement="right" title="0 issues" width="20px" height="20px"></a>';
-$ok = '<a href="https://status.riotgames.com/?locale=en_GB&product=leagueoflegends"><img src="../resources/orange-circle.png" rel="tooltip" data-placement="right" title="Atleast 1 issue" width="20px" height="20px"></a>';
-$offline = '<a href="https://status.riotgames.com/?locale=en_GB&product=leagueoflegends"><img src="../resources/red-circle.png" rel="tooltip" data-placement="right" title="Server OFFLINE" width="20px" height="20px"></a>';
+$perfect = '<a href="https://status.riotgames.com/?locale=en_GB&product=leagueoflegends"><img src="../resources/green-circle.webp" rel="tooltip" data-placement="right" title="0 issues" width="20px" height="20px"></a>';
+$ok = '<a href="https://status.riotgames.com/?locale=en_GB&product=leagueoflegends"><img src="../resources/orange-circle.webp" rel="tooltip" data-placement="right" title="Atleast 1 issue" width="20px" height="20px"></a>';
+$offline = '<a href="https://status.riotgames.com/?locale=en_GB&product=leagueoflegends"><img src="../resources/red-circle.webp" rel="tooltip" data-placement="right" title="Server OFFLINE" width="20px" height="20px"></a>';
 
 //YEP, HAS TO BE A WAY TO REDUCE ALL THAT CODE ;(
 

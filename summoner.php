@@ -15,7 +15,7 @@ session_start();
 	<link rel="stylesheet" href="css/styles.css">
 	<!-- JS -->
 	<script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
-	<script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.bundle.min.js" type="text/javascript" defer></script>
 	<script src="js/iziToast.min.js" type="text/javascript"></script>
 	<script>
 		$(function() {
@@ -152,7 +152,7 @@ session_start();
 			}
 			print '
 						<td class="center">
-							<img src="resources/ranked_emblems/' . $data_ELO[$i]['tier'] . '.png" width="60" heigth="60"><b>' . $data_ELO[$i]['tier'] . '</b>
+							<img src="resources/ranked_emblems/' . $data_ELO[$i]['tier'] . '.webp" width="60" heigth="60"><b>' . $data_ELO[$i]['tier'] . '</b>
 						</td>
 						<td class="center"><b>' . $data_ELO[$i]['rank'] . '</b></td>
 						<td class="center"><b>' . $data_ELO[$i]['leaguePoints'] . '</b></td>
@@ -220,7 +220,7 @@ session_start();
 							<td class="center">' . $data_match[$i]['participants'][$id[$i]]['stats']['kills'] . '/' . $data_match[$i]['participants'][$id[$i]]['stats']['deaths'] . '/' . $data_match[$i]['participants'][$id[$i]]['stats']['assists'] . '</td>
 							<td class="center">' . $duration¡ . '&apos;</td>
 							<td class="center">' . $array[$arrayChamps[$i]] . '</td>
-							<td class="center">' . $arrayLanes[$i] . '</td>
+							<td class="center">' . ucfirst(strtolower($arrayLanes[$i])) . '</td>
 						<tr>
 					';
 		}

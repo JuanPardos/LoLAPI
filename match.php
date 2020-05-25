@@ -10,12 +10,10 @@ session_start();
     <link id="favicon" rel="shortcut icon" type="image/png" href="resources/icon.png">
     <!-- CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/iziToast.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <!-- JS -->
     <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
-    <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
-    <script src="js/iziToast.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.bundle.min.js" type="text/javascript" defer></script>
     <script>
         $(function() {
             $("[rel='tooltip']").tooltip(); //Enables tooltips
@@ -59,10 +57,10 @@ session_start();
 
         for ($i = 0; $i < 5; ++$i) {
             if ($data_match2['participants'][$i]['stats']['firstBloodKill'] == 'true') {
-                $fb = "<img src='resources/fb.png' width='20' height='20' rel='tooltip' title='First Blood'>";
+                $fb = "<img src='resources/fb.webp' width='20' height='20' rel='tooltip' title='First Blood'>";
             }
             if ($data_match2['participants'][$i]['stats']['firstTowerKill'] == 'true') {
-                $tw = "<img src='resources/tower.png' width='20' height='24' rel='tooltip' title='First Tower'>";
+                $tw = "<img src='resources/tower.webp' width='20' height='24' rel='tooltip' title='First Tower'>";
             }
             print '
                                 <tr>
@@ -108,11 +106,11 @@ session_start();
         }
         if ($data_match2['teams'][0]['win'] == 'Fail') {
             print '
-                <img id="winlose" src="resources/defeat.png" width="115" height="60">
+                <img id="winlose" src="resources/defeat.webp" width="115" height="60">
             ';
         } else {
             print '
-                <img id="winlose" src="resources/victory.png" width="120" height="60">
+                <img id="winlose" src="resources/victory.webp" width="120" height="60">
             ';
         }
         print '             
@@ -146,10 +144,10 @@ session_start();
 
         for ($i = 5; $i < 10; ++$i) {
             if ($data_match2['participants'][$i]['stats']['firstBloodKill'] == 'true') {
-                $fb = "<img src='resources/fb.png' width='20' height='20' rel='tooltip' title='First Blood'>";
+                $fb = "<img src='resources/fb.webp' width='20' height='20' rel='tooltip' title='First Blood'>";
             }
             if ($data_match2['participants'][$i]['stats']['firstTowerKill'] == 'true') {
-                $tw = "<img src='resources/tower.png' width='20' height='24' rel='tooltip' title='First Tower'>";
+                $tw = "<img src='resources/tower.webp' width='20' height='24' rel='tooltip' title='First Tower'>";
             }
             print '
                                     <tr>
@@ -194,11 +192,11 @@ session_start();
         }
         if ($data_match2['teams'][1]['win'] == 'Fail') {
             print '
-                    <img id="winlose" src="resources/defeat.png" width="115" height="60">
+                    <img id="winlose" src="resources/defeat.webp" width="115" height="60">
                 ';
         } else {
             print '
-                    <img id="winlose" src="resources/victory.png" width="120" height="60">
+                    <img id="winlose" src="resources/victory.webp" width="120" height="60">
                 ';
         }
         print '             

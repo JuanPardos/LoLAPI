@@ -15,7 +15,7 @@ session_start();
 	<link rel="stylesheet" href="css/styles.css">
 	<!-- JS -->
 	<script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
-	<script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.bundle.min.js" type="text/javascript" defer></script>
 	<script src="js/iziToast.min.js" type="text/javascript"></script>
 	<script>
 		$(function() {
@@ -89,7 +89,7 @@ session_start();
 													require_once 'api/freechampapi.php';
 													require_once 'api/champapi.php';
 
-													$subject = "LOLAPI: " . $_POST['subject'];
+													$subject = "LoLAPI Support: " . $_POST['subject'];
 													$email = $_POST['email'];
 													$message = "From: $email \n \n" . $_POST['message'];
 													$header = 'From: ' . $email . '';
@@ -283,7 +283,7 @@ session_start();
 			<div class="modal-body">
 				Ask for help or give Feedback<br><br>
 				<form action="" method="post">
-					<input type="email" name="email" id="email" value="" required placeholder="Your email"><br>
+					<input type="email" name="email" id="email" value="" required placeholder="Your email"><img src="resources/help.png" id="mailinfo" rel="tooltip" width="25px" height="25px" title="No advertising, I swear"><br>
 					<input type="text" name="subject" id="subject" value="" required placeholder="Subject"><br>
 					<textarea name="message" id="message" rows="4" required placeholder="Write a message..."></textarea><br><br>
 					<input type="submit" value="Send">
