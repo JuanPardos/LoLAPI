@@ -3,7 +3,7 @@
   height: 60px;
   background-color: lightseagreen;
   border: 2px solid orangered;
-  opacity: 0.7;
+  opacity: 0.9;
   border-radius: 10px;
 }
 
@@ -66,16 +66,18 @@ body.match {
   color: white;
   padding: 10px 20px;
   border-radius: 4px;
+  width: 100%;
   border-color: #46b8da;
 }
 
 #supportButton {
   position: fixed;
+  width: 100px;
   bottom: -4px;
   right: 10px;
 }
 
-#elotr > td {
+#elotr>td {
   vertical-align: middle;
 }
 
@@ -89,11 +91,10 @@ body.match {
 }
 
 #mailinfo {
-  cursor: pointer;
   margin-bottom: 6px;
 }
 
-#footer > span {
+#footer>span {
   color: black;
 }
 
@@ -129,32 +130,11 @@ hr {
 }
 
 #menubutton {
-  width: 45px;
-  height: 45px;
+  width: 42px;
+  height: 42px;
   margin-top: -6px;
   position: relative;
   z-index: 9999;
-}
-
-@media only all and (max-width: 600px) {
-  #supportModal {
-    position: fixed;
-    top: 20%;
-    z-index: 10040;
-    overflow: auto;
-    overflow-y: auto;
-  }
-}
-
-@media only all and (min-width: 601px) {
-  #supportModal {
-    position: fixed;
-    top: 40%;
-    left: 33%;
-    z-index: 10040;
-    overflow: auto;
-    overflow-y: auto;
-  }
 }
 
 .tooltip {
@@ -164,4 +144,37 @@ hr {
 
 #message {
   width: 95%;
+}
+
+/* Mobile */
+@media only all and (max-width: 575px) {
+  #supportModal {
+    position: fixed;
+    top: 20%;
+    z-index: 10040;
+    overflow: auto;
+    overflow-y: auto;
+  }
+
+  #supportButton {
+    width: 95.5%;
+    margin-left: auto !important; /* !important =  replaces previous value */
+    margin-right: auto !important;
+  }
+
+  #header p {
+    margin-top: -40px !important;
+  }
+}
+
+/* Desktop */
+@media only all and (min-width: 576px) {
+  #supportModal {
+    position: fixed;
+    top: 40%;
+    left: 33%;
+    z-index: 10040;
+    overflow: auto;
+    overflow-y: auto;
+  }
 }

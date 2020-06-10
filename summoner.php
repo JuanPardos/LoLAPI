@@ -38,13 +38,13 @@ session_start();
 		require_once 'api/queuetypes.php';
 
 		print '
-					<script type="text/javascript">
-						$("#favicon").attr("href","https://ddragon.leagueoflegends.com/cdn/10.10.3216176/img/profileicon/' . $profileIcon . '.png");
-						document.title = "' . $summonerDecoded . ' - ' . $serverAux . '";
-					</script>
-				';
+				<script type="text/javascript">
+					$("#favicon").attr("href","https://ddragon.leagueoflegends.com/cdn/10.10.3216176/img/profileicon/' . $profileIcon . '.png");
+					document.title = "' . $summonerDecoded . ' - ' . $serverAux . '";
+				</script>
+			';   //Changes web page title and icon with summoner name, server and personal icon.
 
-		if ($data_lol == null) {
+		if ($data_lol == null) {  //Shows an error page when summoner doesnt exist or invalid data.
 			print '
 					<script type="text/javascript">
 						window.stop();
@@ -95,14 +95,14 @@ session_start();
 			}
 		}
 
-		$win_rate = array((($data_ELO['0']['wins']) / ($data_ELO['0']['wins'] + $data_ELO['0']['losses']) * 100),
+		$win_rate = array((($data_ELO['0']['wins']) / ($data_ELO['0']['wins'] + $data_ELO['0']['losses']) * 100),  //Win rate = Wins / (Wins + Losses) * 100.
 			(($data_ELO['1']['wins']) / ($data_ELO['1']['wins'] + $data_ELO['1']['losses']) * 100)
 		);
 
 		$win_rated = array(
-			number_format((float) $win_rate['0'], 1, '.', ''),
+			number_format((float) $win_rate['0'], 1, '.', ''),  //Shows only 1 decimal.
 			number_format((float) $win_rate['1'], 1, '.', '')
-		);    //Shows only 2 decimal
+		);
 
 
 		print '
@@ -125,7 +125,7 @@ session_start();
 					     						<th scope="col" class="center">Rank</th>
 					      						<th scope="col" class="center">League Points</th>
 					      						<th scope="col" class="center">Wins</th>
-					      						<th scope="col" class="center">Loses</th>
+					      						<th scope="col" class="center">Losses</th>
 												<th scope="col" class="center">Win Ratio</th>
 					    					</tr>
 										</thead>
@@ -188,7 +188,7 @@ session_start();
 										<tbody>
 			';
 
-		if ($data_match == null) {
+		if ($data_match == null) {   //Shows warning when no ranked stats are gathered.
 			print '
 					<tr><td colspan="7" class="center">--NOT ENOUGH GAMES--</td></tr>
 				';
@@ -196,7 +196,7 @@ session_start();
 
 		for ($i = 0; $i < count($arrayMatches); ++$i) {
 			$duration = $data_match[$i]['gameDuration'] / 60;
-			$duration¡ = number_format((float) $duration, 0, '.', '');
+			$duration¡ = number_format((float) $duration, 0, '.', '');  //Duration in seconds to minutes (0 decimals).
 			if ($data_match[$i]['gameDuration'] < 360) {  //If game length <6 min probably its a remake. Riot API classifies remake as victory.
 				print '
 						<tr id="matchtr" style="background-color:grey">
@@ -259,20 +259,10 @@ session_start();
 					</div>
 				';
 		}
-		if ($server == 'kr') {
-			print '
-					<div id="opgg" class="col-12">					
-						<a href="https://www.op.gg/summoner/userName=' . $summonerDecoded . '" target="_blank"><img src="resources/opgg.png" rel="tooltip" data-placement="bottom" title="Search summoner on OPGG"></a>
-					</div>
-				';
-		}
-		print '
-					</div>
-				</div>
-
-				<br><a href="../">Return to main menu</a>
-			';
 		?>
+	</div>
+	</div>
+	<a href="../">Return to main menu</a>
 	</div>
 </body>
 

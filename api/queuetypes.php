@@ -9,3 +9,5 @@ $queues = array(
     850 => "IA",
     900 => "URF",
 );
+
+//Used to get Gamemode in match.php

@@ -55,8 +55,8 @@ session_start();
                             <tbody>
                 ';
 
-        for ($i = 0; $i < 5; ++$i) {
-            if ($data_match2['participants'][$i]['stats']['firstBloodKill'] == 'true') {
+        for ($i = 0; $i < 5; ++$i) {     
+            if ($data_match2['participants'][$i]['stats']['firstBloodKill'] == 'true') {   //Checks for First Towers and Bloods.
                 $fb = "<img src='resources/fb.webp' width='20' height='20' rel='tooltip' title='First Blood'>";
             }
             if ($data_match2['participants'][$i]['stats']['firstTowerKill'] == 'true') {

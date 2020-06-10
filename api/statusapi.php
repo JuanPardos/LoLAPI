@@ -2,13 +2,12 @@
 $server = array("euw1", "na1", "la1", "oc1");
 
 $serverNames = array("EUW", "NA", "LAN", "OCE");
-$perfect = '<a href="https://status.riotgames.com/?locale=en_GB&product=leagueoflegends"><img src="../resources/green-circle.webp" rel="tooltip" data-placement="right" title="0 issues" width="20px" height="20px"></a>';
-$ok = '<a href="https://status.riotgames.com/?locale=en_GB&product=leagueoflegends"><img src="../resources/orange-circle.webp" rel="tooltip" data-placement="right" title="Atleast 1 issue" width="20px" height="20px"></a>';
-$offline = '<a href="https://status.riotgames.com/?locale=en_GB&product=leagueoflegends"><img src="../resources/red-circle.webp" rel="tooltip" data-placement="right" title="Server OFFLINE" width="20px" height="20px"></a>';
+$perfect = '<a href="https://status.riotgames.com/?locale=en_GB&product=leagueoflegends" target="_blank"><img src="../resources/green-circle.webp" rel="tooltip" data-placement="right" title="0 issues" width="20px" height="20px"></a>';
+$ok = '<a href="https://status.riotgames.com/?locale=en_GB&product=leagueoflegends" target="_blank"><img src="../resources/orange-circle.webp" rel="tooltip" data-placement="right" title="There are issues" width="20px" height="20px"></a>';
+$offline = '<a href="https://status.riotgames.com/?locale=en_GB&product=leagueoflegends" target="_blank"><img src="../resources/red-circle.webp" rel="tooltip" data-placement="right" title="Server OFFLINE" width="20px" height="20px"></a>';
 
-//YEP, HAS TO BE A WAY TO REDUCE ALL THAT CODE ;(
-
-$status1 = fopen("https://euw1.api.riotgames.com/lol/status/v3/shard-data?api_key=$apikey", "r");
+/* -------------------------------------- */
+$status1 = fopen("https://euw1.api.riotgames.com/lol/status/v3/shard-data?api_key=$apikey", "r"); //Euw server status request. 
 $status2 = fopen("https://na1.api.riotgames.com/lol/status/v3/shard-data?api_key=$apikey", "r");
 $status3 = fopen("https://la1.api.riotgames.com/lol/status/v3/shard-data?api_key=$apikey", "r");
 $status4 = fopen("https://oc1.api.riotgames.com/lol/status/v3/shard-data?api_key=$apikey", "r");
@@ -28,17 +27,17 @@ fclose($status2);
 fclose($status3);
 fclose($status4);
 
-//YEP, I KNOW I CAN DO THIS ONE BETTER								
+/* ----------------------------------------- */
 
-$online1 = array_column($data_status1['services'], 'status')['0'];      //Online/offline
+$online1 = array_column($data_status1['services'], 'status')['0'];      //Gets Online/Offline status of EUW server
 $incidents1 = array_column($data_status1['services'], 'incidents')['0'];     //Incidents
-$online2 = array_column($data_status2['services'], 'status')['0'];
+$online2 = array_column($data_status2['services'], 'status')['0'];     
 $incidents2 = array_column($data_status2['services'], 'incidents')['0'];
-$online3 = array_column($data_status3['services'], 'status')['0'];
+$online3 = array_column($data_status3['services'], 'status')['0'];          //Same for other servers.
 $incidents3 = array_column($data_status3['services'], 'incidents')['0'];
 $online4 = array_column($data_status4['services'], 'status')['0'];
 $incidents4 = array_column($data_status4['services'], 'incidents')['0'];
 
 
-$auxon = array($online1, $online2, $online3, $online4);
-$auxst = array($incidents1, $incidents2, $incidents3, $incidents4);
+$auxon = array($online1, $online2, $online3, $online4);     //Creates an array with all server status.
+$auxst = array($incidents1, $incidents2, $incidents3, $incidents4); //Same for incidents.
